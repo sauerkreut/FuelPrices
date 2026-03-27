@@ -141,9 +141,18 @@ function getRecordForMode(history) {
   }
 
   if (appState.mode === "current") {
+    const todayStamp = TODAY_STAMP();
+    const currentIndex = ordered.findIndex((entry) => entry.date <= todayStamp);
+    if (currentIndex === -1) {
+      return {
+        latestRecord: ordered[0],
+        previousRecord: ordered[1] || null,
+      };
+    }
+
     return {
-      latestRecord: ordered[0],
-      previousRecord: ordered[1] || null,
+      latestRecord: ordered[currentIndex],
+      previousRecord: ordered[currentIndex + 1] || null,
     };
   }
 
@@ -162,6 +171,10 @@ function getRecordForMode(history) {
     latestRecord: ordered[selectedIndex],
     previousRecord: ordered[selectedIndex + 1] || null,
   };
+}
+
+function TODAY_STAMP() {
+  return new Date().toISOString().slice(0, 10);
 }
 
 function syncDateInputFromHistory(history) {

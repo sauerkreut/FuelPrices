@@ -15,6 +15,8 @@
       "fuelTypes": [
         "Gasohol 91",
         "Gasohol 95",
+        "Gasohol E20",
+        "Gasohol E85",
         "Diesel",
         "Premium Diesel"
       ],
@@ -29,12 +31,36 @@
           }
         },
         {
+          "date": "2026-03-26",
+          "prices": {
+            "Gasohol 91": 40.68,
+            "Gasohol 95": 41.05,
+            "Gasohol E20": 36.05,
+            "Gasohol E85": 32.79,
+            "Diesel": 38.94,
+            "Premium Diesel": 56.84
+          }
+        },
+        {
           "date": "2026-03-25",
           "prices": {
             "Gasohol 91": 40.68,
-            "Gasohol 95": 57.54,
+            "Gasohol 95": 41.05,
+            "Gasohol E20": 36.05,
+            "Gasohol E85": 32.79,
             "Diesel": 38.94,
             "Premium Diesel": 56.84
+          }
+        },
+        {
+          "date": "2026-03-24",
+          "prices": {
+            "Gasohol 91": 34.68,
+            "Gasohol 95": 35.05,
+            "Gasohol E20": 30.05,
+            "Gasohol E85": 26.79,
+            "Diesel": 32.94,
+            "Premium Diesel": 48.84
           }
         },
         {

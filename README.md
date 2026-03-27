@@ -53,6 +53,8 @@ This repository now includes automated ingestion from live data providers:
 - Thailand: Bangchak public JSON endpoint
   - `https://oil-price.bangchak.co.th/ApiOilPrice2/thai`
   - No API key required
+  - Ingests `PriceYesterday`, `PriceToday`, and `PriceTomorrow` into three dated history points
+  - Includes: Gasohol 91, Gasohol 95, Gasohol E20, Gasohol E85, Diesel, Premium Diesel
 - Germany: Tankerkonig API (station-based city aggregation)
   - `https://creativecommons.tankerkoenig.de`
   - API key required

@@ -4,6 +4,14 @@ import process from "node:process";
 
 const DATA_FILE = path.resolve(process.cwd(), "data", "fuel-prices.json");
 const TODAY = new Date().toISOString().slice(0, 10);
+const THAILAND_FUEL_MAP = [
+  { key: "Gasohol 91", markers: ["แก๊สโซฮอล์ 91 S EVO"] },
+  { key: "Gasohol 95", markers: ["แก๊สโซฮอล์ 95 S EVO"] },
+  { key: "Gasohol E20", markers: ["แก๊สโซฮอล์ E20 S EVO"] },
+  { key: "Gasohol E85", markers: ["แก๊สโซฮอล์ E85 S EVO"] },
+  { key: "Diesel", markers: ["ไฮดีเซล S"] },
+  { key: "Premium Diesel", markers: ["ไฮพรีเมียมดีเซล S"] },
+];
 
 async function main() {
   const catalog = JSON.parse(await fs.readFile(DATA_FILE, "utf8"));
@@ -53,9 +61,29 @@ function thaiDateToIso(thDate) {
   return `${gregorianYear.toString().padStart(4, "0")}-${month.toString().padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
 }
 
-function findThaiPrice(oils, marker) {
-  const match = oils.find((item) => String(item.OilName || "").includes(marker));
-  return typeof match?.PriceToday === "number" ? match.PriceToday : null;
+function addDays(isoDate, deltaDays) {
+  const date = new Date(`${isoDate}T00:00:00Z`);
+  date.setUTCDate(date.getUTCDate() + deltaDays);
+  return date.toISOString().slice(0, 10);
+}
+
+function findThaiOil(oils, markers) {
+  return oils.find((item) => {
+    const oilName = String(item.OilName || "");
+    return markers.some((marker) => oilName.includes(marker));
+  });
+}
+
+function buildThailandPricesByField(oils, fieldName) {
+  const prices = {};
+  for (const fuel of THAILAND_FUEL_MAP) {
+    const oil = findThaiOil(oils, fuel.markers);
+    const value = oil?.[fieldName];
+    if (typeof value === "number") {
+      prices[fuel.key] = value;
+    }
+  }
+  return prices;
 }
 
 async function ingestThailandBangchak(country) {
@@ -75,23 +103,33 @@ async function ingestThailandBangchak(country) {
     throw new Error("Thailand payload contains no oil list");
   }
 
-  const prices = {
-    "Gasohol 91": findThaiPrice(oils, "แก๊สโซฮอล์ 91"),
-    "Gasohol 95": findThaiPrice(oils, "แก๊สโซฮอล์ 95"),
-    Diesel: findThaiPrice(oils, "ไฮดีเซล"),
-    "Premium Diesel": findThaiPrice(oils, "ไฮพรีเมียมดีเซล"),
-  };
+  const baseDate = root.OilPriceDate ? thaiDateToIso(root.OilPriceDate) : TODAY;
+  const yesterdayPrices = buildThailandPricesByField(oils, "PriceYesterday");
+  const todayPrices = buildThailandPricesByField(oils, "PriceToday");
+  const tomorrowPrices = buildThailandPricesByField(oils, "PriceTomorrow");
 
-  const filteredPrices = Object.fromEntries(
-    Object.entries(prices).filter(([, value]) => typeof value === "number")
-  );
-
-  const date = root.OilPriceDate ? thaiDateToIso(root.OilPriceDate) : TODAY;
-  country.history = upsertHistory(country.history, { date, prices: filteredPrices });
-
-  if (!country.fuelTypes?.length) {
-    country.fuelTypes = Object.keys(filteredPrices);
+  if (Object.keys(yesterdayPrices).length > 0) {
+    country.history = upsertHistory(country.history, {
+      date: addDays(baseDate, -1),
+      prices: yesterdayPrices,
+    });
   }
+
+  if (Object.keys(todayPrices).length > 0) {
+    country.history = upsertHistory(country.history, {
+      date: baseDate,
+      prices: todayPrices,
+    });
+  }
+
+  if (Object.keys(tomorrowPrices).length > 0) {
+    country.history = upsertHistory(country.history, {
+      date: addDays(baseDate, 1),
+      prices: tomorrowPrices,
+    });
+  }
+
+  country.fuelTypes = THAILAND_FUEL_MAP.map((entry) => entry.key);
 }
 
 async function ingestGermanyTankerkoenig(country) {
