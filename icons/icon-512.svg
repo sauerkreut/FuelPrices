@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="FuelScope icon">
+  <defs>
+    <linearGradient id="bg512" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d7f8c" />
+      <stop offset="1" stop-color="#113b4a" />
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg512)" />
+  <path d="M154 354V172c0-23 19-42 42-42h88c23 0 42 19 42 42v182" fill="none" stroke="#f6f8f6" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M154 248h172" stroke="#cc4e2a" stroke-width="24" stroke-linecap="round"/>
+  <path d="M308 188l46 46v120" fill="none" stroke="#f6f8f6" stroke-width="28" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="242" cy="322" r="26" fill="#f6f8f6" />
+</svg>

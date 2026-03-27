@@ -1,0 +1,25 @@
+{
+  "name": "FuelScope",
+  "short_name": "FuelScope",
+  "description": "View current and historical fuel prices by country and city.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f2ece4",
+  "theme_color": "#113b4a",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "./icons/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

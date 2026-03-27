@@ -1,0 +1,134 @@
+{
+  "meta": {
+    "generatedAt": "2026-03-27",
+    "defaultCountry": "TH",
+    "notes": "Sample dataset. Replace with API ingestion for live production prices."
+  },
+  "countries": [
+    {
+      "code": "TH",
+      "name": "Thailand",
+      "currencyCode": "THB",
+      "unit": "THB per liter",
+      "supportsCities": false,
+      "fuelTypes": ["Gasohol 91", "Gasohol 95", "Diesel", "Premium Diesel"],
+      "history": [
+        {
+          "date": "2026-03-27",
+          "prices": {
+            "Gasohol 91": 37.28,
+            "Gasohol 95": 37.55,
+            "Diesel": 32.12,
+            "Premium Diesel": 43.19
+          }
+        },
+        {
+          "date": "2026-03-20",
+          "prices": {
+            "Gasohol 91": 37.08,
+            "Gasohol 95": 37.35,
+            "Diesel": 31.95,
+            "Premium Diesel": 43.02
+          }
+        },
+        {
+          "date": "2026-03-13",
+          "prices": {
+            "Gasohol 91": 36.9,
+            "Gasohol 95": 37.15,
+            "Diesel": 31.75,
+            "Premium Diesel": 42.78
+          }
+        },
+        {
+          "date": "2026-03-06",
+          "prices": {
+            "Gasohol 91": 36.7,
+            "Gasohol 95": 36.98,
+            "Diesel": 31.5,
+            "Premium Diesel": 42.55
+          }
+        },
+        {
+          "date": "2026-02-27",
+          "prices": {
+            "Gasohol 91": 36.55,
+            "Gasohol 95": 36.8,
+            "Diesel": 31.2,
+            "Premium Diesel": 42.39
+          }
+        }
+      ]
+    },
+    {
+      "code": "DE",
+      "name": "Germany",
+      "currencyCode": "EUR",
+      "unit": "EUR per liter",
+      "supportsCities": true,
+      "fuelTypes": ["Super E5", "Super E10", "Diesel"],
+      "cities": [
+        {
+          "id": "berlin",
+          "name": "Berlin",
+          "history": [
+            {
+              "date": "2026-03-27",
+              "prices": {
+                "Super E5": 1.86,
+                "Super E10": 1.79,
+                "Diesel": 1.69
+              }
+            },
+            {
+              "date": "2026-03-20",
+              "prices": {
+                "Super E5": 1.83,
+                "Super E10": 1.76,
+                "Diesel": 1.66
+              }
+            },
+            {
+              "date": "2026-03-13",
+              "prices": {
+                "Super E5": 1.8,
+                "Super E10": 1.73,
+                "Diesel": 1.62
+              }
+            }
+          ]
+        },
+        {
+          "id": "munich",
+          "name": "Munich",
+          "history": [
+            {
+              "date": "2026-03-27",
+              "prices": {
+                "Super E5": 1.91,
+                "Super E10": 1.84,
+                "Diesel": 1.75
+              }
+            },
+            {
+              "date": "2026-03-20",
+              "prices": {
+                "Super E5": 1.88,
+                "Super E10": 1.81,
+                "Diesel": 1.72
+              }
+            },
+            {
+              "date": "2026-03-13",
+              "prices": {
+                "Super E5": 1.86,
+                "Super E10": 1.78,
+                "Diesel": 1.69
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

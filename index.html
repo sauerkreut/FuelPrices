@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#113b4a" />
+    <title>FuelScope | Fuel Prices</title>
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon-192.svg" />
+    <link rel="apple-touch-icon" href="./icons/icon-192.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-bg" aria-hidden="true"></div>
+
+    <main class="app-shell">
+      <header class="hero">
+        <p class="eyebrow">Progressive Web App</p>
+        <h1>FuelScope</h1>
+        <p class="subtitle">
+          Actual and historical fuel prices. Built for Thailand now, designed for multi-country and city-based pricing.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="Fuel filters">
+        <div class="control-row">
+          <label for="countrySelect">Country</label>
+          <select id="countrySelect"></select>
+        </div>
+
+        <div class="control-row" id="cityControl" hidden>
+          <label for="citySelect">City</label>
+          <select id="citySelect"></select>
+        </div>
+
+        <div class="control-row mode-row">
+          <label>View</label>
+          <div class="mode-switch" role="radiogroup" aria-label="Price mode">
+            <label>
+              <input type="radio" name="mode" value="current" checked />
+              Current
+            </label>
+            <label>
+              <input type="radio" name="mode" value="historical" />
+              Historical
+            </label>
+          </div>
+        </div>
+
+        <div class="control-row" id="dateControl" hidden>
+          <label for="historicalDate">Date</label>
+          <input type="date" id="historicalDate" />
+        </div>
+      </section>
+
+      <section id="statusBanner" class="status-banner" role="status" aria-live="polite"></section>
+
+      <section>
+        <h2 class="section-title">Prices</h2>
+        <div id="priceGrid" class="price-grid"></div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Recent Trend</h2>
+        <div class="table-wrap">
+          <table id="trendTable">
+            <thead></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </section>
+
+      <footer class="app-footer">
+        <p>
+          Data model is provider-based. Add countries, city rules, or external APIs without changing the UI structure.
+        </p>
+      </footer>
+    </main>
+
+    <script src="./app.js" defer></script>
+  </body>
+</html>
