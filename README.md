@@ -46,6 +46,46 @@ Steps:
 
 After each push to `main`, the site redeploys automatically.
 
+## Live API ingestion (production)
+
+This repository now includes automated ingestion from live data providers:
+
+- Thailand: Bangchak public JSON endpoint
+  - `https://oil-price.bangchak.co.th/ApiOilPrice2/thai`
+  - No API key required
+- Germany: Tankerkonig API (station-based city aggregation)
+  - `https://creativecommons.tankerkoenig.de`
+  - API key required
+
+Ingestion script:
+
+- `scripts/ingest-fuel-prices.mjs`
+
+Automation workflow:
+
+- `.github/workflows/ingest-fuel-prices.yml`
+
+### Configure secrets for Germany ingestion
+
+In GitHub repository settings, add:
+
+- `TANKERKOENIG_API_KEY`
+
+Without this secret, Thailand will still refresh and Germany will be skipped safely.
+
+### Run ingestion locally
+
+```bash
+cd /Users/walter/Documents/akquinet/Projects/FuelPrices
+node ./scripts/ingest-fuel-prices.mjs
+```
+
+### Run ingestion in GitHub
+
+1. Open **Actions**.
+2. Run workflow **Ingest Fuel Prices** manually, or wait for the daily schedule.
+3. Workflow updates `data/fuel-prices.json` and pushes changes automatically.
+
 ## Data model
 
 Main dataset: `data/fuel-prices.json`
