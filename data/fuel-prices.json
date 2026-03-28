@@ -103,11 +103,17 @@
       "unit": "EUR per liter",
       "provider": "germany-tankerkoenig",
       "supportsCities": true,
+      "_demo": true,
       "fuelTypes": [
         "Super E5",
         "Super E10",
         "Diesel"
       ],
+      "nationalStats": {
+        "Super E5":  { "count": 14823, "mean": 1.849, "median": 1.849 },
+        "Super E10": { "count": 14652, "mean": 1.779, "median": 1.779 },
+        "Diesel":    { "count": 14901, "mean": 1.689, "median": 1.689 }
+      },
       "providerConfig": {
         "cities": [
           {
@@ -130,7 +136,27 @@
         {
           "id": "berlin",
           "name": "Berlin",
+          "stationStatus": {
+            "openCount": 18,
+            "totalCount": 25,
+            "nextClose": "2026-03-28T22:00:00+01:00",
+            "nextOpen": null,
+            "asOf": "2026-03-28T01:15:00+01:00"
+          },
           "history": [
+            {
+              "date": "2026-03-28",
+              "prices": {
+                "Super E5": 1.879,
+                "Super E10": 1.809,
+                "Diesel": 1.699
+              },
+              "priceChanges": {
+                "Super E5":  { "timestamp": "2026-03-28T06:12:00+01:00", "amount":  0.019 },
+                "Super E10": { "timestamp": "2026-03-28T06:12:00+01:00", "amount":  0.019 },
+                "Diesel":    { "timestamp": "2026-03-27T18:45:00+01:00", "amount": -0.009 }
+              }
+            },
             {
               "date": "2026-03-27",
               "prices": {
@@ -160,7 +186,27 @@
         {
           "id": "munich",
           "name": "Munich",
+          "stationStatus": {
+            "openCount": 21,
+            "totalCount": 25,
+            "nextClose": "2026-03-28T23:00:00+01:00",
+            "nextOpen": null,
+            "asOf": "2026-03-28T01:15:00+01:00"
+          },
           "history": [
+            {
+              "date": "2026-03-28",
+              "prices": {
+                "Super E5": 1.919,
+                "Super E10": 1.849,
+                "Diesel": 1.759
+              },
+              "priceChanges": {
+                "Super E5":  { "timestamp": "2026-03-28T07:03:00+01:00", "amount":  0.009 },
+                "Super E10": { "timestamp": "2026-03-28T07:03:00+01:00", "amount":  0.009 },
+                "Diesel":    { "timestamp": "2026-03-28T07:03:00+01:00", "amount": -0.019 }
+              }
+            },
             {
               "date": "2026-03-27",
               "prices": {
