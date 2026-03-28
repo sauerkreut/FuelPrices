@@ -1,4 +1,4 @@
-const CACHE_NAME = "fuelscope-v1";
+const CACHE_NAME = "fuelscope-v2";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -26,9 +26,24 @@ self.addEventListener("activate", (event) => {
 });
 
 self.addEventListener("fetch", (event) => {
+  if (event.request.method !== "GET") {
+    return;
+  }
+
   const requestUrl = new URL(event.request.url);
+  const isSameOrigin = requestUrl.origin === self.location.origin;
+
+  if (!isSameOrigin) {
+    return;
+  }
 
   if (requestUrl.pathname.endsWith("/data/fuel-prices.json")) {
+    event.respondWith(networkFirst(event.request));
+    return;
+  }
+
+  const networkFirstDestinations = ["document", "script", "style", "manifest"];
+  if (networkFirstDestinations.includes(event.request.destination)) {
     event.respondWith(networkFirst(event.request));
     return;
   }
