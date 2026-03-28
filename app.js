@@ -17,6 +17,7 @@ const appState = {
   catalog: null,
   selectedCountryCode: "",
   selectedCityId: "",
+  selectedBrandFuel: "",
   mode: "current",
 };
 
@@ -33,6 +34,12 @@ const el = {
   stationStatusBar: document.getElementById("stationStatusBar"),
   nationalStatsSection: document.getElementById("nationalStatsSection"),
   nationalStatsGrid: document.getElementById("nationalStatsGrid"),
+  zipSearchControl: document.getElementById("zipSearchControl"),
+  zipInput: document.getElementById("zipInput"),
+  zipHint: document.getElementById("zipHint"),
+  brandComparisonSection: document.getElementById("brandComparisonSection"),
+  brandFuelTabs: document.getElementById("brandFuelTabs"),
+  brandComparisonChart: document.getElementById("brandComparisonChart"),
 };
 
 function registerServiceWorker() {
@@ -219,6 +226,56 @@ function renderNationalStats({ nationalStats, fuelTypes, currency }) {
   el.nationalStatsSection.style.display = "";
 }
 
+// Idea 7: render per-brand price bar chart for the selected city
+function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
+  if (!el.brandComparisonSection) return;
+  if (!brandComparison || !Object.keys(brandComparison).length) {
+    el.brandComparisonSection.style.display = "none";
+    return;
+  }
+
+  // Pick selected fuel or default to first fuel that has brand data
+  if (!appState.selectedBrandFuel || !brandComparison[appState.selectedBrandFuel]) {
+    appState.selectedBrandFuel = fuelTypes.find((ft) => brandComparison[ft]) ?? "";
+  }
+  if (!appState.selectedBrandFuel) {
+    el.brandComparisonSection.style.display = "none";
+    return;
+  }
+
+  // Fuel type selector tabs
+  el.brandFuelTabs.innerHTML = fuelTypes
+    .filter((ft) => brandComparison[ft])
+    .map(
+      (ft) =>
+        `<button class="brand-fuel-tab${ft === appState.selectedBrandFuel ? " active" : ""}" data-fuel="${ft}">${ft}</button>`
+    )
+    .join("");
+
+  // Bar chart: bars span 30–100% of container so small price differences are visible
+  const entries = brandComparison[appState.selectedBrandFuel];
+  const prices = entries.map((e) => e.price);
+  const minP = Math.min(...prices);
+  const maxP = Math.max(...prices);
+  const range = maxP - minP || 0.001;
+
+  el.brandComparisonChart.innerHTML = entries
+    .map(({ brand, price, count }) => {
+      const barPct = (30 + ((price - minP) / range) * 70).toFixed(1);
+      const cheapest = price === minP;
+      return `<div class="brand-row${cheapest ? " brand-cheapest" : ""}">
+        <span class="brand-name">${brand} <span class="brand-count">${count}×</span></span>
+        <div class="brand-bar-wrap">
+          <div class="brand-bar" style="width:${barPct}%"></div>
+          <span class="brand-price">${formatPrice(price, currency)}</span>
+        </div>
+      </div>`;
+    })
+    .join("");
+
+  el.brandComparisonSection.style.display = "";
+}
+
 function renderTrendTable({ history, fuelTypes, currency }) {
   el.trendHead.innerHTML = `<tr>
     <th>Date</th>
@@ -318,6 +375,7 @@ function populateCitySelect(country) {
     el.cityControl.style.display = "none";
     el.citySelect.innerHTML = "";
     appState.selectedCityId = "";
+    if (el.zipSearchControl) el.zipSearchControl.style.display = "none";
     return;
   }
 
@@ -328,6 +386,14 @@ function populateCitySelect(country) {
   appState.selectedCityId = country.cities[0]?.id || "";
   el.citySelect.value = appState.selectedCityId;
   el.cityControl.style.display = "";
+
+  // Idea 2: show ZIP input if any city in this country has a postalCode field
+  const hasZip = country.cities.some((c) => c.postalCode);
+  if (el.zipSearchControl) {
+    el.zipSearchControl.style.display = hasZip ? "" : "none";
+    if (el.zipInput) el.zipInput.value = country.cities[0]?.postalCode ?? "";
+    if (el.zipHint) el.zipHint.textContent = "";
+  }
 }
 
 function setModeUI() {
@@ -353,6 +419,7 @@ function render() {
     renderPriceCards({ latestRecord: null, previousRecord: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     renderStationStatus(null);
     renderNationalStats({ nationalStats: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
+    renderBrandComparison({ brandComparison: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     renderTrendTable({ history, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     return;
   }
@@ -387,6 +454,12 @@ function render() {
     currency: country.currencyCode,
   });
 
+  renderBrandComparison({
+    brandComparison: appState.mode === "current" ? (dataset.brandComparison ?? null) : null,
+    fuelTypes: country.fuelTypes,
+    currency: country.currencyCode,
+  });
+
   renderTrendTable({
     history,
     fuelTypes: country.fuelTypes,
@@ -397,6 +470,7 @@ function render() {
 function bindEvents() {
   el.countrySelect.addEventListener("change", (event) => {
     appState.selectedCountryCode = event.target.value;
+    appState.selectedBrandFuel = "";
     const country = getCountryByCode(appState.selectedCountryCode);
     populateCitySelect(country);
     render();
@@ -418,6 +492,36 @@ function bindEvents() {
   el.historicalDate.addEventListener("change", () => {
     render();
   });
+
+  // Idea 2: ZIP code search — switch city when a known postal code is typed
+  if (el.zipInput) {
+    el.zipInput.addEventListener("input", () => {
+      const zip = el.zipInput.value.trim();
+      const country = getCountryByCode(appState.selectedCountryCode);
+      if (!country?.cities) return;
+      const matched = country.cities.find((c) => c.postalCode === zip);
+      if (matched) {
+        appState.selectedCityId = matched.id;
+        el.citySelect.value = matched.id;
+        if (el.zipHint) el.zipHint.textContent = "";
+        render();
+      } else if (zip.length === 5) {
+        if (el.zipHint) el.zipHint.textContent = "No data for this postal code";
+      } else {
+        if (el.zipHint) el.zipHint.textContent = "";
+      }
+    });
+  }
+
+  // Idea 7: Brand fuel tab selection (event delegation)
+  if (el.brandFuelTabs) {
+    el.brandFuelTabs.addEventListener("click", (e) => {
+      const tab = e.target.closest(".brand-fuel-tab");
+      if (!tab) return;
+      appState.selectedBrandFuel = tab.dataset.fuel;
+      render();
+    });
+  }
 }
 
 async function bootstrap() {

@@ -182,12 +182,19 @@ async function ingestGermanyTankerkoenig(country) {
       continue;
     }
 
-    // Idea 3 + 6: Use v4 API which provides lastChange per fuel and isOpen/closesAt per station
-    const url = new URL("https://creativecommons.tankerkoenig.de/api/v4/stations/search");
-    url.searchParams.set("lat", String(cityConfig.lat));
-    url.searchParams.set("lng", String(cityConfig.lng));
-    url.searchParams.set("rad", String(cityConfig.radiusKm || 5));
-    url.searchParams.set("apikey", apiKey);
+    // Idea 2: prefer postal code endpoint when configured; fall back to lat/lng radius search
+    let url;
+    if (cityConfig.postalCode) {
+      url = new URL("https://creativecommons.tankerkoenig.de/api/v4/stations/postalcode");
+      url.searchParams.set("postalcode", cityConfig.postalCode);
+      url.searchParams.set("apikey", apiKey);
+    } else {
+      url = new URL("https://creativecommons.tankerkoenig.de/api/v4/stations/search");
+      url.searchParams.set("lat", String(cityConfig.lat));
+      url.searchParams.set("lng", String(cityConfig.lng));
+      url.searchParams.set("rad", String(cityConfig.radiusKm || 5));
+      url.searchParams.set("apikey", apiKey);
+    }
 
     const response = await fetch(url);
     if (!response.ok) {
@@ -248,6 +255,35 @@ async function ingestGermanyTankerkoenig(country) {
       nextOpen: openingTimes[0] ?? null,
       asOf: new Date().toISOString(),
     };
+
+    // Idea 7: Brand comparison — group stations by brand, average price per fuel type
+    const brandMap = {};
+    for (const station of stations) {
+      const brand = (station.brand || "Other").trim();
+      for (const fuel of station.fuels ?? []) {
+        if (!country.fuelTypes.includes(fuel.name)) continue;
+        if (typeof fuel.price !== "number") continue;
+        if (!brandMap[brand]) brandMap[brand] = {};
+        if (!brandMap[brand][fuel.name]) brandMap[brand][fuel.name] = [];
+        brandMap[brand][fuel.name].push(fuel.price);
+      }
+    }
+    const brandComparison = {};
+    for (const fuelName of country.fuelTypes) {
+      const entries = Object.entries(brandMap)
+        .filter(([, fuels]) => fuels[fuelName]?.length)
+        .map(([brand, fuels]) => ({
+          brand,
+          price: Number((fuels[fuelName].reduce((s, p) => s + p, 0) / fuels[fuelName].length).toFixed(3)),
+          count: fuels[fuelName].length,
+        }))
+        .sort((a, b) => a.price - b.price);
+      if (entries.length) brandComparison[fuelName] = entries;
+    }
+    if (Object.keys(brandComparison).length) city.brandComparison = brandComparison;
+
+    // Copy postalCode from config to city object so the UI can match by ZIP
+    if (cityConfig.postalCode) city.postalCode = cityConfig.postalCode;
 
     const filteredPrices = Object.fromEntries(
       Object.entries(prices).filter(([, value]) => typeof value === "number")

@@ -39,6 +39,12 @@
           <select id="citySelect"></select>
         </div>
 
+        <div class="control-row" id="zipSearchControl" style="display:none">
+          <label for="zipInput">Postal code</label>
+          <input type="text" id="zipInput" placeholder="e.g. 20095" maxlength="5" />
+          <span id="zipHint" class="zip-hint"></span>
+        </div>
+
         <div class="control-row mode-row">
           <label>View</label>
           <div class="mode-switch" role="radiogroup" aria-label="Price mode">
@@ -70,6 +76,14 @@
       <section id="nationalStatsSection" style="display:none">
         <h2 class="section-title">National Averages – Germany</h2>
         <div id="nationalStatsGrid" class="national-stats-grid"></div>
+      </section>
+
+      <section id="brandComparisonSection" style="display:none">
+        <div class="brand-comparison-header">
+          <h2 class="section-title">Brand Comparison</h2>
+          <div id="brandFuelTabs" class="brand-fuel-tabs"></div>
+        </div>
+        <div id="brandComparisonChart" class="brand-chart"></div>
       </section>
 
       <section>
