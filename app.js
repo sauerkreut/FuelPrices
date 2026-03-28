@@ -206,18 +206,19 @@ function populateCountrySelect(countries) {
 
 function populateCitySelect(country) {
   if (!country.supportsCities) {
-    el.cityControl.hidden = true;
+    el.cityControl.style.display = "none";
+    el.citySelect.innerHTML = "";
     appState.selectedCityId = "";
     return;
   }
 
-  el.cityControl.hidden = false;
   el.citySelect.innerHTML = country.cities
     .map((city) => `<option value="${city.id}">${city.name}</option>`)
     .join("");
 
   appState.selectedCityId = country.cities[0]?.id || "";
   el.citySelect.value = appState.selectedCityId;
+  el.cityControl.style.display = "";
 }
 
 function setModeUI() {
