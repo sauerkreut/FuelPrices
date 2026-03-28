@@ -17,13 +17,22 @@ It starts with Thailand data and already supports countries that require city-le
 Because this app uses `fetch`, run it behind a local web server:
 
 ```bash
-cd /Users/walter/Documents/akquinet/Projects/FuelPrices
 python3 -m http.server 8080
 ```
 
 Open: `http://localhost:8080`
 
 If localhost does not open, ensure the server process is still running in your terminal.
+
+## Local git safety hook
+
+To prevent committing personal paths or accidental secrets, enable the lightweight pre-commit hook:
+
+```bash
+./scripts/setup-git-hooks.sh
+```
+
+The hook in `.githooks/pre-commit` scans staged added lines for obvious personal path and secret patterns.
 
 ## Free hosting (GitHub Pages)
 
@@ -78,7 +87,6 @@ Without this secret, Thailand will still refresh and Germany will be skipped saf
 ### Run ingestion locally
 
 ```bash
-cd /Users/walter/Documents/akquinet/Projects/FuelPrices
 node ./scripts/ingest-fuel-prices.mjs
 ```
 
@@ -101,14 +109,26 @@ Main dataset: `data/fuel-prices.json`
   "currencyCode": "THB",
   "unit": "THB per liter",
   "supportsCities": false,
-  "fuelTypes": ["Gasohol 91", "Gasohol 95", "Diesel"],
+  "fuelTypes": [
+    "Gasohol 91",
+    "Gasohol 95",
+    "Premium 97 Gasohol 95",
+    "Gasohol E20",
+    "Gasohol E85",
+    "Diesel",
+    "Premium Diesel"
+  ],
   "history": [
     {
-      "date": "2026-03-27",
+      "date": "2026-03-26",
       "prices": {
-        "Gasohol 91": 37.28,
-        "Gasohol 95": 37.55,
-        "Diesel": 32.12
+        "Gasohol 91": 40.68,
+        "Gasohol 95": 41.05,
+        "Premium 97 Gasohol 95": 57.54,
+        "Gasohol E20": 36.05,
+        "Gasohol E85": 32.79,
+        "Diesel": 38.94,
+        "Premium Diesel": 56.84
       }
     }
   ]

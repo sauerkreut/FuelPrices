@@ -1,0 +1,52 @@
+#!/usr/bin/env sh
+set -eu
+
+# Only scan files staged for commit.
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+# Personal path patterns and obvious secret patterns.
+PERSONAL_PATTERN='(/Users/|/home/|C:\\Users\\|Documents/)'
+SECRET_PATTERN="(ghp_[A-Za-z0-9_]{20,}|AIza[0-9A-Za-z_-]{20,}|AKIA[0-9A-Z]{16}|BEGIN (RSA|OPENSSH|EC|DSA) PRIVATE KEY|[A-Za-z_]*(API_KEY|TOKEN|SECRET|PASSWORD)[A-Za-z_]*[[:space:]]*[:=][[:space:]]*['\"]?[A-Za-z0-9_-]{12,})"
+
+scan_failed=0
+
+for file in $staged_files; do
+  case "$file" in
+    .githooks/*)
+      continue
+      ;;
+  esac
+
+  # Skip deleted/non-existent paths.
+  if [ ! -f "$file" ]; then
+    continue
+  fi
+
+  # Scan only added lines to reduce false positives.
+  added_lines=$(git diff --cached -U0 -- "$file" | sed -n 's/^+//p' | sed '/^+++/d')
+  if [ -z "$added_lines" ]; then
+    continue
+  fi
+
+  if printf '%s\n' "$added_lines" | grep -E -n "$PERSONAL_PATTERN" >/dev/null 2>&1; then
+    echo "pre-commit: blocked possible personal path in staged changes: $file"
+    printf '%s\n' "$added_lines" | grep -E -n "$PERSONAL_PATTERN" || true
+    scan_failed=1
+  fi
+
+  if printf '%s\n' "$added_lines" | grep -E -n "$SECRET_PATTERN" >/dev/null 2>&1; then
+    echo "pre-commit: blocked possible secret in staged changes: $file"
+    printf '%s\n' "$added_lines" | grep -E -n "$SECRET_PATTERN" || true
+    scan_failed=1
+  fi
+done
+
+if [ "$scan_failed" -ne 0 ]; then
+  echo "pre-commit: commit aborted. Remove personal details/secrets or adjust the hook if intentional."
+  exit 1
+fi
+
+exit 0
