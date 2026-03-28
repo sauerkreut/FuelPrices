@@ -189,6 +189,77 @@ input[type="date"]:focus {
   color: #0d5c45;
 }
 
+/* Idea 3: last API-reported price change */
+.last-change {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.change-up {
+  color: #8b2c10;
+}
+
+.change-down {
+  color: #0d5c45;
+}
+
+/* Idea 5: deviation from national average */
+.vs-national {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  font-style: italic;
+}
+
+/* Idea 5: national averages section */
+.national-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.9rem;
+}
+
+.nat-stat-card {
+  background: var(--card);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  padding: 0.85rem;
+  box-shadow: var(--shadow);
+}
+
+.nat-stat-name {
+  margin: 0 0 0.4rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.nat-stat-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.9rem;
+  font-size: 0.88rem;
+}
+
+.nat-stat-item {
+  white-space: nowrap;
+}
+
+.nat-label {
+  color: var(--muted);
+  font-size: 0.75rem;
+  margin-right: 0.15rem;
+}
+
+/* Idea 6: station open/close status bar */
+.station-status-bar {
+  margin-bottom: 0.75rem;
+  padding: 0.48rem 0.85rem;
+  background: rgba(13, 127, 140, 0.08);
+  border: 1px solid rgba(13, 127, 140, 0.2);
+  border-radius: 10px;
+  font-size: 0.84rem;
+  color: var(--ink);
+}
+
 .table-wrap {
   overflow: auto;
   background: var(--card);

@@ -4,6 +4,10 @@ import process from "node:process";
 
 const DATA_FILE = path.resolve(process.cwd(), "data", "fuel-prices.json");
 const TODAY = new Date().toISOString().slice(0, 10);
+
+// Maps Tankerkoenig /stats API keys → our canonical Germany fuel type names
+const TANKERKOENIG_STATS_KEY_MAP = { E5: "Super E5", E10: "Super E10", Diesel: "Diesel" };
+
 const THAILAND_FUEL_MAP = [
   { key: "Gasohol 91", markers: ["แก๊สโซฮอล์ 91 S EVO"] },
   { key: "Gasohol 95", markers: ["แก๊สโซฮอล์ 95 S EVO"] },
@@ -148,6 +152,26 @@ async function ingestGermanyTankerkoenig(country) {
     throw new Error("Germany country is not configured with city support");
   }
 
+  // Idea 5: Fetch national statistics (Germany-wide mean/median per fuel type)
+  const statsResp = await fetch(
+    `https://creativecommons.tankerkoenig.de/api/v4/stats?apikey=${encodeURIComponent(apiKey)}`
+  );
+  if (statsResp.ok) {
+    const statsPayload = await statsResp.json();
+    const nationalStats = {};
+    for (const [statKey, fuelName] of Object.entries(TANKERKOENIG_STATS_KEY_MAP)) {
+      if (statsPayload[statKey]) {
+        nationalStats[fuelName] = statsPayload[statKey]; // { count, mean, median }
+      }
+    }
+    if (Object.keys(nationalStats).length > 0) {
+      country.nationalStats = nationalStats;
+      console.log(`  National stats: ${JSON.stringify(nationalStats)}`);
+    }
+  } else {
+    console.warn(`  National stats fetch failed: ${statsResp.status}`);
+  }
+
   const providerConfig = country.providerConfig || {};
   const cityConfigs = providerConfig.cities || [];
 
@@ -158,12 +182,11 @@ async function ingestGermanyTankerkoenig(country) {
       continue;
     }
 
-    const url = new URL("https://creativecommons.tankerkoenig.de/json/list.php");
+    // Idea 3 + 6: Use v4 API which provides lastChange per fuel and isOpen/closesAt per station
+    const url = new URL("https://creativecommons.tankerkoenig.de/api/v4/stations/search");
     url.searchParams.set("lat", String(cityConfig.lat));
     url.searchParams.set("lng", String(cityConfig.lng));
     url.searchParams.set("rad", String(cityConfig.radiusKm || 5));
-    url.searchParams.set("sort", "dist");
-    url.searchParams.set("type", "all");
     url.searchParams.set("apikey", apiKey);
 
     const response = await fetch(url);
@@ -172,41 +195,76 @@ async function ingestGermanyTankerkoenig(country) {
     }
 
     const payload = await response.json();
-    if (!payload?.ok || !Array.isArray(payload.stations)) {
-      throw new Error(`Tankerkoenig payload invalid for ${city.id}`);
+    if (!Array.isArray(payload?.stations)) {
+      throw new Error(`Tankerkoenig v4 payload invalid for ${city.id}`);
     }
 
-    const stations = payload.stations
-      .slice(0, cityConfig.maxStations || 20)
-      .filter((station) => typeof station.e5 === "number" || typeof station.e10 === "number" || typeof station.diesel === "number");
-
+    const stations = payload.stations.slice(0, cityConfig.maxStations || 20);
     if (!stations.length) {
-      console.warn(`No usable stations for ${city.id}.`);
+      console.warn(`No stations returned for ${city.id}.`);
       continue;
     }
 
-    const avg = (selector) => {
-      const values = stations.map(selector).filter((value) => typeof value === "number");
-      if (!values.length) {
-        return null;
+    // Accumulate prices and lastChange data per fuel type across stations
+    const fuelAccumulators = {};
+    for (const station of stations) {
+      for (const fuel of station.fuels ?? []) {
+        if (!country.fuelTypes.includes(fuel.name)) continue;
+        if (!fuelAccumulators[fuel.name]) {
+          fuelAccumulators[fuel.name] = { prices: [], lastChanges: [] };
+        }
+        if (typeof fuel.price === "number") {
+          fuelAccumulators[fuel.name].prices.push(fuel.price);
+        }
+        if (fuel.lastChange?.timestamp) {
+          fuelAccumulators[fuel.name].lastChanges.push(fuel.lastChange);
+        }
       }
-      return Number((values.reduce((sum, value) => sum + value, 0) / values.length).toFixed(3));
-    };
+    }
 
-    const prices = {
-      "Super E5": avg((s) => s.e5),
-      "Super E10": avg((s) => s.e10),
-      Diesel: avg((s) => s.diesel),
+    const prices = {};
+    const priceChanges = {};
+    for (const [name, acc] of Object.entries(fuelAccumulators)) {
+      if (acc.prices.length) {
+        prices[name] = Number(
+          (acc.prices.reduce((sum, p) => sum + p, 0) / acc.prices.length).toFixed(3)
+        );
+      }
+      if (acc.lastChanges.length) {
+        // Keep the most recently changed entry across all stations
+        acc.lastChanges.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        priceChanges[name] = acc.lastChanges[0];
+      }
+    }
+
+    // Idea 6: Capture station open/close status at ingestion time
+    const openStations = stations.filter((s) => s.isOpen);
+    const closingTimes = openStations.filter((s) => s.closesAt).map((s) => s.closesAt).sort();
+    const openingTimes = stations.filter((s) => !s.isOpen && s.opensAt).map((s) => s.opensAt).sort();
+    city.stationStatus = {
+      openCount: openStations.length,
+      totalCount: stations.length,
+      nextClose: closingTimes[0] ?? null,
+      nextOpen: openingTimes[0] ?? null,
+      asOf: new Date().toISOString(),
     };
 
     const filteredPrices = Object.fromEntries(
       Object.entries(prices).filter(([, value]) => typeof value === "number")
     );
+    if (!Object.keys(filteredPrices).length) {
+      console.warn(`No usable fuel prices for ${city.id}.`);
+      continue;
+    }
 
-    city.history = upsertHistory(city.history, {
-      date: TODAY,
-      prices: filteredPrices,
-    });
+    const historyEntry = { date: TODAY, prices: filteredPrices };
+    if (Object.keys(priceChanges).length > 0) {
+      historyEntry.priceChanges = priceChanges;
+    }
+
+    city.history = upsertHistory(city.history, historyEntry);
+    console.log(`  ${city.id}: ${JSON.stringify(filteredPrices)}`);
+    console.log(`  ${city.id} open: ${openStations.length}/${stations.length} stations`);
   }
 }
 

@@ -30,6 +30,9 @@ const el = {
   priceGrid: document.getElementById("priceGrid"),
   trendHead: document.querySelector("#trendTable thead"),
   trendBody: document.querySelector("#trendTable tbody"),
+  stationStatusBar: document.getElementById("stationStatusBar"),
+  nationalStatsSection: document.getElementById("nationalStatsSection"),
+  nationalStatsGrid: document.getElementById("nationalStatsGrid"),
 };
 
 function registerServiceWorker() {
@@ -47,6 +50,32 @@ function formatPrice(price, currencyCode) {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
   }).format(price);
+}
+
+// Idea 3: format a lastChange object { timestamp, amount } into a human-readable string
+function formatPriceChange({ timestamp, amount }) {
+  const arrow = amount > 0 ? "↑" : amount < 0 ? "↓" : "→";
+  const sign = amount > 0 ? "+" : "";
+  const amtStr = `${sign}${Number(amount).toFixed(3)}`;
+  const ago = formatRelativeTime(timestamp);
+  return `${arrow} ${amtStr} · last changed ${ago}`;
+}
+
+function formatRelativeTime(isoTimestamp) {
+  const diffMs = Date.now() - new Date(isoTimestamp).getTime();
+  const hours = Math.floor(diffMs / 3_600_000);
+  if (hours < 1) return "< 1h ago";
+  if (hours < 24) return `${hours}h ago`;
+  const days = Math.floor(hours / 24);
+  return `${days}d ago`;
+}
+
+function formatIsoTime(isoString) {
+  return new Date(isoString).toLocaleTimeString("en", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  });
 }
 
 function sortDatesDescending(entries) {
@@ -80,7 +109,7 @@ function updateStatus(message) {
   el.statusBanner.textContent = message;
 }
 
-function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency }) {
+function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency, priceChanges, nationalStats }) {
   const cards = fuelTypes
     .map((fuelType, index) => {
       const value = latestRecord?.prices?.[fuelType];
@@ -96,18 +125,98 @@ function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency })
           : diff === 0
             ? "No change from previous period"
             : `${diff > 0 ? "+" : ""}${diff.toFixed(2)} vs previous period`;
-
       const diffClass = diff === null ? "" : diff > 0 ? "delta-up" : "delta-down";
+
+      // Idea 3: last API-reported price change with timestamp
+      const change = priceChanges?.[fuelType];
+      const changeHtml = change
+        ? `<p class="last-change ${change.amount > 0 ? "change-up" : change.amount < 0 ? "change-down" : ""}">${formatPriceChange(change)}</p>`
+        : "";
+
+      // Idea 5: deviation from national average
+      const nat = nationalStats?.[fuelType];
+      const vsNatHtml =
+        nat && typeof nat.mean === "number"
+          ? (() => {
+              const d = value - nat.mean;
+              const cls = d > 0.005 ? "delta-up" : d < -0.005 ? "delta-down" : "";
+              const sign = d >= 0 ? "+" : "";
+              return `<p class="vs-national ${cls}">${sign}${d.toFixed(3)} vs national avg</p>`;
+            })()
+          : "";
 
       return `<article class="price-card" style="animation-delay:${index * 40}ms">
         <p class="price-name">${fuelType}</p>
         <p class="price-value">${formatPrice(value, currency)}</p>
         <p class="delta ${diffClass}">${diffText}</p>
+        ${changeHtml}
+        ${vsNatHtml}
       </article>`;
     })
     .join("");
 
   el.priceGrid.innerHTML = cards || "<p>No price data available for this selection.</p>";
+}
+
+// Idea 6: show open/closed status for Germany cities
+function renderStationStatus(stationStatus) {
+  if (!el.stationStatusBar) return;
+  if (!stationStatus) {
+    el.stationStatusBar.style.display = "none";
+    return;
+  }
+
+  const { openCount, totalCount, nextClose, nextOpen, asOf } = stationStatus;
+  const parts = [`${openCount} of ${totalCount} stations open`];
+  if (nextClose) {
+    parts.push(`earliest close at ${formatIsoTime(nextClose)}`);
+  } else if (nextOpen) {
+    parts.push(`next opens at ${formatIsoTime(nextOpen)}`);
+  }
+  if (asOf) {
+    const asOfLabel = new Date(asOf).toLocaleString("en", {
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    parts.push(`(as of ${asOfLabel})`);
+  }
+
+  el.stationStatusBar.textContent = parts.join(" · ");
+  el.stationStatusBar.style.display = "";
+}
+
+// Idea 5: render national average cards for Germany
+function renderNationalStats({ nationalStats, fuelTypes, currency }) {
+  if (!el.nationalStatsSection) return;
+  if (!nationalStats) {
+    el.nationalStatsSection.style.display = "none";
+    return;
+  }
+
+  const cards = fuelTypes
+    .map((ft) => {
+      const stat = nationalStats[ft];
+      if (!stat) return "";
+      return `<div class="nat-stat-card">
+        <p class="nat-stat-name">${ft}</p>
+        <div class="nat-stat-row">
+          <span class="nat-stat-item"><span class="nat-label">avg</span> ${formatPrice(stat.mean, currency)}</span>
+          <span class="nat-stat-item"><span class="nat-label">median</span> ${formatPrice(stat.median, currency)}</span>
+          <span class="nat-stat-item"><span class="nat-label">stations</span> ${stat.count.toLocaleString("en")}</span>
+        </div>
+      </div>`;
+    })
+    .filter(Boolean)
+    .join("");
+
+  if (!cards) {
+    el.nationalStatsSection.style.display = "none";
+    return;
+  }
+  el.nationalStatsGrid.innerHTML = cards;
+  el.nationalStatsSection.style.display = "";
 }
 
 function renderTrendTable({ history, fuelTypes, currency }) {
@@ -242,6 +351,8 @@ function render() {
   if (!latestRecord) {
     updateStatus("No data found for this date. Try another date or switch to Current view.");
     renderPriceCards({ latestRecord: null, previousRecord: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
+    renderStationStatus(null);
+    renderNationalStats({ nationalStats: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     renderTrendTable({ history, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     return;
   }
@@ -257,9 +368,21 @@ function render() {
   }
   updateStatus(`${dateLabel} — ${scopeLabel}. Unit: ${country.unit}`);
 
+  const priceChanges = appState.mode === "current" ? (latestRecord.priceChanges ?? null) : null;
+
   renderPriceCards({
     latestRecord,
     previousRecord,
+    fuelTypes: country.fuelTypes,
+    currency: country.currencyCode,
+    priceChanges,
+    nationalStats: country.nationalStats ?? null,
+  });
+
+  renderStationStatus(appState.mode === "current" ? (dataset.stationStatus ?? null) : null);
+
+  renderNationalStats({
+    nationalStats: country.nationalStats ?? null,
     fuelTypes: country.fuelTypes,
     currency: country.currencyCode,
   });
