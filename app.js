@@ -250,7 +250,7 @@ function render() {
   if (appState.mode === "historical") {
     dateLabel = `Historical (${latestRecord.date})`;
   } else if (latestRecord.date < todayIso) {
-    dateLabel = `Current · data as of ${latestRecord.date} (provider not yet updated for today)`;
+    dateLabel = `Current · prices as of ${latestRecord.date} (unchanged since last update)`;
   } else {
     dateLabel = `Current (${latestRecord.date})`;
   }
