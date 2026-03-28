@@ -7,6 +7,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 const THAILAND_FUEL_MAP = [
   { key: "Gasohol 91", markers: ["แก๊สโซฮอล์ 91 S EVO"] },
   { key: "Gasohol 95", markers: ["แก๊สโซฮอล์ 95 S EVO"] },
+  { key: "Premium 97 Gasohol 95", markers: ["ไฮพรีเมียม 97 แก๊สโซฮอล์ 95", "Hi Premium 97"] },
   { key: "Gasohol E20", markers: ["แก๊สโซฮอล์ E20 S EVO"] },
   { key: "Gasohol E85", markers: ["แก๊สโซฮอล์ E85 S EVO"] },
   { key: "Diesel", markers: ["ไฮดีเซล S"] },

@@ -15,6 +15,7 @@
       "fuelTypes": [
         "Gasohol 91",
         "Gasohol 95",
+        "Premium 97 Gasohol 95",
         "Gasohol E20",
         "Gasohol E85",
         "Diesel",
@@ -26,6 +27,7 @@
           "prices": {
             "Gasohol 91": 40.68,
             "Gasohol 95": 41.05,
+            "Premium 97 Gasohol 95": 57.54,
             "Gasohol E20": 36.05,
             "Gasohol E85": 32.79,
             "Diesel": 38.94,
@@ -37,6 +39,7 @@
           "prices": {
             "Gasohol 91": 40.68,
             "Gasohol 95": 41.05,
+            "Premium 97 Gasohol 95": 57.54,
             "Gasohol E20": 36.05,
             "Gasohol E85": 32.79,
             "Diesel": 38.94,
@@ -48,6 +51,7 @@
           "prices": {
             "Gasohol 91": 34.68,
             "Gasohol 95": 35.05,
+            "Premium 97 Gasohol 95": 49.54,
             "Gasohol E20": 30.05,
             "Gasohol E85": 26.79,
             "Diesel": 32.94,
