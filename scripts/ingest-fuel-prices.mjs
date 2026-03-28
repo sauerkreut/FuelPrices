@@ -130,6 +130,11 @@ async function ingestThailandBangchak(country) {
   }
 
   country.fuelTypes = THAILAND_FUEL_MAP.map((entry) => entry.key);
+
+  console.log(`  API OilPriceDate: ${root.OilPriceDate} => ISO base: ${baseDate}`);
+  console.log(`  Yesterday (${addDays(baseDate,-1)}): ${JSON.stringify(yesterdayPrices)}`);
+  console.log(`  Today     (${baseDate}): ${JSON.stringify(todayPrices)}`);
+  console.log(`  Tomorrow  (${addDays(baseDate, 1)}): ${JSON.stringify(tomorrowPrices)}`);
 }
 
 async function ingestGermanyTankerkoenig(country) {

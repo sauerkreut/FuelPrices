@@ -245,8 +245,16 @@ function render() {
     return;
   }
 
-  const dateLabel = appState.mode === "historical" ? `Historical (${latestRecord.date})` : `Current (${latestRecord.date})`;
-  updateStatus(`${dateLabel} prices for ${scopeLabel}. Unit: ${country.unit}`);
+  const todayIso = TODAY_STAMP();
+  let dateLabel;
+  if (appState.mode === "historical") {
+    dateLabel = `Historical (${latestRecord.date})`;
+  } else if (latestRecord.date < todayIso) {
+    dateLabel = `Current · data as of ${latestRecord.date} (provider not yet updated for today)`;
+  } else {
+    dateLabel = `Current (${latestRecord.date})`;
+  }
+  updateStatus(`${dateLabel} — ${scopeLabel}. Unit: ${country.unit}`);
 
   renderPriceCards({
     latestRecord,
