@@ -132,157 +132,9 @@
         "defaultMaxStations": 25,
         "cities": [
           {
-            "id": "berlin",
-            "postalCode": "10115",
-            "lat": 52.52,
-            "lng": 13.405,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "munich",
-            "postalCode": "80331",
-            "lat": 48.137,
-            "lng": 11.575,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "hamburg",
-            "postalCode": "21077",
-            "lat": 53.559184,
-            "lng": 10.022299,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "duisburg",
-            "postalCode": "47053",
-            "lat": 51.428356,
-            "lng": 6.750095,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "bremen",
-            "postalCode": "28259",
-            "lat": 53.091816,
-            "lng": 8.801702,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "essen",
-            "postalCode": "45356",
-            "lat": 51.445729,
-            "lng": 7.008599,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "hannover",
-            "postalCode": "30453",
-            "lat": 52.380567,
-            "lng": 9.759266,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "stuttgart",
-            "postalCode": "70469",
-            "lat": 48.780642,
-            "lng": 9.181374,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "k-ln",
-            "postalCode": "50735",
-            "lat": 50.945609,
-            "lng": 6.968365,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "leipzig",
-            "postalCode": "04347",
-            "lat": 51.347087,
-            "lng": 12.371681,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "bochum",
-            "postalCode": "44809",
-            "lat": 51.474542,
-            "lng": 7.218029,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "dresden",
-            "postalCode": "01139",
-            "lat": 51.051436,
-            "lng": 13.742504,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "frankfurt-am-main",
-            "lat": 50.11,
-            "lng": 8.68,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "duesseldorf",
-            "lat": 51.227,
-            "lng": 6.773,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "nuernberg",
-            "lat": 49.452,
-            "lng": 11.076,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "karlsruhe",
-            "postalCode": "76133",
-            "lat": 49.006,
-            "lng": 8.403,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "magdeburg",
-            "postalCode": "39104",
-            "lat": 52.13,
-            "lng": 11.62,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "bonn",
-            "postalCode": "53111",
-            "lat": 50.735,
-            "lng": 7.1,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "mannheim",
-            "lat": 49.487,
-            "lng": 8.466,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "wiesbaden",
-            "lat": 50.083,
-            "lng": 8.241,
+            "id": "aachen",
+            "lat": 50.776,
+            "lng": 6.084,
             "radiusKm": 6,
             "maxStations": 25
           },
@@ -295,10 +147,10 @@
             "maxStations": 25
           },
           {
-            "id": "muenster",
-            "postalCode": "48143",
-            "lat": 51.962,
-            "lng": 7.626,
+            "id": "berlin",
+            "postalCode": "10115",
+            "lat": 52.52,
+            "lng": 13.405,
             "radiusKm": 6,
             "maxStations": 25
           },
@@ -311,93 +163,18 @@
             "maxStations": 25
           },
           {
-            "id": "gelsenkirchen",
-            "postalCode": "45879",
-            "lat": 51.517,
-            "lng": 7.085,
+            "id": "bochum",
+            "postalCode": "44809",
+            "lat": 51.474542,
+            "lng": 7.218029,
             "radiusKm": 6,
             "maxStations": 25
           },
           {
-            "id": "aachen",
-            "lat": 50.776,
-            "lng": 6.084,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "kiel",
-            "postalCode": "24103",
-            "lat": 54.323,
-            "lng": 10.135,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "rostock",
-            "postalCode": "18055",
-            "lat": 54.092,
-            "lng": 12.099,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "freiburg-im-breisgau",
-            "postalCode": "79098",
-            "lat": 47.999,
-            "lng": 7.842,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "erfurt",
-            "lat": 50.979,
-            "lng": 11.029,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "oberhausen",
-            "postalCode": "46045",
-            "lat": 51.47,
-            "lng": 6.851,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "halle-saale",
-            "lat": 51.482,
-            "lng": 11.97,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "mainz",
-            "lat": 49.998,
-            "lng": 8.274,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "dortmund",
-            "postalCode": "44135",
-            "lat": 51.514,
-            "lng": 7.468,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "wuppertal",
-            "postalCode": "42103",
-            "lat": 51.257,
-            "lng": 7.15,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "moenchengladbach",
-            "lat": 51.195,
-            "lng": 6.436,
+            "id": "bonn",
+            "postalCode": "53111",
+            "lat": 50.735,
+            "lng": 7.1,
             "radiusKm": 6,
             "maxStations": 25
           },
@@ -409,88 +186,17 @@
             "maxStations": 25
           },
           {
+            "id": "bremen",
+            "postalCode": "28259",
+            "lat": 53.091816,
+            "lng": 8.801702,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
             "id": "chemnitz",
             "lat": 50.833,
             "lng": 12.921,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "krefeld",
-            "postalCode": "47798",
-            "lat": 51.334,
-            "lng": 6.558,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "luebeck",
-            "lat": 53.866,
-            "lng": 10.685,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "kassel",
-            "postalCode": "34117",
-            "lat": 51.312,
-            "lng": 9.481,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "hagen",
-            "postalCode": "58095",
-            "lat": 51.36,
-            "lng": 7.474,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "saarbruecken",
-            "postalCode": "66111",
-            "lat": 49.234,
-            "lng": 6.997,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "hamm",
-            "postalCode": "59065",
-            "lat": 51.68,
-            "lng": 7.816,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "muelheim-an-der-ruhr",
-            "postalCode": "45468",
-            "lat": 51.428,
-            "lng": 6.882,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "osnabrueck",
-            "postalCode": "49074",
-            "lat": 52.279,
-            "lng": 8.047,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "solingen",
-            "postalCode": "42651",
-            "lat": 51.178,
-            "lng": 7.083,
-            "radiusKm": 6,
-            "maxStations": 25
-          },
-          {
-            "id": "heidelberg",
-            "postalCode": "69115",
-            "lat": 49.399,
-            "lng": 8.673,
             "radiusKm": 6,
             "maxStations": 25
           },
@@ -503,17 +209,257 @@
             "maxStations": 25
           },
           {
-            "id": "paderborn",
-            "postalCode": "33098",
-            "lat": 51.719,
-            "lng": 8.754,
+            "id": "dortmund",
+            "postalCode": "44135",
+            "lat": 51.514,
+            "lng": 7.468,
             "radiusKm": 6,
             "maxStations": 25
           },
           {
-            "id": "regensburg",
-            "lat": 49.013,
-            "lng": 12.102,
+            "id": "dresden",
+            "postalCode": "01139",
+            "lat": 51.051436,
+            "lng": 13.742504,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "duesseldorf",
+            "lat": 51.227,
+            "lng": 6.773,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "duisburg",
+            "postalCode": "47053",
+            "lat": 51.428356,
+            "lng": 6.750095,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "erfurt",
+            "lat": 50.979,
+            "lng": 11.029,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "essen",
+            "postalCode": "45356",
+            "lat": 51.445729,
+            "lng": 7.008599,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "frankfurt-am-main",
+            "lat": 50.11,
+            "lng": 8.68,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "freiburg-im-breisgau",
+            "postalCode": "79098",
+            "lat": 47.999,
+            "lng": 7.842,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "gelsenkirchen",
+            "postalCode": "45879",
+            "lat": 51.517,
+            "lng": 7.085,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hagen",
+            "postalCode": "58095",
+            "lat": 51.36,
+            "lng": 7.474,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "halle-saale",
+            "lat": 51.482,
+            "lng": 11.97,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hamburg",
+            "postalCode": "21077",
+            "lat": 53.559184,
+            "lng": 10.022299,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hamm",
+            "postalCode": "59065",
+            "lat": 51.68,
+            "lng": 7.816,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hannover",
+            "postalCode": "30453",
+            "lat": 52.380567,
+            "lng": 9.759266,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "heidelberg",
+            "postalCode": "69115",
+            "lat": 49.399,
+            "lng": 8.673,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "koeln",
+            "postalCode": "50735",
+            "lat": 50.945609,
+            "lng": 6.968365,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "karlsruhe",
+            "postalCode": "76133",
+            "lat": 49.006,
+            "lng": 8.403,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "kassel",
+            "postalCode": "34117",
+            "lat": 51.312,
+            "lng": 9.481,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "kiel",
+            "postalCode": "24103",
+            "lat": 54.323,
+            "lng": 10.135,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "krefeld",
+            "postalCode": "47798",
+            "lat": 51.334,
+            "lng": 6.558,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "leipzig",
+            "postalCode": "04347",
+            "lat": 51.347087,
+            "lng": 12.371681,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "luebeck",
+            "lat": 53.866,
+            "lng": 10.685,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "magdeburg",
+            "postalCode": "39104",
+            "lat": 52.13,
+            "lng": 11.62,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "mainz",
+            "lat": 49.998,
+            "lng": 8.274,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "mannheim",
+            "lat": 49.487,
+            "lng": 8.466,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "moenchengladbach",
+            "lat": 51.195,
+            "lng": 6.436,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "muelheim-an-der-ruhr",
+            "postalCode": "45468",
+            "lat": 51.428,
+            "lng": 6.882,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "muenster",
+            "postalCode": "48143",
+            "lat": 51.962,
+            "lng": 7.626,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "munich",
+            "postalCode": "80331",
+            "lat": 48.137,
+            "lng": 11.575,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "nuernberg",
+            "lat": 49.452,
+            "lng": 11.076,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "oberhausen",
+            "postalCode": "46045",
+            "lat": 51.47,
+            "lng": 6.851,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "osnabrueck",
+            "postalCode": "49074",
+            "lat": 52.279,
+            "lng": 8.047,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "paderborn",
+            "postalCode": "33098",
+            "lat": 51.719,
+            "lng": 8.754,
             "radiusKm": 6,
             "maxStations": 25
           },
@@ -526,9 +472,63 @@
             "maxStations": 25
           },
           {
+            "id": "regensburg",
+            "lat": 49.013,
+            "lng": 12.102,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "rostock",
+            "postalCode": "18055",
+            "lat": 54.092,
+            "lng": 12.099,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "saarbruecken",
+            "postalCode": "66111",
+            "lat": 49.234,
+            "lng": 6.997,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "solingen",
+            "postalCode": "42651",
+            "lat": 51.178,
+            "lng": 7.083,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "stuttgart",
+            "postalCode": "70469",
+            "lat": 48.780642,
+            "lng": 9.181374,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "wiesbaden",
+            "lat": 50.083,
+            "lng": 8.241,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
             "id": "wuerzburg",
             "lat": 49.797,
             "lng": 9.936,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "wuppertal",
+            "postalCode": "42103",
+            "lat": 51.257,
+            "lng": 7.15,
             "radiusKm": 6,
             "maxStations": 25
           }
@@ -1456,7 +1456,7 @@
           }
         },
         {
-          "id": "k-ln",
+          "id": "koeln",
           "name": "Köln",
           "postalCode": "50735",
           "history": [

@@ -43,6 +43,7 @@ const el = {
   zipInput: document.getElementById("zipInput"),
   zipHint: document.getElementById("zipHint"),
   languageSelect: document.getElementById("languageSelect"),
+    citySearch: document.getElementById("citySearch"),
   brandComparisonSection: document.getElementById("brandComparisonSection"),
   brandFuelTabs: document.getElementById("brandFuelTabs"),
   brandComparisonChart: document.getElementById("brandComparisonChart"),
@@ -474,6 +475,16 @@ function populateCountrySelect(countries) {
   el.countrySelect.value = appState.selectedCountryCode;
 }
 
+function filterCityOptions(country, query) {
+  const q = query.trim().toLowerCase();
+  const filtered = q
+    ? country.cities.filter((c) => c.name.toLowerCase().includes(q))
+    : country.cities;
+  el.citySelect.innerHTML = filtered
+    .map((city) => `<option value="${city.id}">${city.name}</option>`)
+    .join("");
+}
+
 function populateCitySelect(country) {
   if (!country.supportsCities) {
     el.cityControl.style.display = "none";
@@ -483,9 +494,8 @@ function populateCitySelect(country) {
     return;
   }
 
-  el.citySelect.innerHTML = country.cities
-    .map((city) => `<option value="${city.id}">${city.name}</option>`)
-    .join("");
+  if (el.citySearch) el.citySearch.value = "";
+  filterCityOptions(country, "");
 
   appState.selectedCityId = country.cities[0]?.id || "";
   el.citySelect.value = appState.selectedCityId;
@@ -582,6 +592,21 @@ function bindEvents() {
 
   el.citySelect.addEventListener("change", (event) => {
     appState.selectedCityId = event.target.value;
+
+      if (el.citySearch) {
+        el.citySearch.addEventListener("input", () => {
+          const query = el.citySearch.value;
+          const country = getCountryByCode(appState.selectedCountryCode);
+          if (!country) return;
+          filterCityOptions(country, query);
+          const first = el.citySelect.options[0];
+          if (first) {
+            appState.selectedCityId = first.value;
+            el.citySelect.value = first.value;
+            render();
+          }
+        });
+      }
     render();
   });
 

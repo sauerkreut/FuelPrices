@@ -9,6 +9,7 @@
       <trans-unit id="aria.priceMode"><source>Price mode</source><target>Mode de prix</target></trans-unit>
       <trans-unit id="label.country"><source>Country</source><target>Pays</target></trans-unit>
       <trans-unit id="label.city"><source>City</source><target>Ville</target></trans-unit>
+        <trans-unit id="placeholder.citySearch"><source>Search city…</source><target>Rechercher une ville…</target></trans-unit>
       <trans-unit id="label.postalCode"><source>Postal code</source><target>Code postal</target></trans-unit>
       <trans-unit id="label.language"><source>Language</source><target>Langue</target></trans-unit>
       <trans-unit id="label.view"><source>View</source><target>Vue</target></trans-unit>
