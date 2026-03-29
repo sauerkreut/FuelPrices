@@ -111,19 +111,19 @@
       ],
       "nationalStats": {
         "Super E5": {
-          "count": 14823,
-          "mean": 1.849,
-          "median": 1.849
+          "count": 6363,
+          "mean": 2.149,
+          "median": 2.129
         },
         "Super E10": {
-          "count": 14652,
-          "mean": 1.779,
-          "median": 1.779
+          "count": 5936,
+          "mean": 2.094,
+          "median": 2.069
         },
         "Diesel": {
-          "count": 14901,
-          "mean": 1.689,
-          "median": 1.689
+          "count": 6687,
+          "mean": 2.295,
+          "median": 2.279
         }
       },
       "providerConfig": {
@@ -160,111 +160,58 @@
           "name": "Berlin",
           "postalCode": "10115",
           "stationStatus": {
-            "openCount": 18,
-            "totalCount": 25,
-            "nextClose": "2026-03-28T22:00:00+01:00",
+            "openCount": 1,
+            "totalCount": 1,
+            "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-03-28T01:15:00+01:00"
+            "asOf": "2026-03-29T02:53:08.471Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "JET",
-                "price": 1.849,
-                "count": 2
-              },
-              {
-                "brand": "AVIA",
-                "price": 1.859,
-                "count": 1
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.869,
-                "count": 4
-              },
-              {
-                "brand": "Esso",
-                "price": 1.879,
-                "count": 3
-              },
-              {
-                "brand": "Shell",
-                "price": 1.889,
-                "count": 3
-              },
-              {
                 "brand": "TotalEnergies",
-                "price": 1.899,
-                "count": 2
+                "price": 2.129,
+                "count": 1
               }
             ],
             "Super E10": [
               {
-                "brand": "JET",
-                "price": 1.779,
-                "count": 2
-              },
-              {
-                "brand": "AVIA",
-                "price": 1.789,
-                "count": 1
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.799,
-                "count": 4
-              },
-              {
-                "brand": "Esso",
-                "price": 1.809,
-                "count": 3
-              },
-              {
-                "brand": "Shell",
-                "price": 1.819,
-                "count": 3
-              },
-              {
                 "brand": "TotalEnergies",
-                "price": 1.829,
-                "count": 2
+                "price": 2.069,
+                "count": 1
               }
             ],
             "Diesel": [
               {
-                "brand": "HEM",
-                "price": 1.679,
-                "count": 2
-              },
-              {
-                "brand": "JET",
-                "price": 1.689,
-                "count": 2
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.699,
-                "count": 4
-              },
-              {
-                "brand": "BP",
-                "price": 1.709,
-                "count": 2
-              },
-              {
-                "brand": "Shell",
-                "price": 1.719,
-                "count": 3
-              },
-              {
                 "brand": "TotalEnergies",
-                "price": 1.729,
-                "count": 2
+                "price": 2.299,
+                "count": 1
               }
             ]
           },
           "history": [
+            {
+              "date": "2026-03-29",
+              "prices": {
+                "Super E5": 2.129,
+                "Super E10": 2.069,
+                "Diesel": 2.299
+              },
+              "priceChanges": {
+                "Super E5": {
+                  "amount": 0.04,
+                  "timestamp": "2026-03-29T00:46:43+01"
+                },
+                "Super E10": {
+                  "amount": 0.04,
+                  "timestamp": "2026-03-29T00:46:43+01"
+                },
+                "Diesel": {
+                  "amount": 0.04,
+                  "timestamp": "2026-03-29T00:46:43+01"
+                }
+              }
+            },
             {
               "date": "2026-03-28",
               "prices": {
@@ -318,96 +265,58 @@
           "name": "Munich",
           "postalCode": "80331",
           "stationStatus": {
-            "openCount": 21,
-            "totalCount": 25,
-            "nextClose": "2026-03-28T23:00:00+01:00",
+            "openCount": 1,
+            "totalCount": 1,
+            "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-03-28T01:15:00+01:00"
+            "asOf": "2026-03-29T02:53:08.615Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "Q1",
-                "price": 1.899,
-                "count": 2
-              },
-              {
-                "brand": "JET",
-                "price": 1.909,
+                "brand": "AGIP ENI",
+                "price": 2.159,
                 "count": 1
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.919,
-                "count": 5
-              },
-              {
-                "brand": "Shell",
-                "price": 1.929,
-                "count": 4
-              },
-              {
-                "brand": "Esso",
-                "price": 1.939,
-                "count": 2
               }
             ],
             "Super E10": [
               {
-                "brand": "Q1",
-                "price": 1.829,
-                "count": 2
-              },
-              {
-                "brand": "JET",
-                "price": 1.839,
+                "brand": "AGIP ENI",
+                "price": 2.099,
                 "count": 1
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.849,
-                "count": 5
-              },
-              {
-                "brand": "Shell",
-                "price": 1.859,
-                "count": 4
-              },
-              {
-                "brand": "Esso",
-                "price": 1.869,
-                "count": 2
               }
             ],
             "Diesel": [
               {
-                "brand": "JET",
-                "price": 1.739,
+                "brand": "AGIP ENI",
+                "price": 2.339,
                 "count": 1
-              },
-              {
-                "brand": "ARAL",
-                "price": 1.749,
-                "count": 5
-              },
-              {
-                "brand": "Shell",
-                "price": 1.759,
-                "count": 4
-              },
-              {
-                "brand": "BP",
-                "price": 1.769,
-                "count": 3
-              },
-              {
-                "brand": "Esso",
-                "price": 1.779,
-                "count": 2
               }
             ]
           },
           "history": [
+            {
+              "date": "2026-03-29",
+              "prices": {
+                "Super E5": 2.159,
+                "Super E10": 2.099,
+                "Diesel": 2.339
+              },
+              "priceChanges": {
+                "Super E5": {
+                  "amount": 0.08,
+                  "timestamp": "2026-03-28T22:07:38+01"
+                },
+                "Super E10": {
+                  "amount": 0.08,
+                  "timestamp": "2026-03-28T22:07:38+01"
+                },
+                "Diesel": {
+                  "amount": 0.08,
+                  "timestamp": "2026-03-28T22:07:38+01"
+                }
+              }
+            },
             {
               "date": "2026-03-28",
               "prices": {
