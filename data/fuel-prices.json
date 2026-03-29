@@ -274,7 +274,6 @@
           },
           {
             "id": "mannheim",
-            "postalCode": "68161",
             "lat": 49.487,
             "lng": 8.466,
             "radiusKm": 6,
@@ -282,7 +281,6 @@
           },
           {
             "id": "wiesbaden",
-            "postalCode": "65183",
             "lat": 50.083,
             "lng": 8.241,
             "radiusKm": 6,
