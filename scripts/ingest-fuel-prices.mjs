@@ -77,12 +77,46 @@ function upsertHistory(history, newEntry) {
   return [newEntry, ...history].sort((a, b) => b.date.localeCompare(a.date));
 }
 
-function slugifyCityName(name) {
-  return name
-    .toLowerCase()
+function normalizeGermanText(value) {
+  return String(value || "")
     .trim()
+    .replace(/ä/ggi, "ae")
+    .replace(/ö/ggi, "oe")
+    .replace(/ü/ggi, "ue")
+    .replace(/ß/ggi, "ss")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
+function slugifyCityName(name) {
+  return normalizeGermanText(name)
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+function prettifyCityName(name) {
+  const trimmed = String(name || "").trim();
+  if (!trimmed) {
+    return trimmed;
+  }
+
+  if (trimmed === trimmed.toUpperCase()) {
+    return trimmed.toLowerCase().replace(/(^|[\s-])\p{L}/gu, (match) => match.toUpperCase());
+  }
+
+  return trimmed;
+}
+
+function distanceKm(lat1, lng1, lat2, lng2) {
+  const toRad = (degrees) => (degrees * Math.PI) / 180;
+  const earthRadiusKm = 6371;
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+  return 2 * earthRadiusKm * Math.asin(Math.sqrt(a));
 }
 
 function average(values) {
@@ -139,12 +173,12 @@ async function discoverGermanyCities(apiKey, maxDiscoveredCities = 12) {
     }
 
     for (const station of stations) {
-      const place = String(station.place || "").trim();
+      const place = prettifyCityName(station.place);
       if (!place) {
         continue;
       }
 
-      const key = place.toLowerCase();
+      const key = normalizeGermanText(place);
       if (!byCity.has(key)) {
         byCity.set(key, {
           name: place,
@@ -302,10 +336,25 @@ async function ingestGermanyTankerkoenig(country) {
     const maxDiscoveredCities = Number(providerConfig.maxDiscoveredCities || 12);
     const discoveredCities = await discoverGermanyCities(apiKey, maxDiscoveredCities);
     const existingIds = new Set(cityConfigs.map((entry) => entry.id));
+    const existingNames = new Set(country.cities.map((entry) => normalizeGermanText(entry.name)));
+    const existingPostalCodes = new Set(cityConfigs.map((entry) => String(entry.postalCode || "")));
 
     let added = 0;
     for (const discovered of discoveredCities) {
-      if (!discovered.id || existingIds.has(discovered.id)) {
+      const isNearbyDuplicate = cityConfigs.some((entry) => {
+        if (typeof entry.lat !== "number" || typeof entry.lng !== "number") {
+          return false;
+        }
+        return distanceKm(entry.lat, entry.lng, discovered.lat, discovered.lng) < 15;
+      });
+
+      if (
+        !discovered.id ||
+        existingIds.has(discovered.id) ||
+        existingNames.has(normalizeGermanText(discovered.name)) ||
+        (discovered.postalCode && existingPostalCodes.has(discovered.postalCode)) ||
+        isNearbyDuplicate
+      ) {
         continue;
       }
 
@@ -324,6 +373,10 @@ async function ingestGermanyTankerkoenig(country) {
         history: [],
       });
       existingIds.add(discovered.id);
+      existingNames.add(normalizeGermanText(discovered.name));
+      if (discovered.postalCode) {
+        existingPostalCodes.add(discovered.postalCode);
+      }
       added += 1;
     }
 
