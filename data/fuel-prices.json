@@ -263,6 +263,46 @@
             "lng": 11.62,
             "radiusKm": 6,
             "maxStations": 25
+          },
+          {
+            "id": "bonn",
+            "postalCode": "53111",
+            "lat": 50.735,
+            "lng": 7.1,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "mannheim",
+            "postalCode": "68161",
+            "lat": 49.487,
+            "lng": 8.466,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "wiesbaden",
+            "postalCode": "65183",
+            "lat": 50.083,
+            "lng": 8.241,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "augsburg",
+            "postalCode": "86152",
+            "lat": 48.371,
+            "lng": 10.898,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "muenster",
+            "postalCode": "48143",
+            "lat": 51.962,
+            "lng": 7.626,
+            "radiusKm": 6,
+            "maxStations": 25
           }
         ]
       },
@@ -2452,6 +2492,36 @@
               }
             ]
           }
+        },
+        {
+          "id": "bonn",
+          "name": "Bonn",
+          "postalCode": "53111",
+          "history": []
+        },
+        {
+          "id": "mannheim",
+          "name": "Mannheim",
+          "postalCode": "68161",
+          "history": []
+        },
+        {
+          "id": "wiesbaden",
+          "name": "Wiesbaden",
+          "postalCode": "65183",
+          "history": []
+        },
+        {
+          "id": "augsburg",
+          "name": "Augsburg",
+          "postalCode": "86152",
+          "history": []
+        },
+        {
+          "id": "muenster",
+          "name": "Münster",
+          "postalCode": "48143",
+          "history": []
         }
       ]
     }
