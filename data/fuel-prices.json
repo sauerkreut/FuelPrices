@@ -226,6 +226,46 @@
             "lng": 13.742504,
             "radiusKm": 6,
             "maxStations": 25
+          },
+          {
+            "id": "frankfurt-am-main",
+            "postalCode": "60311",
+            "lat": 50.11,
+            "lng": 8.68,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "duesseldorf",
+            "postalCode": "40213",
+            "lat": 51.227,
+            "lng": 6.773,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "nuernberg",
+            "postalCode": "90402",
+            "lat": 49.452,
+            "lng": 11.076,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "karlsruhe",
+            "postalCode": "76133",
+            "lat": 49.006,
+            "lng": 8.403,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "magdeburg",
+            "postalCode": "39104",
+            "lat": 52.13,
+            "lng": 11.62,
+            "radiusKm": 6,
+            "maxStations": 25
           }
         ]
       },
@@ -1610,6 +1650,36 @@
               }
             ]
           }
+        },
+        {
+          "id": "frankfurt-am-main",
+          "name": "Frankfurt am Main",
+          "postalCode": "60311",
+          "history": []
+        },
+        {
+          "id": "duesseldorf",
+          "name": "Düsseldorf",
+          "postalCode": "40213",
+          "history": []
+        },
+        {
+          "id": "nuernberg",
+          "name": "Nürnberg",
+          "postalCode": "90402",
+          "history": []
+        },
+        {
+          "id": "karlsruhe",
+          "name": "Karlsruhe",
+          "postalCode": "76133",
+          "history": []
+        },
+        {
+          "id": "magdeburg",
+          "name": "Magdeburg",
+          "postalCode": "39104",
+          "history": []
         }
       ]
     }
