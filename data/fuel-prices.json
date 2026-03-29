@@ -396,7 +396,6 @@
           },
           {
             "id": "moenchengladbach",
-            "postalCode": "41061",
             "lat": 51.195,
             "lng": 6.436,
             "radiusKm": 6,
@@ -404,7 +403,6 @@
           },
           {
             "id": "braunschweig",
-            "postalCode": "38100",
             "lat": 52.268,
             "lng": 10.527,
             "radiusKm": 6,
@@ -412,7 +410,6 @@
           },
           {
             "id": "chemnitz",
-            "postalCode": "09111",
             "lat": 50.833,
             "lng": 12.921,
             "radiusKm": 6,
@@ -428,7 +425,6 @@
           },
           {
             "id": "luebeck",
-            "postalCode": "23552",
             "lat": 53.866,
             "lng": 10.685,
             "radiusKm": 6,
@@ -516,7 +512,6 @@
           },
           {
             "id": "regensburg",
-            "postalCode": "93047",
             "lat": 49.013,
             "lng": 12.102,
             "radiusKm": 6,
@@ -532,7 +527,6 @@
           },
           {
             "id": "wuerzburg",
-            "postalCode": "97070",
             "lat": 49.797,
             "lng": 9.936,
             "radiusKm": 6,
