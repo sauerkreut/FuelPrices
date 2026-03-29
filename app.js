@@ -1,4 +1,7 @@
 const DATA_URL = "./data/fuel-prices.json";
+const LOCALE_STORAGE_KEY = "fuelscope.locale";
+const I18N_BASE_PATH = "./assets/i18n";
+const SUPPORTED_LOCALES = ["en-US", "en-GB", "de-DE", "fr-FR", "th-TH"];
 
 const dataProviders = {
   static: {
@@ -18,6 +21,8 @@ const appState = {
   selectedCountryCode: "",
   selectedCityId: "",
   selectedBrandFuel: "",
+  locale: "en-US",
+  messages: {},
   mode: "current",
 };
 
@@ -37,6 +42,7 @@ const el = {
   zipSearchControl: document.getElementById("zipSearchControl"),
   zipInput: document.getElementById("zipInput"),
   zipHint: document.getElementById("zipHint"),
+  languageSelect: document.getElementById("languageSelect"),
   brandComparisonSection: document.getElementById("brandComparisonSection"),
   brandFuelTabs: document.getElementById("brandFuelTabs"),
   brandComparisonChart: document.getElementById("brandComparisonChart"),
@@ -50,8 +56,102 @@ function registerServiceWorker() {
   }
 }
 
+function t(id, vars = {}) {
+  const template = appState.messages[id] || id;
+  return template.replace(/\{(\w+)\}/g, (_, key) => (vars[key] ?? "").toString());
+}
+
+function normalizeLocale(locale) {
+  if (!locale) return null;
+  const lower = locale.toLowerCase();
+  const exact = SUPPORTED_LOCALES.find((entry) => entry.toLowerCase() === lower);
+  if (exact) return exact;
+  const lang = lower.split("-")[0];
+  return SUPPORTED_LOCALES.find((entry) => entry.toLowerCase().startsWith(`${lang}-`)) || null;
+}
+
+function detectInitialLocale() {
+  const stored = normalizeLocale(localStorage.getItem(LOCALE_STORAGE_KEY));
+  if (stored) return stored;
+
+  const browserLocales = [navigator.language, ...(navigator.languages || [])];
+  for (const candidate of browserLocales) {
+    const matched = normalizeLocale(candidate);
+    if (matched) return matched;
+  }
+
+  return "en-US";
+}
+
+function parseXliff(xmlText) {
+  const doc = new DOMParser().parseFromString(xmlText, "application/xml");
+  if (doc.querySelector("parsererror")) {
+    throw new Error("Invalid XLIFF format");
+  }
+
+  const messages = {};
+  doc.querySelectorAll("trans-unit").forEach((unit) => {
+    const id = unit.getAttribute("id");
+    if (!id) return;
+    const target = unit.querySelector("target")?.textContent?.trim();
+    const source = unit.querySelector("source")?.textContent?.trim();
+    messages[id] = target || source || id;
+  });
+
+  return messages;
+}
+
+async function loadLocale(locale) {
+  const response = await fetch(`${I18N_BASE_PATH}/${locale}.xlf`);
+  if (!response.ok) {
+    throw new Error(`Could not load locale ${locale}: ${response.status}`);
+  }
+  appState.messages = parseXliff(await response.text());
+  appState.locale = locale;
+  localStorage.setItem(LOCALE_STORAGE_KEY, locale);
+  document.documentElement.lang = locale;
+}
+
+function applyStaticTranslations() {
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    const key = node.getAttribute("data-i18n");
+    node.textContent = t(key);
+  });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    const key = node.getAttribute("data-i18n-placeholder");
+    node.setAttribute("placeholder", t(key));
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((node) => {
+    const key = node.getAttribute("data-i18n-aria-label");
+    node.setAttribute("aria-label", t(key));
+  });
+
+  document.title = t("meta.title");
+}
+
+function localeDisplayName(locale) {
+  const names = {
+    "en-US": "English (US)",
+    "en-GB": "English (UK)",
+    "de-DE": "Deutsch",
+    "fr-FR": "Francais",
+    "th-TH": "ไทย",
+  };
+  return names[locale] || locale;
+}
+
+function populateLanguageSelect() {
+  if (!el.languageSelect) return;
+  el.languageSelect.innerHTML = SUPPORTED_LOCALES
+    .map((locale) => `<option value="${locale}">${localeDisplayName(locale)}</option>`)
+    .join("");
+  el.languageSelect.value = appState.locale;
+}
+
 function formatPrice(price, currencyCode) {
-  return new Intl.NumberFormat("en", {
+  return new Intl.NumberFormat(appState.locale, {
     style: "currency",
     currency: currencyCode,
     minimumFractionDigits: 2,
@@ -65,20 +165,20 @@ function formatPriceChange({ timestamp, amount }) {
   const sign = amount > 0 ? "+" : "";
   const amtStr = `${sign}${Number(amount).toFixed(3)}`;
   const ago = formatRelativeTime(timestamp);
-  return `${arrow} ${amtStr} · last changed ${ago}`;
+  return t("price.change.lastChanged", { arrow, amount: amtStr, ago });
 }
 
 function formatRelativeTime(isoTimestamp) {
   const diffMs = Date.now() - new Date(isoTimestamp).getTime();
   const hours = Math.floor(diffMs / 3_600_000);
-  if (hours < 1) return "< 1h ago";
-  if (hours < 24) return `${hours}h ago`;
+  if (hours < 1) return t("time.lt1hAgo");
+  if (hours < 24) return t("time.hAgo", { hours });
   const days = Math.floor(hours / 24);
-  return `${days}d ago`;
+  return t("time.dAgo", { days });
 }
 
 function formatIsoTime(isoString) {
-  return new Date(isoString).toLocaleTimeString("en", {
+  return new Date(isoString).toLocaleTimeString(appState.locale, {
     hour: "2-digit",
     minute: "2-digit",
     hour12: false,
@@ -130,8 +230,10 @@ function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency, p
         diff === null
           ? ""
           : diff === 0
-            ? "No change from previous period"
-            : `${diff > 0 ? "+" : ""}${diff.toFixed(2)} vs previous period`;
+            ? t("price.delta.noChange")
+            : t("price.delta.vsPrevious", {
+                diff: `${diff > 0 ? "+" : ""}${diff.toFixed(2)}`,
+              });
       const diffClass = diff === null ? "" : diff > 0 ? "delta-up" : "delta-down";
 
       // Idea 3: last API-reported price change with timestamp
@@ -148,7 +250,9 @@ function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency, p
               const d = value - nat.mean;
               const cls = d > 0.005 ? "delta-up" : d < -0.005 ? "delta-down" : "";
               const sign = d >= 0 ? "+" : "";
-              return `<p class="vs-national ${cls}">${sign}${d.toFixed(3)} vs national avg</p>`;
+              return `<p class="vs-national ${cls}">${t("price.delta.vsNationalAvg", {
+                diff: `${sign}${d.toFixed(3)}`,
+              })}</p>`;
             })()
           : "";
 
@@ -162,7 +266,7 @@ function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency, p
     })
     .join("");
 
-  el.priceGrid.innerHTML = cards || "<p>No price data available for this selection.</p>";
+  el.priceGrid.innerHTML = cards || `<p>${t("price.noData")}</p>`;
 }
 
 // Idea 6: show open/closed status for Germany cities
@@ -174,20 +278,20 @@ function renderStationStatus(stationStatus) {
   }
 
   const { openCount, totalCount, nextClose, nextOpen, asOf } = stationStatus;
-  const parts = [`${openCount} of ${totalCount} stations open`];
+  const parts = [t("station.openCount", { openCount, totalCount })];
   if (nextClose) {
-    parts.push(`earliest close at ${formatIsoTime(nextClose)}`);
+    parts.push(t("station.earliestClose", { time: formatIsoTime(nextClose) }));
   } else if (nextOpen) {
-    parts.push(`next opens at ${formatIsoTime(nextOpen)}`);
+    parts.push(t("station.nextOpen", { time: formatIsoTime(nextOpen) }));
   }
   if (asOf) {
-    const asOfLabel = new Date(asOf).toLocaleString("en", {
+    const asOfLabel = new Date(asOf).toLocaleString(appState.locale, {
       month: "short",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
     });
-    parts.push(`(as of ${asOfLabel})`);
+    parts.push(t("station.asOf", { when: asOfLabel }));
   }
 
   el.stationStatusBar.textContent = parts.join(" · ");
@@ -209,9 +313,9 @@ function renderNationalStats({ nationalStats, fuelTypes, currency }) {
       return `<div class="nat-stat-card">
         <p class="nat-stat-name">${ft}</p>
         <div class="nat-stat-row">
-          <span class="nat-stat-item"><span class="nat-label">avg</span> ${formatPrice(stat.mean, currency)}</span>
-          <span class="nat-stat-item"><span class="nat-label">median</span> ${formatPrice(stat.median, currency)}</span>
-          <span class="nat-stat-item"><span class="nat-label">stations</span> ${stat.count.toLocaleString("en")}</span>
+          <span class="nat-stat-item"><span class="nat-label">${t("nat.avg")}</span> ${formatPrice(stat.mean, currency)}</span>
+          <span class="nat-stat-item"><span class="nat-label">${t("nat.median")}</span> ${formatPrice(stat.median, currency)}</span>
+          <span class="nat-stat-item"><span class="nat-label">${t("nat.stations")}</span> ${stat.count.toLocaleString(appState.locale)}</span>
         </div>
       </div>`;
     })
@@ -264,7 +368,7 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
       const barPct = (30 + ((price - minP) / range) * 70).toFixed(1);
       const cheapest = price === minP;
       return `<div class="brand-row${cheapest ? " brand-cheapest" : ""}">
-        <span class="brand-name">${brand} <span class="brand-count">${count}×</span></span>
+        <span class="brand-name">${brand} <span class="brand-count">${t("brand.count", { count })}</span></span>
         <div class="brand-bar-wrap">
           <div class="brand-bar" style="width:${barPct}%"></div>
           <span class="brand-price">${formatPrice(price, currency)}</span>
@@ -278,7 +382,7 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
 
 function renderTrendTable({ history, fuelTypes, currency }) {
   el.trendHead.innerHTML = `<tr>
-    <th>Date</th>
+    <th>${t("trend.date")}</th>
     ${fuelTypes.map((fuelType) => `<th>${fuelType} (${currency})</th>`).join("")}
   </tr>`;
 
@@ -404,7 +508,7 @@ function setModeUI() {
 function render() {
   const country = getCountryByCode(appState.selectedCountryCode);
   if (!country) {
-    updateStatus("Please choose a country.");
+    updateStatus(t("status.chooseCountry"));
     return;
   }
 
@@ -415,7 +519,7 @@ function render() {
   const { latestRecord, previousRecord } = getRecordForMode(history);
 
   if (!latestRecord) {
-    updateStatus("No data found for this date. Try another date or switch to Current view.");
+    updateStatus(t("status.noData"));
     renderPriceCards({ latestRecord: null, previousRecord: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
     renderStationStatus(null);
     renderNationalStats({ nationalStats: null, fuelTypes: country.fuelTypes, currency: country.currencyCode });
@@ -427,13 +531,13 @@ function render() {
   const todayIso = TODAY_STAMP();
   let dateLabel;
   if (appState.mode === "historical") {
-    dateLabel = `Historical (${latestRecord.date})`;
+    dateLabel = t("status.historical", { date: latestRecord.date });
   } else if (latestRecord.date < todayIso) {
-    dateLabel = `Current · prices as of ${latestRecord.date} (unchanged since last update)`;
+    dateLabel = t("status.currentAsOf", { date: latestRecord.date });
   } else {
-    dateLabel = `Current (${latestRecord.date})`;
+    dateLabel = t("status.current", { date: latestRecord.date });
   }
-  updateStatus(`${dateLabel} — ${scopeLabel}. Unit: ${country.unit}`);
+  updateStatus(t("status.withScopeUnit", { label: dateLabel, scope: scopeLabel, unit: country.unit }));
 
   const priceChanges = appState.mode === "current" ? (latestRecord.priceChanges ?? null) : null;
 
@@ -506,7 +610,7 @@ function bindEvents() {
         if (el.zipHint) el.zipHint.textContent = "";
         render();
       } else if (zip.length === 5) {
-        if (el.zipHint) el.zipHint.textContent = "No data for this postal code";
+        if (el.zipHint) el.zipHint.textContent = t("zip.noData");
       } else {
         if (el.zipHint) el.zipHint.textContent = "";
       }
@@ -522,10 +626,28 @@ function bindEvents() {
       render();
     });
   }
+
+  if (el.languageSelect) {
+    el.languageSelect.addEventListener("change", async (event) => {
+      const nextLocale = normalizeLocale(event.target.value) || "en-US";
+      try {
+        await loadLocale(nextLocale);
+        applyStaticTranslations();
+        render();
+      } catch (error) {
+        console.error(error);
+      }
+    });
+  }
 }
 
 async function bootstrap() {
   try {
+    const initialLocale = detectInitialLocale();
+    await loadLocale(initialLocale);
+    applyStaticTranslations();
+    populateLanguageSelect();
+
     const provider = dataProviders[appState.provider];
     if (!provider) {
       throw new Error(`Unknown provider: ${appState.provider}`);
@@ -544,7 +666,7 @@ async function bootstrap() {
     registerServiceWorker();
   } catch (error) {
     console.error(error);
-    updateStatus("Failed to load fuel prices. Check local data or provider configuration.");
+    updateStatus(t("bootstrap.loadFail"));
   }
 }
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "fuelscope-v2";
+const CACHE_NAME = "fuelscope-v3";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -6,6 +6,11 @@ const APP_SHELL = [
   "./app.js",
   "./manifest.json",
   "./data/fuel-prices.json",
+  "./assets/i18n/en-US.xlf",
+  "./assets/i18n/en-GB.xlf",
+  "./assets/i18n/de-DE.xlf",
+  "./assets/i18n/fr-FR.xlf",
+  "./assets/i18n/th-TH.xlf",
   "./icons/icon-192.svg",
   "./icons/icon-512.svg",
 ];

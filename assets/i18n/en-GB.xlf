@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2">
+  <file source-language="en-US" target-language="en-GB" datatype="plaintext">
+    <body>
+      <trans-unit id="meta.title"><source>FuelScope | Fuel Prices</source><target>FuelScope | Fuel Prices</target></trans-unit>
+      <trans-unit id="hero.eyebrow"><source>Progressive Web App</source><target>Progressive Web App</target></trans-unit>
+      <trans-unit id="hero.subtitle"><source>Actual and historical fuel prices. Built for Thailand now, designed for multi-country and city-based pricing.</source><target>Live and historical fuel prices. Built for Thailand first, designed for multi-country and city-based pricing.</target></trans-unit>
+      <trans-unit id="filters.aria"><source>Fuel filters</source><target>Fuel filters</target></trans-unit>
+      <trans-unit id="aria.priceMode"><source>Price mode</source><target>Price mode</target></trans-unit>
+      <trans-unit id="label.country"><source>Country</source><target>Country</target></trans-unit>
+      <trans-unit id="label.city"><source>City</source><target>City</target></trans-unit>
+      <trans-unit id="label.postalCode"><source>Postal code</source><target>Postcode</target></trans-unit>
+      <trans-unit id="label.language"><source>Language</source><target>Language</target></trans-unit>
+      <trans-unit id="label.view"><source>View</source><target>View</target></trans-unit>
+      <trans-unit id="label.date"><source>Date</source><target>Date</target></trans-unit>
+      <trans-unit id="placeholder.postalCode"><source>e.g. 20095</source><target>e.g. SW1A 1AA</target></trans-unit>
+      <trans-unit id="mode.current"><source>Current</source><target>Current</target></trans-unit>
+      <trans-unit id="mode.historical"><source>Historical</source><target>Historical</target></trans-unit>
+      <trans-unit id="section.prices"><source>Prices</source><target>Prices</target></trans-unit>
+      <trans-unit id="section.nationalAverages"><source>National Averages - Germany</source><target>National Averages - Germany</target></trans-unit>
+      <trans-unit id="section.brandComparison"><source>Brand Comparison</source><target>Brand Comparison</target></trans-unit>
+      <trans-unit id="section.recentTrend"><source>Recent Trend</source><target>Recent Trend</target></trans-unit>
+      <trans-unit id="footer.providerNote"><source>Data model is provider-based. Add countries, city rules, or external APIs without changing the UI structure.</source><target>The data model is provider-based. Add countries, city rules, or external APIs without changing the UI structure.</target></trans-unit>
+      <trans-unit id="price.delta.noChange"><source>No change from previous period</source><target>No change from previous period</target></trans-unit>
+      <trans-unit id="price.delta.vsPrevious"><source>{diff} vs previous period</source><target>{diff} vs previous period</target></trans-unit>
+      <trans-unit id="price.delta.vsNationalAvg"><source>{diff} vs national avg</source><target>{diff} vs national average</target></trans-unit>
+      <trans-unit id="price.change.lastChanged"><source>{arrow} {amount} - last changed {ago}</source><target>{arrow} {amount} - last changed {ago}</target></trans-unit>
+      <trans-unit id="price.noData"><source>No price data available for this selection.</source><target>No price data available for this selection.</target></trans-unit>
+      <trans-unit id="time.lt1hAgo"><source>&lt; 1h ago</source><target>&lt; 1h ago</target></trans-unit>
+      <trans-unit id="time.hAgo"><source>{hours}h ago</source><target>{hours}h ago</target></trans-unit>
+      <trans-unit id="time.dAgo"><source>{days}d ago</source><target>{days}d ago</target></trans-unit>
+      <trans-unit id="station.openCount"><source>{openCount} of {totalCount} stations open</source><target>{openCount} of {totalCount} stations open</target></trans-unit>
+      <trans-unit id="station.earliestClose"><source>earliest close at {time}</source><target>earliest closing at {time}</target></trans-unit>
+      <trans-unit id="station.nextOpen"><source>next opens at {time}</source><target>next opens at {time}</target></trans-unit>
+      <trans-unit id="station.asOf"><source>(as of {when})</source><target>(as at {when})</target></trans-unit>
+      <trans-unit id="nat.avg"><source>avg</source><target>avg</target></trans-unit>
+      <trans-unit id="nat.median"><source>median</source><target>median</target></trans-unit>
+      <trans-unit id="nat.stations"><source>stations</source><target>stations</target></trans-unit>
+      <trans-unit id="brand.count"><source>{count}x</source><target>{count}x</target></trans-unit>
+      <trans-unit id="trend.date"><source>Date</source><target>Date</target></trans-unit>
+      <trans-unit id="status.chooseCountry"><source>Please choose a country.</source><target>Please choose a country.</target></trans-unit>
+      <trans-unit id="status.noData"><source>No data found for this date. Try another date or switch to Current view.</source><target>No data found for this date. Try another date or switch to Current view.</target></trans-unit>
+      <trans-unit id="status.historical"><source>Historical ({date})</source><target>Historical ({date})</target></trans-unit>
+      <trans-unit id="status.currentAsOf"><source>Current - prices as of {date} (unchanged since last update)</source><target>Current - prices as at {date} (unchanged since last update)</target></trans-unit>
+      <trans-unit id="status.current"><source>Current ({date})</source><target>Current ({date})</target></trans-unit>
+      <trans-unit id="status.withScopeUnit"><source>{label} - {scope}. Unit: {unit}</source><target>{label} - {scope}. Unit: {unit}</target></trans-unit>
+      <trans-unit id="zip.noData"><source>No data for this postal code</source><target>No data for this postcode</target></trans-unit>
+      <trans-unit id="bootstrap.loadFail"><source>Failed to load fuel prices. Check local data or provider configuration.</source><target>Failed to load fuel prices. Check local data or provider configuration.</target></trans-unit>
+    </body>
+  </file>
+</xliff>

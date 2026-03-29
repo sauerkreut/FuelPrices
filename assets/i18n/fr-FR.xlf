@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2">
+  <file source-language="en-US" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="meta.title"><source>FuelScope | Fuel Prices</source><target>FuelScope | Prix des carburants</target></trans-unit>
+      <trans-unit id="hero.eyebrow"><source>Progressive Web App</source><target>Application Web Progressive</target></trans-unit>
+      <trans-unit id="hero.subtitle"><source>Actual and historical fuel prices. Built for Thailand now, designed for multi-country and city-based pricing.</source><target>Prix des carburants actuels et historiques. Concue d'abord pour la Thailande, puis pour plusieurs pays et villes.</target></trans-unit>
+      <trans-unit id="filters.aria"><source>Fuel filters</source><target>Filtres carburant</target></trans-unit>
+      <trans-unit id="aria.priceMode"><source>Price mode</source><target>Mode de prix</target></trans-unit>
+      <trans-unit id="label.country"><source>Country</source><target>Pays</target></trans-unit>
+      <trans-unit id="label.city"><source>City</source><target>Ville</target></trans-unit>
+      <trans-unit id="label.postalCode"><source>Postal code</source><target>Code postal</target></trans-unit>
+      <trans-unit id="label.language"><source>Language</source><target>Langue</target></trans-unit>
+      <trans-unit id="label.view"><source>View</source><target>Vue</target></trans-unit>
+      <trans-unit id="label.date"><source>Date</source><target>Date</target></trans-unit>
+      <trans-unit id="placeholder.postalCode"><source>e.g. 20095</source><target>ex. 75001</target></trans-unit>
+      <trans-unit id="mode.current"><source>Current</source><target>Actuel</target></trans-unit>
+      <trans-unit id="mode.historical"><source>Historical</source><target>Historique</target></trans-unit>
+      <trans-unit id="section.prices"><source>Prices</source><target>Prix</target></trans-unit>
+      <trans-unit id="section.nationalAverages"><source>National Averages - Germany</source><target>Moyennes nationales - Allemagne</target></trans-unit>
+      <trans-unit id="section.brandComparison"><source>Brand Comparison</source><target>Comparaison des marques</target></trans-unit>
+      <trans-unit id="section.recentTrend"><source>Recent Trend</source><target>Tendance recente</target></trans-unit>
+      <trans-unit id="footer.providerNote"><source>Data model is provider-based. Add countries, city rules, or external APIs without changing the UI structure.</source><target>Le modele de donnees est base sur des fournisseurs. Ajoutez des pays, des regles de ville ou des API externes sans changer la structure UI.</target></trans-unit>
+      <trans-unit id="price.delta.noChange"><source>No change from previous period</source><target>Aucun changement par rapport a la periode precedente</target></trans-unit>
+      <trans-unit id="price.delta.vsPrevious"><source>{diff} vs previous period</source><target>{diff} par rapport a la periode precedente</target></trans-unit>
+      <trans-unit id="price.delta.vsNationalAvg"><source>{diff} vs national avg</source><target>{diff} vs moyenne nationale</target></trans-unit>
+      <trans-unit id="price.change.lastChanged"><source>{arrow} {amount} - last changed {ago}</source><target>{arrow} {amount} - dernier changement il y a {ago}</target></trans-unit>
+      <trans-unit id="price.noData"><source>No price data available for this selection.</source><target>Aucune donnee de prix disponible pour cette selection.</target></trans-unit>
+      <trans-unit id="time.lt1hAgo"><source>&lt; 1h ago</source><target>&lt; 1 h</target></trans-unit>
+      <trans-unit id="time.hAgo"><source>{hours}h ago</source><target>il y a {hours} h</target></trans-unit>
+      <trans-unit id="time.dAgo"><source>{days}d ago</source><target>il y a {days} j</target></trans-unit>
+      <trans-unit id="station.openCount"><source>{openCount} of {totalCount} stations open</source><target>{openCount} stations ouvertes sur {totalCount}</target></trans-unit>
+      <trans-unit id="station.earliestClose"><source>earliest close at {time}</source><target>fermeture la plus tot a {time}</target></trans-unit>
+      <trans-unit id="station.nextOpen"><source>next opens at {time}</source><target>prochaine ouverture a {time}</target></trans-unit>
+      <trans-unit id="station.asOf"><source>(as of {when})</source><target>(mise a jour: {when})</target></trans-unit>
+      <trans-unit id="nat.avg"><source>avg</source><target>moy</target></trans-unit>
+      <trans-unit id="nat.median"><source>median</source><target>mediane</target></trans-unit>
+      <trans-unit id="nat.stations"><source>stations</source><target>stations</target></trans-unit>
+      <trans-unit id="brand.count"><source>{count}x</source><target>{count}x</target></trans-unit>
+      <trans-unit id="trend.date"><source>Date</source><target>Date</target></trans-unit>
+      <trans-unit id="status.chooseCountry"><source>Please choose a country.</source><target>Veuillez choisir un pays.</target></trans-unit>
+      <trans-unit id="status.noData"><source>No data found for this date. Try another date or switch to Current view.</source><target>Aucune donnee trouvee pour cette date. Essayez une autre date ou passez en vue Actuel.</target></trans-unit>
+      <trans-unit id="status.historical"><source>Historical ({date})</source><target>Historique ({date})</target></trans-unit>
+      <trans-unit id="status.currentAsOf"><source>Current - prices as of {date} (unchanged since last update)</source><target>Actuel - prix au {date} (inchanges depuis la derniere mise a jour)</target></trans-unit>
+      <trans-unit id="status.current"><source>Current ({date})</source><target>Actuel ({date})</target></trans-unit>
+      <trans-unit id="status.withScopeUnit"><source>{label} - {scope}. Unit: {unit}</source><target>{label} - {scope}. Unite: {unit}</target></trans-unit>
+      <trans-unit id="zip.noData"><source>No data for this postal code</source><target>Aucune donnee pour ce code postal</target></trans-unit>
+      <trans-unit id="bootstrap.loadFail"><source>Failed to load fuel prices. Check local data or provider configuration.</source><target>Echec du chargement des prix des carburants. Verifiez les donnees locales ou la configuration du fournisseur.</target></trans-unit>
+    </body>
+  </file>
+</xliff>

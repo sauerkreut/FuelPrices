@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2">
+  <file source-language="en-US" target-language="th-TH" datatype="plaintext">
+    <body>
+      <trans-unit id="meta.title"><source>FuelScope | Fuel Prices</source><target>FuelScope | ราคาน้ำมัน</target></trans-unit>
+      <trans-unit id="hero.eyebrow"><source>Progressive Web App</source><target>เว็บแอปแบบก้าวหน้า</target></trans-unit>
+      <trans-unit id="hero.subtitle"><source>Actual and historical fuel prices. Built for Thailand now, designed for multi-country and city-based pricing.</source><target>แสดงราคาน้ำมันปัจจุบันและย้อนหลัง เริ่มจากประเทศไทย และรองรับหลายประเทศหลายเมือง</target></trans-unit>
+      <trans-unit id="filters.aria"><source>Fuel filters</source><target>ตัวกรองราคาน้ำมัน</target></trans-unit>
+      <trans-unit id="aria.priceMode"><source>Price mode</source><target>โหมดราคา</target></trans-unit>
+      <trans-unit id="label.country"><source>Country</source><target>ประเทศ</target></trans-unit>
+      <trans-unit id="label.city"><source>City</source><target>เมือง</target></trans-unit>
+      <trans-unit id="label.postalCode"><source>Postal code</source><target>รหัสไปรษณีย์</target></trans-unit>
+      <trans-unit id="label.language"><source>Language</source><target>ภาษา</target></trans-unit>
+      <trans-unit id="label.view"><source>View</source><target>มุมมอง</target></trans-unit>
+      <trans-unit id="label.date"><source>Date</source><target>วันที่</target></trans-unit>
+      <trans-unit id="placeholder.postalCode"><source>e.g. 20095</source><target>เช่น 20095</target></trans-unit>
+      <trans-unit id="mode.current"><source>Current</source><target>ปัจจุบัน</target></trans-unit>
+      <trans-unit id="mode.historical"><source>Historical</source><target>ย้อนหลัง</target></trans-unit>
+      <trans-unit id="section.prices"><source>Prices</source><target>ราคา</target></trans-unit>
+      <trans-unit id="section.nationalAverages"><source>National Averages - Germany</source><target>ค่าเฉลี่ยทั้งประเทศ - เยอรมนี</target></trans-unit>
+      <trans-unit id="section.brandComparison"><source>Brand Comparison</source><target>เปรียบเทียบแบรนด์</target></trans-unit>
+      <trans-unit id="section.recentTrend"><source>Recent Trend</source><target>แนวโน้มล่าสุด</target></trans-unit>
+      <trans-unit id="footer.providerNote"><source>Data model is provider-based. Add countries, city rules, or external APIs without changing the UI structure.</source><target>โครงสร้างข้อมูลรองรับหลายผู้ให้บริการ เพิ่มประเทศ กฎระดับเมือง หรือ API ภายนอกได้โดยไม่ต้องเปลี่ยนโครงสร้าง UI</target></trans-unit>
+      <trans-unit id="price.delta.noChange"><source>No change from previous period</source><target>ไม่เปลี่ยนแปลงจากช่วงก่อนหน้า</target></trans-unit>
+      <trans-unit id="price.delta.vsPrevious"><source>{diff} vs previous period</source><target>{diff} เทียบกับช่วงก่อนหน้า</target></trans-unit>
+      <trans-unit id="price.delta.vsNationalAvg"><source>{diff} vs national avg</source><target>{diff} เทียบกับค่าเฉลี่ยทั้งประเทศ</target></trans-unit>
+      <trans-unit id="price.change.lastChanged"><source>{arrow} {amount} - last changed {ago}</source><target>{arrow} {amount} - เปลี่ยนล่าสุดเมื่อ {ago}</target></trans-unit>
+      <trans-unit id="price.noData"><source>No price data available for this selection.</source><target>ไม่มีข้อมูลราคาสำหรับตัวเลือกนี้</target></trans-unit>
+      <trans-unit id="time.lt1hAgo"><source>&lt; 1h ago</source><target>&lt; 1 ชม.</target></trans-unit>
+      <trans-unit id="time.hAgo"><source>{hours}h ago</source><target>{hours} ชม.ก่อน</target></trans-unit>
+      <trans-unit id="time.dAgo"><source>{days}d ago</source><target>{days} วันก่อน</target></trans-unit>
+      <trans-unit id="station.openCount"><source>{openCount} of {totalCount} stations open</source><target>เปิดอยู่ {openCount} จาก {totalCount} สถานี</target></trans-unit>
+      <trans-unit id="station.earliestClose"><source>earliest close at {time}</source><target>ปิดเร็วสุดเวลา {time}</target></trans-unit>
+      <trans-unit id="station.nextOpen"><source>next opens at {time}</source><target>จะเปิดถัดไปเวลา {time}</target></trans-unit>
+      <trans-unit id="station.asOf"><source>(as of {when})</source><target>(ข้อมูล ณ {when})</target></trans-unit>
+      <trans-unit id="nat.avg"><source>avg</source><target>เฉลี่ย</target></trans-unit>
+      <trans-unit id="nat.median"><source>median</source><target>มัธยฐาน</target></trans-unit>
+      <trans-unit id="nat.stations"><source>stations</source><target>สถานี</target></trans-unit>
+      <trans-unit id="brand.count"><source>{count}x</source><target>{count} แห่ง</target></trans-unit>
+      <trans-unit id="trend.date"><source>Date</source><target>วันที่</target></trans-unit>
+      <trans-unit id="status.chooseCountry"><source>Please choose a country.</source><target>กรุณาเลือกประเทศ</target></trans-unit>
+      <trans-unit id="status.noData"><source>No data found for this date. Try another date or switch to Current view.</source><target>ไม่พบข้อมูลในวันที่นี้ ลองเลือกวันอื่นหรือสลับไปมุมมองปัจจุบัน</target></trans-unit>
+      <trans-unit id="status.historical"><source>Historical ({date})</source><target>ย้อนหลัง ({date})</target></trans-unit>
+      <trans-unit id="status.currentAsOf"><source>Current - prices as of {date} (unchanged since last update)</source><target>ปัจจุบัน - ราคา ณ วันที่ {date} (ไม่เปลี่ยนแปลงตั้งแต่อัปเดตครั้งล่าสุด)</target></trans-unit>
+      <trans-unit id="status.current"><source>Current ({date})</source><target>ปัจจุบัน ({date})</target></trans-unit>
+      <trans-unit id="status.withScopeUnit"><source>{label} - {scope}. Unit: {unit}</source><target>{label} - {scope} หน่วย: {unit}</target></trans-unit>
+      <trans-unit id="zip.noData"><source>No data for this postal code</source><target>ไม่มีข้อมูลสำหรับรหัสไปรษณีย์นี้</target></trans-unit>
+      <trans-unit id="bootstrap.loadFail"><source>Failed to load fuel prices. Check local data or provider configuration.</source><target>โหลดราคาน้ำมันไม่สำเร็จ โปรดตรวจสอบข้อมูลภายในหรือการตั้งค่าผู้ให้บริการ</target></trans-unit>
+    </body>
+  </file>
+</xliff>
