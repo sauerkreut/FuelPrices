@@ -80,10 +80,10 @@ function upsertHistory(history, newEntry) {
 function normalizeGermanText(value) {
   return String(value || "")
     .trim()
-    .replace(/ä/ggi, "ae")
-    .replace(/ö/ggi, "oe")
-    .replace(/ü/ggi, "ue")
-    .replace(/ß/ggi, "ss")
+    .replace(/ä/gi, "ae")
+    .replace(/ö/gi, "oe")
+    .replace(/ü/gi, "ue")
+    .replace(/ß/gi, "ss")
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
