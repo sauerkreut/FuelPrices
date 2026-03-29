@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generatedAt": "2026-03-28",
+    "generatedAt": "2026-03-29",
     "defaultCountry": "TH",
     "notes": "Auto-refreshed via provider ingestion. See README for provider/API details."
   },
@@ -110,9 +110,21 @@
         "Diesel"
       ],
       "nationalStats": {
-        "Super E5":  { "count": 14823, "mean": 1.849, "median": 1.849 },
-        "Super E10": { "count": 14652, "mean": 1.779, "median": 1.779 },
-        "Diesel":    { "count": 14901, "mean": 1.689, "median": 1.689 }
+        "Super E5": {
+          "count": 14823,
+          "mean": 1.849,
+          "median": 1.849
+        },
+        "Super E10": {
+          "count": 14652,
+          "mean": 1.779,
+          "median": 1.779
+        },
+        "Diesel": {
+          "count": 14901,
+          "mean": 1.689,
+          "median": 1.689
+        }
       },
       "providerConfig": {
         "cities": [
@@ -136,7 +148,7 @@
             "id": "hamburg",
             "postalCode": "20095",
             "lat": 53.55,
-            "lng": 10.0,
+            "lng": 10,
             "radiusKm": 6,
             "maxStations": 25
           }
@@ -156,28 +168,100 @@
           },
           "brandComparison": {
             "Super E5": [
-              { "brand": "JET",           "price": 1.849, "count": 2 },
-              { "brand": "AVIA",          "price": 1.859, "count": 1 },
-              { "brand": "ARAL",          "price": 1.869, "count": 4 },
-              { "brand": "Esso",          "price": 1.879, "count": 3 },
-              { "brand": "Shell",         "price": 1.889, "count": 3 },
-              { "brand": "TotalEnergies", "price": 1.899, "count": 2 }
+              {
+                "brand": "JET",
+                "price": 1.849,
+                "count": 2
+              },
+              {
+                "brand": "AVIA",
+                "price": 1.859,
+                "count": 1
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.869,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.879,
+                "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 1.889,
+                "count": 3
+              },
+              {
+                "brand": "TotalEnergies",
+                "price": 1.899,
+                "count": 2
+              }
             ],
             "Super E10": [
-              { "brand": "JET",           "price": 1.779, "count": 2 },
-              { "brand": "AVIA",          "price": 1.789, "count": 1 },
-              { "brand": "ARAL",          "price": 1.799, "count": 4 },
-              { "brand": "Esso",          "price": 1.809, "count": 3 },
-              { "brand": "Shell",         "price": 1.819, "count": 3 },
-              { "brand": "TotalEnergies", "price": 1.829, "count": 2 }
+              {
+                "brand": "JET",
+                "price": 1.779,
+                "count": 2
+              },
+              {
+                "brand": "AVIA",
+                "price": 1.789,
+                "count": 1
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.799,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.809,
+                "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 1.819,
+                "count": 3
+              },
+              {
+                "brand": "TotalEnergies",
+                "price": 1.829,
+                "count": 2
+              }
             ],
             "Diesel": [
-              { "brand": "HEM",           "price": 1.679, "count": 2 },
-              { "brand": "JET",           "price": 1.689, "count": 2 },
-              { "brand": "ARAL",          "price": 1.699, "count": 4 },
-              { "brand": "BP",            "price": 1.709, "count": 2 },
-              { "brand": "Shell",         "price": 1.719, "count": 3 },
-              { "brand": "TotalEnergies", "price": 1.729, "count": 2 }
+              {
+                "brand": "HEM",
+                "price": 1.679,
+                "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 1.689,
+                "count": 2
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.699,
+                "count": 4
+              },
+              {
+                "brand": "BP",
+                "price": 1.709,
+                "count": 2
+              },
+              {
+                "brand": "Shell",
+                "price": 1.719,
+                "count": 3
+              },
+              {
+                "brand": "TotalEnergies",
+                "price": 1.729,
+                "count": 2
+              }
             ]
           },
           "history": [
@@ -189,9 +273,18 @@
                 "Diesel": 1.699
               },
               "priceChanges": {
-                "Super E5":  { "timestamp": "2026-03-28T06:12:00+01:00", "amount":  0.019 },
-                "Super E10": { "timestamp": "2026-03-28T06:12:00+01:00", "amount":  0.019 },
-                "Diesel":    { "timestamp": "2026-03-27T18:45:00+01:00", "amount": -0.009 }
+                "Super E5": {
+                  "timestamp": "2026-03-28T06:12:00+01:00",
+                  "amount": 0.019
+                },
+                "Super E10": {
+                  "timestamp": "2026-03-28T06:12:00+01:00",
+                  "amount": 0.019
+                },
+                "Diesel": {
+                  "timestamp": "2026-03-27T18:45:00+01:00",
+                  "amount": -0.009
+                }
               }
             },
             {
@@ -233,25 +326,85 @@
           },
           "brandComparison": {
             "Super E5": [
-              { "brand": "Q1",    "price": 1.899, "count": 2 },
-              { "brand": "JET",   "price": 1.909, "count": 1 },
-              { "brand": "ARAL",  "price": 1.919, "count": 5 },
-              { "brand": "Shell", "price": 1.929, "count": 4 },
-              { "brand": "Esso",  "price": 1.939, "count": 2 }
+              {
+                "brand": "Q1",
+                "price": 1.899,
+                "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 1.909,
+                "count": 1
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.919,
+                "count": 5
+              },
+              {
+                "brand": "Shell",
+                "price": 1.929,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.939,
+                "count": 2
+              }
             ],
             "Super E10": [
-              { "brand": "Q1",    "price": 1.829, "count": 2 },
-              { "brand": "JET",   "price": 1.839, "count": 1 },
-              { "brand": "ARAL",  "price": 1.849, "count": 5 },
-              { "brand": "Shell", "price": 1.859, "count": 4 },
-              { "brand": "Esso",  "price": 1.869, "count": 2 }
+              {
+                "brand": "Q1",
+                "price": 1.829,
+                "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 1.839,
+                "count": 1
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.849,
+                "count": 5
+              },
+              {
+                "brand": "Shell",
+                "price": 1.859,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.869,
+                "count": 2
+              }
             ],
             "Diesel": [
-              { "brand": "JET",   "price": 1.739, "count": 1 },
-              { "brand": "ARAL",  "price": 1.749, "count": 5 },
-              { "brand": "Shell", "price": 1.759, "count": 4 },
-              { "brand": "BP",    "price": 1.769, "count": 3 },
-              { "brand": "Esso",  "price": 1.779, "count": 2 }
+              {
+                "brand": "JET",
+                "price": 1.739,
+                "count": 1
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.749,
+                "count": 5
+              },
+              {
+                "brand": "Shell",
+                "price": 1.759,
+                "count": 4
+              },
+              {
+                "brand": "BP",
+                "price": 1.769,
+                "count": 3
+              },
+              {
+                "brand": "Esso",
+                "price": 1.779,
+                "count": 2
+              }
             ]
           },
           "history": [
@@ -263,9 +416,18 @@
                 "Diesel": 1.759
               },
               "priceChanges": {
-                "Super E5":  { "timestamp": "2026-03-28T07:03:00+01:00", "amount":  0.009 },
-                "Super E10": { "timestamp": "2026-03-28T07:03:00+01:00", "amount":  0.009 },
-                "Diesel":    { "timestamp": "2026-03-28T07:03:00+01:00", "amount": -0.019 }
+                "Super E5": {
+                  "timestamp": "2026-03-28T07:03:00+01:00",
+                  "amount": 0.009
+                },
+                "Super E10": {
+                  "timestamp": "2026-03-28T07:03:00+01:00",
+                  "amount": 0.009
+                },
+                "Diesel": {
+                  "timestamp": "2026-03-28T07:03:00+01:00",
+                  "amount": -0.019
+                }
               }
             },
             {
@@ -307,48 +469,133 @@
           },
           "brandComparison": {
             "Super E5": [
-              { "brand": "HEM",   "price": 1.859, "count": 2 },
-              { "brand": "JET",   "price": 1.869, "count": 3 },
-              { "brand": "ARAL",  "price": 1.879, "count": 4 },
-              { "brand": "Esso",  "price": 1.889, "count": 3 },
-              { "brand": "Shell", "price": 1.899, "count": 4 }
+              {
+                "brand": "HEM",
+                "price": 1.859,
+                "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 1.869,
+                "count": 3
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.879,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.889,
+                "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 1.899,
+                "count": 4
+              }
             ],
             "Super E10": [
-              { "brand": "HEM",   "price": 1.789, "count": 2 },
-              { "brand": "JET",   "price": 1.799, "count": 3 },
-              { "brand": "ARAL",  "price": 1.809, "count": 4 },
-              { "brand": "Esso",  "price": 1.819, "count": 3 },
-              { "brand": "Shell", "price": 1.829, "count": 4 }
+              {
+                "brand": "HEM",
+                "price": 1.789,
+                "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 1.799,
+                "count": 3
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.809,
+                "count": 4
+              },
+              {
+                "brand": "Esso",
+                "price": 1.819,
+                "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 1.829,
+                "count": 4
+              }
             ],
             "Diesel": [
-              { "brand": "JET",   "price": 1.689, "count": 3 },
-              { "brand": "AVIA",  "price": 1.699, "count": 2 },
-              { "brand": "ARAL",  "price": 1.709, "count": 4 },
-              { "brand": "Shell", "price": 1.719, "count": 4 },
-              { "brand": "BP",    "price": 1.729, "count": 2 }
+              {
+                "brand": "JET",
+                "price": 1.689,
+                "count": 3
+              },
+              {
+                "brand": "AVIA",
+                "price": 1.699,
+                "count": 2
+              },
+              {
+                "brand": "ARAL",
+                "price": 1.709,
+                "count": 4
+              },
+              {
+                "brand": "Shell",
+                "price": 1.719,
+                "count": 4
+              },
+              {
+                "brand": "BP",
+                "price": 1.729,
+                "count": 2
+              }
             ]
           },
           "history": [
             {
               "date": "2026-03-28",
-              "prices": { "Super E5": 1.879, "Super E10": 1.809, "Diesel": 1.709 },
+              "prices": {
+                "Super E5": 1.879,
+                "Super E10": 1.809,
+                "Diesel": 1.709
+              },
               "priceChanges": {
-                "Super E5":  { "timestamp": "2026-03-28T05:45:00+01:00", "amount":  0.010 },
-                "Super E10": { "timestamp": "2026-03-28T05:45:00+01:00", "amount":  0.010 },
-                "Diesel":    { "timestamp": "2026-03-27T20:15:00+01:00", "amount": -0.015 }
+                "Super E5": {
+                  "timestamp": "2026-03-28T05:45:00+01:00",
+                  "amount": 0.01
+                },
+                "Super E10": {
+                  "timestamp": "2026-03-28T05:45:00+01:00",
+                  "amount": 0.01
+                },
+                "Diesel": {
+                  "timestamp": "2026-03-27T20:15:00+01:00",
+                  "amount": -0.015
+                }
               }
             },
             {
               "date": "2026-03-27",
-              "prices": { "Super E5": 1.869, "Super E10": 1.799, "Diesel": 1.724 }
+              "prices": {
+                "Super E5": 1.869,
+                "Super E10": 1.799,
+                "Diesel": 1.724
+              }
             },
             {
               "date": "2026-03-20",
-              "prices": { "Super E5": 1.845, "Super E10": 1.775, "Diesel": 1.705 }
+              "prices": {
+                "Super E5": 1.845,
+                "Super E10": 1.775,
+                "Diesel": 1.705
+              }
             },
             {
               "date": "2026-03-13",
-              "prices": { "Super E5": 1.822, "Super E10": 1.752, "Diesel": 1.682 }
+              "prices": {
+                "Super E5": 1.822,
+                "Super E10": 1.752,
+                "Diesel": 1.682
+              }
             }
           ]
         }
