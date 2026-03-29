@@ -351,7 +351,6 @@
           },
           {
             "id": "erfurt",
-            "postalCode": "99084",
             "lat": 50.979,
             "lng": 11.029,
             "radiusKm": 6,
@@ -367,7 +366,6 @@
           },
           {
             "id": "halle-saale",
-            "postalCode": "06108",
             "lat": 51.482,
             "lng": 11.97,
             "radiusKm": 6,
@@ -375,7 +373,6 @@
           },
           {
             "id": "mainz",
-            "postalCode": "55116",
             "lat": 49.998,
             "lng": 8.274,
             "radiusKm": 6,
