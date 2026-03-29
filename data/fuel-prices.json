@@ -377,6 +377,166 @@
             "lng": 8.274,
             "radiusKm": 6,
             "maxStations": 25
+          },
+          {
+            "id": "dortmund",
+            "postalCode": "44135",
+            "lat": 51.514,
+            "lng": 7.468,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "wuppertal",
+            "postalCode": "42103",
+            "lat": 51.257,
+            "lng": 7.15,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "moenchengladbach",
+            "postalCode": "41061",
+            "lat": 51.195,
+            "lng": 6.436,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "braunschweig",
+            "postalCode": "38100",
+            "lat": 52.268,
+            "lng": 10.527,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "chemnitz",
+            "postalCode": "09111",
+            "lat": 50.833,
+            "lng": 12.921,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "krefeld",
+            "postalCode": "47798",
+            "lat": 51.334,
+            "lng": 6.558,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "luebeck",
+            "postalCode": "23552",
+            "lat": 53.866,
+            "lng": 10.685,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "kassel",
+            "postalCode": "34117",
+            "lat": 51.312,
+            "lng": 9.481,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hagen",
+            "postalCode": "58095",
+            "lat": 51.36,
+            "lng": 7.474,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "saarbruecken",
+            "postalCode": "66111",
+            "lat": 49.234,
+            "lng": 6.997,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "hamm",
+            "postalCode": "59065",
+            "lat": 51.68,
+            "lng": 7.816,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "muelheim-an-der-ruhr",
+            "postalCode": "45468",
+            "lat": 51.428,
+            "lng": 6.882,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "osnabrueck",
+            "postalCode": "49074",
+            "lat": 52.279,
+            "lng": 8.047,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "solingen",
+            "postalCode": "42651",
+            "lat": 51.178,
+            "lng": 7.083,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "heidelberg",
+            "postalCode": "69115",
+            "lat": 49.399,
+            "lng": 8.673,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "darmstadt",
+            "postalCode": "64283",
+            "lat": 49.872,
+            "lng": 8.652,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "paderborn",
+            "postalCode": "33098",
+            "lat": 51.719,
+            "lng": 8.754,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "regensburg",
+            "postalCode": "93047",
+            "lat": 49.013,
+            "lng": 12.102,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "potsdam",
+            "postalCode": "14467",
+            "lat": 52.396,
+            "lng": 13.058,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "wuerzburg",
+            "postalCode": "97070",
+            "lat": 49.797,
+            "lng": 9.936,
+            "radiusKm": 6,
+            "maxStations": 25
           }
         ]
       },
@@ -4386,6 +4546,126 @@
               }
             ]
           }
+        },
+        {
+          "id": "dortmund",
+          "name": "Dortmund",
+          "postalCode": "44135",
+          "history": []
+        },
+        {
+          "id": "wuppertal",
+          "name": "Wuppertal",
+          "postalCode": "42103",
+          "history": []
+        },
+        {
+          "id": "moenchengladbach",
+          "name": "Mönchengladbach",
+          "postalCode": "41061",
+          "history": []
+        },
+        {
+          "id": "braunschweig",
+          "name": "Braunschweig",
+          "postalCode": "38100",
+          "history": []
+        },
+        {
+          "id": "chemnitz",
+          "name": "Chemnitz",
+          "postalCode": "09111",
+          "history": []
+        },
+        {
+          "id": "krefeld",
+          "name": "Krefeld",
+          "postalCode": "47798",
+          "history": []
+        },
+        {
+          "id": "luebeck",
+          "name": "Lübeck",
+          "postalCode": "23552",
+          "history": []
+        },
+        {
+          "id": "kassel",
+          "name": "Kassel",
+          "postalCode": "34117",
+          "history": []
+        },
+        {
+          "id": "hagen",
+          "name": "Hagen",
+          "postalCode": "58095",
+          "history": []
+        },
+        {
+          "id": "saarbruecken",
+          "name": "Saarbrücken",
+          "postalCode": "66111",
+          "history": []
+        },
+        {
+          "id": "hamm",
+          "name": "Hamm",
+          "postalCode": "59065",
+          "history": []
+        },
+        {
+          "id": "muelheim-an-der-ruhr",
+          "name": "Mülheim an der Ruhr",
+          "postalCode": "45468",
+          "history": []
+        },
+        {
+          "id": "osnabrueck",
+          "name": "Osnabrück",
+          "postalCode": "49074",
+          "history": []
+        },
+        {
+          "id": "solingen",
+          "name": "Solingen",
+          "postalCode": "42651",
+          "history": []
+        },
+        {
+          "id": "heidelberg",
+          "name": "Heidelberg",
+          "postalCode": "69115",
+          "history": []
+        },
+        {
+          "id": "darmstadt",
+          "name": "Darmstadt",
+          "postalCode": "64283",
+          "history": []
+        },
+        {
+          "id": "paderborn",
+          "name": "Paderborn",
+          "postalCode": "33098",
+          "history": []
+        },
+        {
+          "id": "regensburg",
+          "name": "Regensburg",
+          "postalCode": "93047",
+          "history": []
+        },
+        {
+          "id": "potsdam",
+          "name": "Potsdam",
+          "postalCode": "14467",
+          "history": []
+        },
+        {
+          "id": "wuerzburg",
+          "name": "Würzburg",
+          "postalCode": "97070",
+          "history": []
         }
       ]
     }
