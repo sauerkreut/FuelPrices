@@ -4,6 +4,23 @@ import process from "node:process";
 
 const DATA_FILE = path.resolve(process.cwd(), "data", "fuel-prices.json");
 const TODAY = new Date().toISOString().slice(0, 10);
+const CITY_DISCOVERY_PROBES = [
+  { lat: 53.55, lng: 10.0 },
+  { lat: 52.52, lng: 13.405 },
+  { lat: 48.137, lng: 11.575 },
+  { lat: 50.11, lng: 8.68 },
+  { lat: 50.94, lng: 6.96 },
+  { lat: 48.775, lng: 9.182 },
+  { lat: 51.227, lng: 6.773 },
+  { lat: 51.45, lng: 7.013 },
+  { lat: 53.079, lng: 8.801 },
+  { lat: 51.34, lng: 12.375 },
+  { lat: 51.05, lng: 13.738 },
+  { lat: 52.375, lng: 9.732 },
+  { lat: 49.452, lng: 11.076 },
+  { lat: 49.006, lng: 8.403 },
+  { lat: 52.13, lng: 11.62 },
+];
 
 // Maps Tankerkoenig /stats API keys → our canonical Germany fuel type names
 const TANKERKOENIG_STATS_KEY_MAP = { E5: "Super E5", E10: "Super E10", Diesel: "Diesel" };
@@ -58,6 +75,109 @@ function upsertHistory(history, newEntry) {
   }
 
   return [newEntry, ...history].sort((a, b) => b.date.localeCompare(a.date));
+}
+
+function slugifyCityName(name) {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+function average(values) {
+  return values.reduce((sum, value) => sum + value, 0) / values.length;
+}
+
+function mostFrequent(values) {
+  const counts = new Map();
+  for (const value of values) {
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+
+  let bestValue = null;
+  let bestCount = -1;
+  for (const [value, count] of counts.entries()) {
+    if (count > bestCount) {
+      bestValue = value;
+      bestCount = count;
+    }
+  }
+  return bestValue;
+}
+
+async function fetchStationsBySearch(apiKey, lat, lng, radiusKm = 25) {
+  const url = new URL("https://creativecommons.tankerkoenig.de/api/v4/stations/search");
+  url.searchParams.set("apikey", apiKey);
+  url.searchParams.set("lat", String(lat));
+  url.searchParams.set("lng", String(lng));
+  url.searchParams.set("rad", String(radiusKm));
+
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`search endpoint failed (${lat},${lng}): ${response.status}`);
+  }
+
+  const payload = await response.json();
+  if (!Array.isArray(payload?.stations)) {
+    throw new Error(`Invalid search payload at (${lat},${lng})`);
+  }
+
+  return payload.stations;
+}
+
+async function discoverGermanyCities(apiKey, maxDiscoveredCities = 12) {
+  const byCity = new Map();
+
+  for (const probe of CITY_DISCOVERY_PROBES) {
+    let stations = [];
+    try {
+      stations = await fetchStationsBySearch(apiKey, probe.lat, probe.lng, 25);
+    } catch (error) {
+      console.warn(`  City discovery probe failed (${probe.lat},${probe.lng}): ${error.message}`);
+      continue;
+    }
+
+    for (const station of stations) {
+      const place = String(station.place || "").trim();
+      if (!place) {
+        continue;
+      }
+
+      const key = place.toLowerCase();
+      if (!byCity.has(key)) {
+        byCity.set(key, {
+          name: place,
+          lats: [],
+          lngs: [],
+          postalCodes: [],
+          stations: 0,
+        });
+      }
+
+      const city = byCity.get(key);
+      if (station.coords?.lat && station.coords?.lng) {
+        city.lats.push(Number(station.coords.lat));
+        city.lngs.push(Number(station.coords.lng));
+      }
+      if (station.postalCode) {
+        city.postalCodes.push(String(station.postalCode));
+      }
+      city.stations += 1;
+    }
+  }
+
+  return [...byCity.values()]
+    .filter((entry) => entry.lats.length > 0 && entry.lngs.length > 0)
+    .sort((a, b) => b.stations - a.stations)
+    .slice(0, maxDiscoveredCities)
+    .map((entry) => ({
+      id: slugifyCityName(entry.name),
+      name: entry.name,
+      lat: Number(average(entry.lats).toFixed(6)),
+      lng: Number(average(entry.lngs).toFixed(6)),
+      postalCode: entry.postalCodes.length ? mostFrequent(entry.postalCodes) : undefined,
+    }));
 }
 
 function thaiDateToIso(thDate) {
@@ -173,7 +293,46 @@ async function ingestGermanyTankerkoenig(country) {
   }
 
   const providerConfig = country.providerConfig || {};
-  const cityConfigs = providerConfig.cities || [];
+  const cityConfigs = Array.isArray(providerConfig.cities) ? providerConfig.cities : [];
+
+  // Discover extra cities directly from Tankerkoenig station.place values.
+  // This extends the configured city list without overwriting existing user-curated entries.
+  const shouldDiscover = providerConfig.autoDiscoverCities !== false;
+  if (shouldDiscover) {
+    const maxDiscoveredCities = Number(providerConfig.maxDiscoveredCities || 12);
+    const discoveredCities = await discoverGermanyCities(apiKey, maxDiscoveredCities);
+    const existingIds = new Set(cityConfigs.map((entry) => entry.id));
+
+    let added = 0;
+    for (const discovered of discoveredCities) {
+      if (!discovered.id || existingIds.has(discovered.id)) {
+        continue;
+      }
+
+      cityConfigs.push({
+        id: discovered.id,
+        postalCode: discovered.postalCode,
+        lat: discovered.lat,
+        lng: discovered.lng,
+        radiusKm: Number(providerConfig.defaultRadiusKm || 6),
+        maxStations: Number(providerConfig.defaultMaxStations || 25),
+      });
+      country.cities.push({
+        id: discovered.id,
+        name: discovered.name,
+        ...(discovered.postalCode ? { postalCode: discovered.postalCode } : {}),
+        history: [],
+      });
+      existingIds.add(discovered.id);
+      added += 1;
+    }
+
+    if (added > 0) {
+      providerConfig.cities = cityConfigs;
+      country.providerConfig = providerConfig;
+      console.log(`  Discovered ${added} additional cities from Tankerkoenig.`);
+    }
+  }
 
   for (const city of country.cities) {
     const cityConfig = cityConfigs.find((entry) => entry.id === city.id);

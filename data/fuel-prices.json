@@ -126,6 +126,10 @@
         }
       },
       "providerConfig": {
+        "autoDiscoverCities": true,
+        "maxDiscoveredCities": 12,
+        "defaultRadiusKm": 6,
+        "defaultMaxStations": 25,
         "cities": [
           {
             "id": "berlin",
