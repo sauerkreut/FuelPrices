@@ -301,6 +301,46 @@
             "lng": 7.626,
             "radiusKm": 6,
             "maxStations": 25
+          },
+          {
+            "id": "bielefeld",
+            "postalCode": "33602",
+            "lat": 52.021,
+            "lng": 8.535,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "gelsenkirchen",
+            "postalCode": "45879",
+            "lat": 51.517,
+            "lng": 7.085,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "aachen",
+            "postalCode": "52062",
+            "lat": 50.776,
+            "lng": 6.084,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "kiel",
+            "postalCode": "24103",
+            "lat": 54.323,
+            "lng": 10.135,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "rostock",
+            "postalCode": "18055",
+            "lat": 54.092,
+            "lng": 12.099,
+            "radiusKm": 6,
+            "maxStations": 25
           }
         ]
       },
@@ -3025,6 +3065,36 @@
               }
             ]
           }
+        },
+        {
+          "id": "bielefeld",
+          "name": "Bielefeld",
+          "postalCode": "33602",
+          "history": []
+        },
+        {
+          "id": "gelsenkirchen",
+          "name": "Gelsenkirchen",
+          "postalCode": "45879",
+          "history": []
+        },
+        {
+          "id": "aachen",
+          "name": "Aachen",
+          "postalCode": "52062",
+          "history": []
+        },
+        {
+          "id": "kiel",
+          "name": "Kiel",
+          "postalCode": "24103",
+          "history": []
+        },
+        {
+          "id": "rostock",
+          "name": "Rostock",
+          "postalCode": "18055",
+          "history": []
         }
       ]
     }
