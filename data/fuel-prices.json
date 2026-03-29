@@ -340,6 +340,46 @@
             "lng": 12.099,
             "radiusKm": 6,
             "maxStations": 25
+          },
+          {
+            "id": "freiburg-im-breisgau",
+            "postalCode": "79098",
+            "lat": 47.999,
+            "lng": 7.842,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "erfurt",
+            "postalCode": "99084",
+            "lat": 50.979,
+            "lng": 11.029,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "oberhausen",
+            "postalCode": "46045",
+            "lat": 51.470,
+            "lng": 6.851,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "halle-saale",
+            "postalCode": "06108",
+            "lat": 51.482,
+            "lng": 11.970,
+            "radiusKm": 6,
+            "maxStations": 25
+          },
+          {
+            "id": "mainz",
+            "postalCode": "55116",
+            "lat": 49.998,
+            "lng": 8.274,
+            "radiusKm": 6,
+            "maxStations": 25
           }
         ]
       },
@@ -3509,6 +3549,36 @@
               }
             ]
           }
+        },
+        {
+          "id": "freiburg-im-breisgau",
+          "name": "Freiburg im Breisgau",
+          "postalCode": "79098",
+          "history": []
+        },
+        {
+          "id": "erfurt",
+          "name": "Erfurt",
+          "postalCode": "99084",
+          "history": []
+        },
+        {
+          "id": "oberhausen",
+          "name": "Oberhausen",
+          "postalCode": "46045",
+          "history": []
+        },
+        {
+          "id": "halle-saale",
+          "name": "Halle (Saale)",
+          "postalCode": "06108",
+          "history": []
+        },
+        {
+          "id": "mainz",
+          "name": "Mainz",
+          "postalCode": "55116",
+          "history": []
         }
       ]
     }
