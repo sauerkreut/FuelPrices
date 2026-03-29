@@ -229,7 +229,6 @@
           },
           {
             "id": "frankfurt-am-main",
-            "postalCode": "60311",
             "lat": 50.11,
             "lng": 8.68,
             "radiusKm": 6,
@@ -237,7 +236,6 @@
           },
           {
             "id": "duesseldorf",
-            "postalCode": "40213",
             "lat": 51.227,
             "lng": 6.773,
             "radiusKm": 6,
@@ -245,7 +243,6 @@
           },
           {
             "id": "nuernberg",
-            "postalCode": "90402",
             "lat": 49.452,
             "lng": 11.076,
             "radiusKm": 6,
