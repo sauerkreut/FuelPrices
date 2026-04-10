@@ -379,10 +379,10 @@ function renderFreshnessInfo() {
   }
 
   const latest = selected.dataset.history?.[0];
-  const asOf = selected.dataset.stationStatus?.asOf;
+  const asOf = selected.dataset.latestUpdateAt || selected.dataset.stationStatus?.asOf;
   const parts = [];
   if (latest?.date) parts.push(`Latest daily record: ${latest.date}`);
-  if (asOf) parts.push(`Station status as of: ${new Date(asOf).toLocaleString(appState.locale)}`);
+  if (asOf) parts.push(`Latest station update: ${new Date(asOf).toLocaleString(appState.locale)}`);
   if (!parts.length) parts.push("No freshness info available.");
   el.freshnessInfo.textContent = parts.join(" | ");
 }
@@ -451,19 +451,22 @@ async function findNearbyCheapestCity() {
   );
   const { latitude, longitude } = position.coords;
   const cfgMap = getCityConfigMap(country);
+  const targetFuel = country.fuelTypes.find((fuelType) =>
+    country.cities.some((city) => typeof city.history?.[0]?.prices?.[fuelType] === "number"),
+  );
 
   const nearest = country.cities
     .map((city) => {
       const cfg = cfgMap.get(city.id);
       if (!cfg || typeof cfg.lat !== "number" || typeof cfg.lng !== "number") return null;
       const d = distanceKm(latitude, longitude, cfg.lat, cfg.lng);
-      const e5 = city.history?.[0]?.prices?.["Super E5"];
-      return { city, d, e5 };
+      const price = targetFuel ? city.history?.[0]?.prices?.[targetFuel] : undefined;
+      return { city, d, price };
     })
     .filter(Boolean)
     .sort((a, b) => a.d - b.d)
     .slice(0, 5)
-    .sort((a, b) => (a.e5 ?? Number.POSITIVE_INFINITY) - (b.e5 ?? Number.POSITIVE_INFINITY))[0];
+    .sort((a, b) => (a.price ?? Number.POSITIVE_INFINITY) - (b.price ?? Number.POSITIVE_INFINITY))[0];
 
   if (!nearest) {
     if (el.nearbyResult) el.nearbyResult.textContent = "No nearby city match found.";
@@ -481,8 +484,9 @@ async function findNearbyCheapestCity() {
   if (el.citySelect) el.citySelect.value = nearest.city.id;
   announceSelection();
   if (el.nearbyResult) {
-    const e5Label = typeof nearest.e5 === "number" ? nearest.e5.toFixed(3) : "n/a";
-    el.nearbyResult.textContent = `Nearest cheap option: ${nearest.city.name} (${nearest.d.toFixed(1)} km, E5 ${e5Label})`;
+    const priceLabel = typeof nearest.price === "number" ? nearest.price.toFixed(3) : "n/a";
+    const fuelLabel = targetFuel || "price";
+    el.nearbyResult.textContent = `Nearest cheap option: ${nearest.city.name} (${nearest.d.toFixed(1)} km, ${fuelLabel} ${priceLabel})`;
   }
   render();
 }

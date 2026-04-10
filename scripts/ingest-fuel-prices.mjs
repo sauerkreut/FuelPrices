@@ -1,9 +1,13 @@
+import { execFile } from "node:child_process";
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import process from "node:process";
+import { promisify } from "node:util";
 
 const DATA_FILE = path.resolve(process.cwd(), "data", "fuel-prices.json");
 const TODAY = new Date().toISOString().slice(0, 10);
+const execFileAsync = promisify(execFile);
 const CITY_DISCOVERY_PROBES = [
   { lat: 53.55, lng: 10.0 },
   { lat: 52.52, lng: 13.405 },
@@ -25,6 +29,16 @@ const CITY_DISCOVERY_PROBES = [
 // Maps Tankerkoenig /stats API keys → our canonical Germany fuel type names
 const TANKERKOENIG_STATS_KEY_MAP = { E5: "Super E5", E10: "Super E10", Diesel: "Diesel" };
 
+const FRANCE_ROULEZ_ECO_URL = "https://donnees.roulez-eco.fr/opendata/instantane";
+const FRANCE_FUEL_NAME_MAP = {
+  Gazole: "Diesel",
+  SP95: "SP95",
+  E10: "E10",
+  SP98: "SP98",
+  E85: "E85",
+  GPLc: "GPLc",
+};
+
 const THAILAND_FUEL_MAP = [
   { key: "Gasohol 91", markers: ["แก๊สโซฮอล์ 91 S EVO"] },
   { key: "Gasohol 95", markers: ["แก๊สโซฮอล์ 95 S EVO"] },
@@ -40,6 +54,7 @@ async function main() {
 
   const providers = {
     "thailand-bangchak": ingestThailandBangchak,
+    "france-roulez-eco": ingestFranceRoulezEco,
     "germany-tankerkoenig": ingestGermanyTankerkoenig,
   };
 
@@ -89,6 +104,17 @@ function normalizeGermanText(value) {
     .toLowerCase();
 }
 
+function normalizePlaceText(value) {
+  return String(value || "")
+    .trim()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/['’]/g, "")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .toLowerCase()
+    .trim();
+}
+
 function slugifyCityName(name) {
   return normalizeGermanText(name)
     .replace(/[^a-z0-9]+/g, "-")
@@ -123,6 +149,18 @@ function average(values) {
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
+function median(values) {
+  if (!values.length) {
+    return null;
+  }
+
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 === 0
+    ? (sorted[middle - 1] + sorted[middle]) / 2
+    : sorted[middle];
+}
+
 function mostFrequent(values) {
   const counts = new Map();
   for (const value of values) {
@@ -138,6 +176,92 @@ function mostFrequent(values) {
     }
   }
   return bestValue;
+}
+
+function parseXmlAttribute(attributes, name) {
+  const match = attributes.match(new RegExp(`${name}="([^"]*)"`));
+  return match ? match[1] : "";
+}
+
+function parseXmlText(body, tagName) {
+  const match = body.match(new RegExp(`<${tagName}>([\\s\\S]*?)</${tagName}>`));
+  return match ? match[1].trim() : "";
+}
+
+async function fetchZipXml(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error(`France endpoint failed: ${response.status}`);
+  }
+
+  const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), "fuelscope-france-"));
+  const zipPath = path.join(tmpDir, "roulez-eco.zip");
+
+  try {
+    await fs.writeFile(zipPath, Buffer.from(await response.arrayBuffer()));
+    const { stdout } = await execFileAsync("unzip", ["-p", zipPath], {
+      encoding: "buffer",
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return new TextDecoder("iso-8859-1").decode(stdout);
+  } catch (error) {
+    if (error.code === "ENOENT") {
+      throw new Error('"unzip" is required to parse the France provider feed');
+    }
+    throw error;
+  } finally {
+    await fs.rm(tmpDir, { recursive: true, force: true });
+  }
+}
+
+function parseFranceStations(xmlText) {
+  const stations = [];
+  const pdvPattern = /<pdv\b([^>]*)>([\s\S]*?)<\/pdv>/g;
+
+  for (const match of xmlText.matchAll(pdvPattern)) {
+    const attributes = match[1];
+    const body = match[2];
+    const latitudeRaw = Number.parseInt(parseXmlAttribute(attributes, "latitude"), 10);
+    const longitudeRaw = Number.parseInt(parseXmlAttribute(attributes, "longitude"), 10);
+
+    if (!Number.isFinite(latitudeRaw) || !Number.isFinite(longitudeRaw)) {
+      continue;
+    }
+
+    const prices = {};
+    const updatedAt = {};
+    for (const priceMatch of body.matchAll(/<prix\b([^>]*)\/>/g)) {
+      const priceAttributes = priceMatch[1];
+      const fuelName = FRANCE_FUEL_NAME_MAP[parseXmlAttribute(priceAttributes, "nom")];
+      const value = Number.parseFloat(parseXmlAttribute(priceAttributes, "valeur"));
+      const updated = parseXmlAttribute(priceAttributes, "maj").replace(" ", "T");
+
+      if (!fuelName || !Number.isFinite(value)) {
+        continue;
+      }
+
+      prices[fuelName] = value;
+      if (updated) {
+        updatedAt[fuelName] = updated;
+      }
+    }
+
+    if (!Object.keys(prices).length) {
+      continue;
+    }
+
+    stations.push({
+      id: parseXmlAttribute(attributes, "id"),
+      lat: latitudeRaw / 100000,
+      lng: longitudeRaw / 100000,
+      postalCode: parseXmlAttribute(attributes, "cp"),
+      cityName: prettifyCityName(parseXmlText(body, "ville")),
+      prices,
+      updatedAt,
+    });
+  }
+
+  return stations;
 }
 
 async function fetchStationsBySearch(apiKey, lat, lng, radiusKm = 25) {
@@ -294,6 +418,130 @@ async function ingestThailandBangchak(country) {
   console.log(`  Yesterday (${addDays(baseDate,-1)}): ${JSON.stringify(yesterdayPrices)}`);
   console.log(`  Today     (${baseDate}): ${JSON.stringify(todayPrices)}`);
   console.log(`  Tomorrow  (${addDays(baseDate, 1)}): ${JSON.stringify(tomorrowPrices)}`);
+}
+
+async function ingestFranceRoulezEco(country) {
+  if (!country.supportsCities || !Array.isArray(country.cities)) {
+    throw new Error("France country is not configured with city support");
+  }
+
+  const providerConfig = country.providerConfig || {};
+  const cityConfigs = Array.isArray(providerConfig.cities) ? providerConfig.cities : [];
+  if (!cityConfigs.length) {
+    throw new Error("France providerConfig.cities is missing");
+  }
+
+  const xmlText = await fetchZipXml(FRANCE_ROULEZ_ECO_URL);
+  const stations = parseFranceStations(xmlText);
+  if (!stations.length) {
+    throw new Error("France payload contained no stations");
+  }
+
+  const nationalAccumulators = {};
+  for (const station of stations) {
+    for (const [fuelName, price] of Object.entries(station.prices)) {
+      if (!country.fuelTypes.includes(fuelName) || !Number.isFinite(price)) {
+        continue;
+      }
+      if (!nationalAccumulators[fuelName]) {
+        nationalAccumulators[fuelName] = [];
+      }
+      nationalAccumulators[fuelName].push(price);
+    }
+  }
+
+  const nationalStats = Object.fromEntries(
+    Object.entries(nationalAccumulators)
+      .map(([fuelName, prices]) => {
+        const medianValue = median(prices);
+        if (!prices.length || medianValue === null) {
+          return null;
+        }
+        return [
+          fuelName,
+          {
+            count: prices.length,
+            mean: Number(average(prices).toFixed(3)),
+            median: Number(medianValue.toFixed(3)),
+          },
+        ];
+      })
+      .filter(Boolean),
+  );
+  if (Object.keys(nationalStats).length) {
+    country.nationalStats = nationalStats;
+    console.log(`  National stats: ${JSON.stringify(nationalStats)}`);
+  }
+
+  for (const city of country.cities) {
+    const cityConfig = cityConfigs.find((entry) => entry.id === city.id);
+    if (!cityConfig) {
+      console.warn(`City config missing for ${city.id}, skipping.`);
+      continue;
+    }
+
+    const radiusKm = Number(cityConfig.radiusKm || providerConfig.defaultRadiusKm || 12);
+    const matchedStations = stations.filter((station) => {
+      if (typeof cityConfig.lat === "number" && typeof cityConfig.lng === "number") {
+        return distanceKm(cityConfig.lat, cityConfig.lng, station.lat, station.lng) <= radiusKm;
+      }
+
+      if (cityConfig.postalCode && station.postalCode === cityConfig.postalCode) {
+        return true;
+      }
+
+      return normalizePlaceText(station.cityName) === normalizePlaceText(city.name);
+    });
+
+    if (!matchedStations.length) {
+      console.warn(`No stations returned for ${city.id}.`);
+      continue;
+    }
+
+    const fuelAccumulators = {};
+    let latestUpdateAt = null;
+    for (const station of matchedStations) {
+      for (const fuelType of country.fuelTypes) {
+        const price = station.prices[fuelType];
+        if (!Number.isFinite(price)) {
+          continue;
+        }
+        if (!fuelAccumulators[fuelType]) {
+          fuelAccumulators[fuelType] = [];
+        }
+        fuelAccumulators[fuelType].push(price);
+
+        const updatedAt = station.updatedAt[fuelType];
+        if (updatedAt && (!latestUpdateAt || updatedAt > latestUpdateAt)) {
+          latestUpdateAt = updatedAt;
+        }
+      }
+    }
+
+    const filteredPrices = Object.fromEntries(
+      Object.entries(fuelAccumulators).map(([fuelType, prices]) => [
+        fuelType,
+        Number(average(prices).toFixed(3)),
+      ]),
+    );
+
+    if (!Object.keys(filteredPrices).length) {
+      console.warn(`No usable fuel prices for ${city.id}.`);
+      continue;
+    }
+
+    city.postalCode = cityConfig.postalCode || city.postalCode;
+    if (latestUpdateAt) {
+      city.latestUpdateAt = latestUpdateAt;
+    } else {
+      delete city.latestUpdateAt;
+    }
+    delete city.stationStatus;
+    delete city.brandComparison;
+    city.history = upsertHistory(city.history, { date: TODAY, prices: filteredPrices });
+
+    console.log(`  ${city.id}: ${JSON.stringify(filteredPrices)} (${matchedStations.length} stations)`);
+  }
 }
 
 async function ingestGermanyTankerkoenig(country) {

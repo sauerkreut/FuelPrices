@@ -22,7 +22,7 @@ jobs:
 
       - name: Run ingestion script
         env:
-          TANKERKOENIG_API_KEY: ${{ secrets.TANKERKOENIG_API_KEY }}
+          TANKERKOENIG_API_KEY: ${{ secrets['TANKERKOENIG_API_KEY'] || vars['TANKERKOENIG_API_KEY'] }}
         run: node ./scripts/ingest-fuel-prices.mjs
 
       - name: Commit and push changes

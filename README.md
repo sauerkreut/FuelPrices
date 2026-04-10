@@ -64,6 +64,13 @@ This repository now includes automated ingestion from live data providers:
   - No API key required
   - Ingests `PriceYesterday`, `PriceToday`, and `PriceTomorrow` into three dated history points
   - Includes: Gasohol 91, Gasohol 95, Gasohol E20, Gasohol E85, Diesel, Premium Diesel
+- France: official Roulez Eco government feed
+  - `https://donnees.roulez-eco.fr/opendata/instantane`
+  - No API key required
+  - ZIP-compressed XML feed decoded from ISO-8859-1
+  - Aggregates station prices by configured city radius
+  - Includes: Diesel, SP95, E10, SP98, E85, GPLc
+  - Does not expose brand names, so brand comparison remains unavailable for France
 - Germany: Tankerkonig API (station-based city aggregation)
   - `https://creativecommons.tankerkoenig.de`
   - API key required
@@ -76,13 +83,15 @@ Automation workflow:
 
 - `.github/workflows/ingest-fuel-prices.yml`
 
-### Configure secrets for Germany ingestion
+### Configure GitHub credentials for Germany ingestion
 
-In GitHub repository settings, add:
+In GitHub repository settings, add one of these:
 
-- `TANKERKOENIG_API_KEY`
+- Secret: `TANKERKOENIG_API_KEY`
+- Variable: `TANKERKOENIG_API_KEY`
 
-Without this secret, Thailand will still refresh and Germany will be skipped safely.
+Without one of these values, Thailand and France will still refresh and Germany will be skipped safely.
+France will still refresh without any secrets.
 
 ### Run ingestion locally
 
