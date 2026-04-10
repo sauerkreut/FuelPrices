@@ -433,15 +433,15 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.35,
-                "E10": 1.997,
-                "SP98": 2.098,
+                "Diesel": 2.358,
+                "E10": 1.996,
+                "SP98": 2.095,
                 "E85": 0.848,
                 "GPLc": 0.96
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:33:40"
+          "latestUpdateAt": "2026-04-10T12:56:48"
         },
         {
           "id": "angers",
@@ -470,16 +470,16 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.34,
+                "Diesel": 2.339,
                 "E10": 1.968,
-                "SP98": 2.062,
+                "SP98": 2.061,
                 "GPLc": 1.022,
                 "SP95": 2.017,
                 "E85": 0.8
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T12:29:59"
+          "latestUpdateAt": "2026-04-10T12:39:59"
         },
         {
           "id": "brest",
@@ -489,16 +489,16 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.304,
+                "Diesel": 2.293,
                 "SP95": 2.008,
-                "E10": 1.961,
+                "E10": 1.957,
                 "E85": 0.762,
-                "SP98": 2.065,
+                "SP98": 2.059,
                 "GPLc": 1.027
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:53:36"
+          "latestUpdateAt": "2026-04-10T12:53:08"
         },
         {
           "id": "caen",
@@ -603,16 +603,16 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.363,
-                "E10": 1.97,
-                "SP98": 2.07,
+                "Diesel": 2.359,
+                "E10": 1.971,
+                "SP98": 2.068,
                 "E85": 0.835,
                 "GPLc": 1.001,
                 "SP95": 2.007
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:35:31"
+          "latestUpdateAt": "2026-04-10T12:48:06"
         },
         {
           "id": "limoges",
@@ -631,7 +631,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T10:24:50"
+          "latestUpdateAt": "2026-04-10T12:40:39"
         },
         {
           "id": "lyon",
@@ -661,7 +661,7 @@
               "date": "2026-04-10",
               "prices": {
                 "Diesel": 2.353,
-                "E10": 2.003,
+                "E10": 2.002,
                 "SP98": 2.099,
                 "E85": 0.868,
                 "GPLc": 1.025,
@@ -669,7 +669,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:27:44"
+          "latestUpdateAt": "2026-04-10T12:35:42"
         },
         {
           "id": "metz",
@@ -679,16 +679,16 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.393,
-                "E10": 1.996,
-                "SP98": 2.092,
+                "Diesel": 2.392,
+                "E10": 1.994,
+                "SP98": 2.09,
                 "SP95": 2.087,
                 "GPLc": 1.011,
                 "E85": 0.86
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:23:03"
+          "latestUpdateAt": "2026-04-10T12:53:10"
         },
         {
           "id": "montpellier",
@@ -718,15 +718,15 @@
               "date": "2026-04-10",
               "prices": {
                 "E10": 1.98,
-                "Diesel": 2.386,
+                "Diesel": 2.387,
                 "SP98": 2.103,
                 "GPLc": 1.066,
                 "E85": 0.874,
-                "SP95": 2.096
+                "SP95": 2.107
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:14:44"
+          "latestUpdateAt": "2026-04-10T12:41:30"
         },
         {
           "id": "nantes",
@@ -736,8 +736,8 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.331,
-                "E10": 1.968,
+                "Diesel": 2.329,
+                "E10": 1.967,
                 "SP98": 2.058,
                 "E85": 0.826,
                 "GPLc": 0.973,
@@ -745,7 +745,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T12:24:59"
+          "latestUpdateAt": "2026-04-10T12:47:04"
         },
         {
           "id": "nice",
@@ -755,16 +755,16 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.342,
+                "Diesel": 2.34,
                 "SP95": 2.087,
                 "E10": 2.032,
-                "SP98": 2.103,
+                "SP98": 2.1,
                 "GPLc": 0.996,
                 "E85": 0.92
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:38:20"
+          "latestUpdateAt": "2026-04-10T12:40:52"
         },
         {
           "id": "orleans",
@@ -793,7 +793,7 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.372,
+                "Diesel": 2.37,
                 "SP95": 2.049,
                 "E10": 2.019,
                 "SP98": 2.114,
@@ -802,7 +802,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T12:29:12"
+          "latestUpdateAt": "2026-04-10T12:56:39"
         },
         {
           "id": "reims",
@@ -831,7 +831,7 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Diesel": 2.294,
+                "Diesel": 2.291,
                 "SP98": 2.057,
                 "E10": 1.97,
                 "SP95": 2.027,
@@ -840,7 +840,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T12:20:14"
+          "latestUpdateAt": "2026-04-10T12:58:52"
         },
         {
           "id": "rouen",
@@ -851,7 +851,7 @@
               "date": "2026-04-10",
               "prices": {
                 "Diesel": 2.329,
-                "E10": 1.984,
+                "E10": 1.987,
                 "SP98": 2.076,
                 "E85": 0.83,
                 "GPLc": 0.983,
@@ -859,7 +859,7 @@
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T11:14:43"
+          "latestUpdateAt": "2026-04-10T12:40:38"
         },
         {
           "id": "strasbourg",
@@ -908,40 +908,40 @@
               "date": "2026-04-10",
               "prices": {
                 "Diesel": 2.316,
+                "E10": 1.971,
                 "SP98": 2.064,
                 "E85": 0.832,
                 "GPLc": 0.988,
-                "E10": 1.97,
                 "SP95": 2.027
               }
             }
           ],
-          "latestUpdateAt": "2026-04-10T12:29:00"
+          "latestUpdateAt": "2026-04-10T12:43:59"
         }
       ],
       "nationalStats": {
         "Diesel": {
-          "count": 8872,
+          "count": 8875,
           "mean": 2.352,
           "median": 2.349
+        },
+        "E10": {
+          "count": 7124,
+          "mean": 2.005,
+          "median": 1.99
+        },
+        "SP98": {
+          "count": 7475,
+          "mean": 2.102,
+          "median": 2.099
         },
         "SP95": {
           "count": 3050,
           "mean": 2.061,
           "median": 2.05
         },
-        "E10": {
-          "count": 7126,
-          "mean": 2.005,
-          "median": 1.99
-        },
-        "SP98": {
-          "count": 7474,
-          "mean": 2.102,
-          "median": 2.099
-        },
         "E85": {
-          "count": 3767,
+          "count": 3766,
           "mean": 0.834,
           "median": 0.821
         },
@@ -966,19 +966,19 @@
       ],
       "nationalStats": {
         "Super E5": {
-          "count": 14616,
-          "mean": 2.217,
-          "median": 2.219
+          "count": 14617,
+          "mean": 2.215,
+          "median": 2.209
         },
         "Super E10": {
           "count": 14003,
-          "mean": 2.16,
-          "median": 2.159
+          "mean": 2.158,
+          "median": 2.149
         },
         "Diesel": {
-          "count": 14965,
-          "mean": 2.374,
-          "median": 2.379
+          "count": 14966,
+          "mean": 2.372,
+          "median": 2.369
         }
       },
       "providerConfig": {
@@ -1400,7 +1400,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:30.605Z"
+            "asOf": "2026-04-10T11:04:04.321Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -1747,7 +1747,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:30.818Z"
+            "asOf": "2026-04-10T11:04:04.491Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -2382,17 +2382,17 @@
             "totalCount": 8,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:31.091Z"
+            "asOf": "2026-04-10T11:04:04.660Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "HEM",
+                "brand": "OIL!",
                 "price": 2.199,
                 "count": 1
               },
               {
-                "brand": "OIL!",
+                "brand": "HEM",
                 "price": 2.199,
                 "count": 1
               },
@@ -2414,12 +2414,12 @@
             ],
             "Super E10": [
               {
-                "brand": "HEM",
+                "brand": "OIL!",
                 "price": 2.139,
                 "count": 1
               },
               {
-                "brand": "OIL!",
+                "brand": "HEM",
                 "price": 2.139,
                 "count": 1
               },
@@ -2482,16 +2482,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:48:07+02"
+                  "amount": 0.12,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:48:07+02"
+                  "amount": 0.12,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.11,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -2765,7 +2765,7 @@
             "totalCount": 5,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:31.301Z"
+            "asOf": "2026-04-10T11:04:04.825Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -2775,12 +2775,12 @@
                 "count": 1
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "Westfalen",
                 "price": 2.209,
                 "count": 1
               },
               {
-                "brand": "Westfalen",
+                "brand": "TotalEnergies",
                 "price": 2.209,
                 "count": 1
               },
@@ -2797,12 +2797,12 @@
                 "count": 1
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "Westfalen",
                 "price": 2.149,
                 "count": 1
               },
               {
-                "brand": "Westfalen",
+                "brand": "TotalEnergies",
                 "price": 2.149,
                 "count": 1
               },
@@ -3133,7 +3133,7 @@
             "totalCount": 6,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:31.513Z"
+            "asOf": "2026-04-10T11:04:04.987Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -3153,14 +3153,14 @@
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.249,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.249,
                 "count": 2
+              },
+              {
+                "brand": "Shell",
+                "price": 2.249,
+                "count": 1
               }
             ],
             "Super E10": [
@@ -3180,14 +3180,14 @@
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.189,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.189,
                 "count": 2
+              },
+              {
+                "brand": "Shell",
+                "price": 2.189,
+                "count": 1
               }
             ],
             "Diesel": [
@@ -3207,14 +3207,14 @@
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.419,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.419,
                 "count": 2
+              },
+              {
+                "brand": "Shell",
+                "price": 2.419,
+                "count": 1
               }
             ]
           }
@@ -3227,22 +3227,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.215,
-                "Super E10": 2.155,
-                "Diesel": 2.377
+                "Super E5": 2.209,
+                "Super E10": 2.149,
+                "Diesel": 2.373
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.12,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.03,
+                  "timestamp": "2026-04-10T13:03:26+02"
                 },
                 "Super E10": {
-                  "amount": 0.12,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.03,
+                  "timestamp": "2026-04-10T13:03:26+02"
                 },
                 "Diesel": {
-                  "amount": 0.14,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-10T13:03:26+02"
                 }
               }
             },
@@ -3516,10 +3516,15 @@
             "totalCount": 5,
             "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:31.723Z"
+            "asOf": "2026-04-10T11:04:05.151Z"
           },
           "brandComparison": {
             "Super E5": [
+              {
+                "brand": "JET",
+                "price": 2.189,
+                "count": 1
+              },
               {
                 "brand": "Markant",
                 "price": 2.189,
@@ -3528,11 +3533,6 @@
               {
                 "brand": "STAR",
                 "price": 2.209,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.219,
                 "count": 1
               },
               {
@@ -3548,6 +3548,11 @@
             ],
             "Super E10": [
               {
+                "brand": "JET",
+                "price": 2.129,
+                "count": 1
+              },
+              {
                 "brand": "Markant",
                 "price": 2.129,
                 "count": 1
@@ -3555,11 +3560,6 @@
               {
                 "brand": "STAR",
                 "price": 2.149,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.159,
                 "count": 1
               },
               {
@@ -3575,6 +3575,11 @@
             ],
             "Diesel": [
               {
+                "brand": "JET",
+                "price": 2.359,
+                "count": 1
+              },
+              {
                 "brand": "Markant",
                 "price": 2.359,
                 "count": 1
@@ -3582,11 +3587,6 @@
               {
                 "brand": "STAR",
                 "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.379,
                 "count": 1
               },
               {
@@ -3624,8 +3624,8 @@
                   "timestamp": "2026-04-10T12:34:52+02"
                 },
                 "Super E10": {
-                  "amount": -0.03,
-                  "timestamp": "2026-04-10T12:37:54+02"
+                  "amount": -0.01,
+                  "timestamp": "2026-04-10T12:31:49+02"
                 }
               }
             },
@@ -3899,12 +3899,17 @@
             "totalCount": 8,
             "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:31.935Z"
+            "asOf": "2026-04-10T11:04:05.318Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "M1",
+                "price": 2.179,
+                "count": 1
+              },
+              {
+                "brand": "ORLEN",
                 "price": 2.179,
                 "count": 1
               },
@@ -3920,11 +3925,6 @@
               },
               {
                 "brand": "HEM",
-                "price": 2.179,
-                "count": 1
-              },
-              {
-                "brand": "ORLEN",
                 "price": 2.179,
                 "count": 1
               },
@@ -3941,6 +3941,11 @@
             ],
             "Super E10": [
               {
+                "brand": "ORLEN",
+                "price": 2.119,
+                "count": 1
+              },
+              {
                 "brand": "STAR",
                 "price": 2.119,
                 "count": 1
@@ -3952,11 +3957,6 @@
               },
               {
                 "brand": "HEM",
-                "price": 2.119,
-                "count": 1
-              },
-              {
-                "brand": "ORLEN",
                 "price": 2.119,
                 "count": 1
               },
@@ -3973,17 +3973,17 @@
             ],
             "Diesel": [
               {
+                "brand": "ORLEN",
+                "price": 2.339,
+                "count": 1
+              },
+              {
                 "brand": "STAR",
                 "price": 2.339,
                 "count": 1
               },
               {
                 "brand": "NORDOEL",
-                "price": 2.339,
-                "count": 1
-              },
-              {
-                "brand": "ORLEN",
                 "price": 2.339,
                 "count": 1
               },
@@ -4024,16 +4024,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.19,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": -0.08,
+                  "timestamp": "2026-04-10T12:42:59+02"
                 },
                 "Super E10": {
-                  "amount": -0.19,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": -0.08,
+                  "timestamp": "2026-04-10T12:42:59+02"
                 },
                 "Diesel": {
-                  "amount": -0.24,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": -0.11,
+                  "timestamp": "2026-04-10T12:42:59+02"
                 }
               }
             },
@@ -4307,7 +4307,7 @@
             "totalCount": 9,
             "nextClose": "2026-04-10T18:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:32.216Z"
+            "asOf": "2026-04-10T11:04:05.486Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -4322,12 +4322,12 @@
                 "count": 1
               },
               {
-                "brand": "AGIP ENI",
+                "brand": "ESSO",
                 "price": 2.149,
                 "count": 1
               },
               {
-                "brand": "ESSO",
+                "brand": "AGIP ENI",
                 "price": 2.149,
                 "count": 1
               },
@@ -4337,14 +4337,14 @@
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.229,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.229,
                 "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 2.229,
+                "count": 1
               }
             ],
             "Super E10": [
@@ -4364,24 +4364,24 @@
                 "count": 1
               },
               {
-                "brand": "AGIP ENI",
-                "price": 2.089,
-                "count": 1
-              },
-              {
                 "brand": "ESSO",
                 "price": 2.089,
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.169,
+                "brand": "AGIP ENI",
+                "price": 2.089,
                 "count": 1
               },
               {
                 "brand": "ARAL",
                 "price": 2.169,
                 "count": 3
+              },
+              {
+                "brand": "Shell",
+                "price": 2.169,
+                "count": 1
               }
             ],
             "Diesel": [
@@ -4401,12 +4401,12 @@
                 "count": 1
               },
               {
-                "brand": "AGIP ENI",
+                "brand": "ESSO",
                 "price": 2.279,
                 "count": 1
               },
               {
-                "brand": "ESSO",
+                "brand": "AGIP ENI",
                 "price": 2.279,
                 "count": 1
               },
@@ -4437,16 +4437,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.11,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 },
                 "Super E10": {
-                  "amount": 0.11,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 },
                 "Diesel": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.1,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 }
               }
             },
@@ -4720,7 +4720,7 @@
             "totalCount": 6,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:32.524Z"
+            "asOf": "2026-04-10T11:04:05.646Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -4805,16 +4805,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.06,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.07,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Super E10": {
-                  "amount": 0.06,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.07,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Diesel": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.1,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 }
               }
             },
@@ -5088,7 +5088,7 @@
             "totalCount": 6,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:32.830Z"
+            "asOf": "2026-04-10T11:04:05.809Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -5182,9 +5182,9 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.215,
-                "Super E10": 2.155,
-                "Diesel": 2.373
+                "Super E5": 2.21,
+                "Super E10": 2.15,
+                "Diesel": 2.37
               },
               "priceChanges": {
                 "Super E5": {
@@ -5471,7 +5471,7 @@
             "totalCount": 7,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:33.138Z"
+            "asOf": "2026-04-10T11:04:05.974Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -5481,18 +5481,18 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
+                "brand": "JET",
                 "price": 2.199,
                 "count": 1
               },
               {
                 "brand": "tankpoint",
-                "price": 2.209,
+                "price": 2.199,
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.219,
+                "brand": "STAR",
+                "price": 2.199,
                 "count": 1
               },
               {
@@ -5513,18 +5513,18 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
+                "brand": "JET",
                 "price": 2.139,
                 "count": 1
               },
               {
                 "brand": "tankpoint",
-                "price": 2.149,
+                "price": 2.139,
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.159,
+                "brand": "STAR",
+                "price": 2.139,
                 "count": 1
               },
               {
@@ -5545,7 +5545,7 @@
                 "count": 1
               },
               {
-                "brand": "Markant",
+                "brand": "JET",
                 "price": 2.359,
                 "count": 1
               },
@@ -5555,13 +5555,13 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
-                "price": 2.369,
+                "brand": "Markant",
+                "price": 2.359,
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.379,
+                "brand": "STAR",
+                "price": 2.369,
                 "count": 1
               },
               {
@@ -5580,9 +5580,9 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.235,
-                "Super E10": 2.175,
-                "Diesel": 2.413
+                "Super E5": 2.232,
+                "Super E10": 2.172,
+                "Diesel": 2.409
               },
               "priceChanges": {
                 "Super E5": {
@@ -5869,13 +5869,13 @@
             "totalCount": 7,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:33.446Z"
+            "asOf": "2026-04-10T11:04:06.139Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "JET",
-                "price": 2.219,
+                "price": 2.199,
                 "count": 1
               },
               {
@@ -5897,7 +5897,7 @@
             "Super E10": [
               {
                 "brand": "JET",
-                "price": 2.159,
+                "price": 2.139,
                 "count": 1
               },
               {
@@ -5919,7 +5919,7 @@
             "Diesel": [
               {
                 "brand": "JET",
-                "price": 2.379,
+                "price": 2.349,
                 "count": 1
               },
               {
@@ -5948,22 +5948,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.221,
-                "Super E10": 2.161,
-                "Diesel": 2.381
+                "Super E5": 2.227,
+                "Super E10": 2.167,
+                "Diesel": 2.385
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.13,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": -0.13,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": -0.17,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -6237,19 +6237,14 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:33.753Z"
+            "asOf": "2026-04-10T11:04:06.312Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "AGIP ENI",
-                "price": 2.169,
-                "count": 1
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.189,
-                "count": 3
+                "price": 2.194,
+                "count": 4
               },
               {
                 "brand": "OIL!",
@@ -6257,17 +6252,7 @@
                 "count": 2
               },
               {
-                "brand": "T",
-                "price": 2.199,
-                "count": 1
-              },
-              {
                 "brand": "TotalEnergies",
-                "price": 2.209,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
                 "price": 2.209,
                 "count": 1
               },
@@ -6279,29 +6264,24 @@
               {
                 "brand": "Roth- Energie",
                 "price": 2.219,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 8
+                "count": 5
               },
               {
                 "brand": "ARAL",
                 "price": 2.249,
-                "count": 6
+                "count": 10
               }
             ],
             "Super E10": [
               {
-                "brand": "AGIP ENI",
-                "price": 2.109,
-                "count": 1
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.129,
-                "count": 3
+                "price": 2.134,
+                "count": 4
               },
               {
                 "brand": "OIL!",
@@ -6309,17 +6289,7 @@
                 "count": 2
               },
               {
-                "brand": "T",
-                "price": 2.139,
-                "count": 1
-              },
-              {
                 "brand": "TotalEnergies",
-                "price": 2.149,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
                 "price": 2.149,
                 "count": 1
               },
@@ -6331,49 +6301,34 @@
               {
                 "brand": "Roth- Energie",
                 "price": 2.159,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 8
+                "count": 5
               },
               {
                 "brand": "ARAL",
                 "price": 2.189,
-                "count": 6
+                "count": 10
               }
             ],
             "Diesel": [
               {
-                "brand": "AGIP ENI",
-                "price": 2.279,
-                "count": 1
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.352,
-                "count": 3
+                "price": 2.359,
+                "count": 4
               },
               {
                 "brand": "Roth- Energie",
                 "price": 2.359,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "OIL!",
                 "price": 2.369,
                 "count": 2
-              },
-              {
-                "brand": "T",
-                "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.369,
-                "count": 1
               },
               {
                 "brand": "Mr. Wash Autoservice AG",
@@ -6386,14 +6341,14 @@
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.399,
-                "count": 8
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.399,
-                "count": 6
+                "count": 10
+              },
+              {
+                "brand": "Shell",
+                "price": 2.399,
+                "count": 5
               }
             ]
           }
@@ -6406,22 +6361,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.219,
-                "Super E10": 2.159,
+                "Super E5": 2.217,
+                "Super E10": 2.157,
                 "Diesel": 2.385
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.11,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": -0.11,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": -0.12,
-                  "timestamp": "2026-04-10T12:16:33+02"
+                  "amount": 0.14,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -6695,17 +6650,27 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:34.061Z"
+            "asOf": "2026-04-10T11:04:06.485Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "STAR",
-                "price": 2.189,
-                "count": 2
+                "brand": "SVG-Nordrhein eG",
+                "price": 2.179,
+                "count": 1
+              },
+              {
+                "brand": "HEM",
+                "price": 2.179,
+                "count": 1
               },
               {
                 "brand": "Mr. Wash Autoservice AG",
+                "price": 2.199,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
                 "price": 2.199,
                 "count": 1
               },
@@ -6715,24 +6680,19 @@
                 "count": 1
               },
               {
-                "brand": "OIL!",
+                "brand": "Freie Tankstelle",
                 "price": 2.199,
-                "count": 1
-              },
-              {
-                "brand": "SVG-Nordrhein eG",
-                "price": 2.209,
                 "count": 1
               },
               {
                 "brand": "TotalEnergies",
                 "price": 2.209,
-                "count": 1
+                "count": 2
               },
               {
-                "brand": "Freie Tankstelle",
-                "price": 2.209,
-                "count": 1
+                "brand": "ESSO",
+                "price": 2.216,
+                "count": 3
               },
               {
                 "brand": "PM",
@@ -6740,39 +6700,39 @@
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.219,
-                "count": 2
-              },
-              {
                 "brand": "SB",
                 "price": 2.219,
                 "count": 2
-              },
-              {
-                "brand": "JET",
-                "price": 2.219,
-                "count": 1
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 8
+                "count": 9
               },
               {
                 "brand": "ARAL",
                 "price": 2.239,
-                "count": 3
+                "count": 2
               }
             ],
             "Super E10": [
               {
-                "brand": "STAR",
-                "price": 2.129,
-                "count": 2
+                "brand": "SVG-Nordrhein eG",
+                "price": 2.119,
+                "count": 1
+              },
+              {
+                "brand": "HEM",
+                "price": 2.119,
+                "count": 1
               },
               {
                 "brand": "Mr. Wash Autoservice AG",
+                "price": 2.139,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
                 "price": 2.139,
                 "count": 1
               },
@@ -6782,24 +6742,19 @@
                 "count": 1
               },
               {
-                "brand": "OIL!",
+                "brand": "Freie Tankstelle",
                 "price": 2.139,
-                "count": 1
-              },
-              {
-                "brand": "SVG-Nordrhein eG",
-                "price": 2.149,
                 "count": 1
               },
               {
                 "brand": "TotalEnergies",
                 "price": 2.149,
-                "count": 1
+                "count": 2
               },
               {
-                "brand": "Freie Tankstelle",
-                "price": 2.149,
-                "count": 1
+                "brand": "ESSO",
+                "price": 2.156,
+                "count": 3
               },
               {
                 "brand": "PM",
@@ -6807,44 +6762,44 @@
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.159,
-                "count": 2
-              },
-              {
                 "brand": "SB",
                 "price": 2.159,
                 "count": 2
               },
               {
-                "brand": "JET",
-                "price": 2.159,
-                "count": 1
-              },
-              {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 8
+                "count": 9
               },
               {
                 "brand": "ARAL",
                 "price": 2.179,
-                "count": 3
+                "count": 2
               }
             ],
             "Diesel": [
               {
                 "brand": "SVG-Nordrhein eG",
-                "price": 2.359,
+                "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "HEM",
+                "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "Freie Tankstelle",
+                "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "Mr. Wash Autoservice AG",
+                "price": 2.369,
                 "count": 1
               },
               {
                 "brand": "STAR",
-                "price": 2.359,
-                "count": 2
-              },
-              {
-                "brand": "Mr. Wash Autoservice AG",
                 "price": 2.369,
                 "count": 1
               },
@@ -6854,29 +6809,14 @@
                 "count": 1
               },
               {
-                "brand": "Freie Tankstelle",
-                "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "OIL!",
-                "price": 2.369,
-                "count": 1
-              },
-              {
                 "brand": "TotalEnergies",
                 "price": 2.379,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.379,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "ESSO",
-                "price": 2.384,
-                "count": 2
+                "price": 2.386,
+                "count": 3
               },
               {
                 "brand": "PM",
@@ -6889,14 +6829,14 @@
                 "count": 2
               },
               {
-                "brand": "Shell",
-                "price": 2.399,
-                "count": 8
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.399,
-                "count": 3
+                "count": 2
+              },
+              {
+                "brand": "Shell",
+                "price": 2.399,
+                "count": 9
               }
             ]
           }
@@ -6909,22 +6849,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.214,
-                "Super E10": 2.156,
-                "Diesel": 2.368
+                "Super E5": 2.21,
+                "Super E10": 2.149,
+                "Diesel": 2.35
               },
               "priceChanges": {
                 "Super E5": {
                   "amount": 0.1,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Super E10": {
                   "amount": 0.1,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Diesel": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "amount": 0.01,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 }
               }
             },
@@ -7198,7 +7138,7 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:34.367Z"
+            "asOf": "2026-04-10T11:04:06.663Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -7208,17 +7148,12 @@
                 "count": 1
               },
               {
-                "brand": "GVS",
-                "price": 2.169,
-                "count": 1
-              },
-              {
                 "brand": "SUPOL",
-                "price": 2.174,
-                "count": 2
+                "price": 2.171,
+                "count": 4
               },
               {
-                "brand": "HEM",
+                "brand": "ORLEN Express",
                 "price": 2.179,
                 "count": 1
               },
@@ -7228,39 +7163,29 @@
                 "count": 2
               },
               {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.209,
-                "count": 1
-              },
-              {
-                "brand": "TotalEnergies",
-                "price": 2.209,
+                "brand": "OIL! (Automatenstation)",
+                "price": 2.199,
                 "count": 1
               },
               {
                 "brand": "ESSO",
-                "price": 2.216,
-                "count": 3
+                "price": 2.203,
+                "count": 5
               },
               {
                 "brand": "JET",
                 "price": 2.219,
-                "count": 3
-              },
-              {
-                "brand": "AVIA",
-                "price": 2.229,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 5
+                "count": 4
               },
               {
                 "brand": "ARAL",
                 "price": 2.249,
-                "count": 4
+                "count": 5
               }
             ],
             "Super E10": [
@@ -7271,11 +7196,11 @@
               },
               {
                 "brand": "SUPOL",
-                "price": 2.114,
-                "count": 2
+                "price": 2.111,
+                "count": 4
               },
               {
-                "brand": "HEM",
+                "brand": "ORLEN Express",
                 "price": 2.119,
                 "count": 1
               },
@@ -7285,42 +7210,37 @@
                 "count": 2
               },
               {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.149,
-                "count": 1
-              },
-              {
-                "brand": "TotalEnergies",
-                "price": 2.149,
+                "brand": "OIL! (Automatenstation)",
+                "price": 2.139,
                 "count": 1
               },
               {
                 "brand": "ESSO",
-                "price": 2.156,
-                "count": 3
+                "price": 2.143,
+                "count": 5
               },
               {
                 "brand": "JET",
                 "price": 2.159,
-                "count": 3
-              },
-              {
-                "brand": "AVIA",
-                "price": 2.169,
-                "count": 1
+                "count": 2
               },
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 4
+                "count": 3
               },
               {
                 "brand": "ARAL",
                 "price": 2.189,
-                "count": 4
+                "count": 5
               }
             ],
             "Diesel": [
+              {
+                "brand": "SUPOL",
+                "price": 2.269,
+                "count": 4
+              },
               {
                 "brand": "Mr. Wash Autoservice AG",
                 "price": 2.269,
@@ -7328,58 +7248,38 @@
               },
               {
                 "brand": "AGIP ENI",
-                "price": 2.274,
+                "price": 2.269,
                 "count": 2
               },
               {
-                "brand": "SUPOL",
-                "price": 2.274,
-                "count": 2
+                "brand": "ESSO",
+                "price": 2.349,
+                "count": 5
               },
               {
-                "brand": "HEM",
+                "brand": "ORLEN Express",
                 "price": 2.359,
                 "count": 1
               },
               {
-                "brand": "AVIA",
-                "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
+                "brand": "OIL! (Automatenstation)",
                 "price": 2.369,
                 "count": 1
               },
               {
                 "brand": "JET",
                 "price": 2.379,
-                "count": 3
-              },
-              {
-                "brand": "TotalEnergies",
-                "price": 2.379,
-                "count": 1
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.389,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 5
+                "count": 4
               },
               {
                 "brand": "ARAL",
                 "price": 2.409,
-                "count": 4
-              },
-              {
-                "brand": "GVS",
-                "price": 2.419,
-                "count": 1
+                "count": 5
               }
             ]
           }
@@ -7681,7 +7581,7 @@
             "totalCount": 4,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:34.673Z"
+            "asOf": "2026-04-10T11:04:06.828Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -8034,7 +7934,7 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:34.883Z"
+            "asOf": "2026-04-10T11:04:06.991Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -8372,7 +8272,7 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:35.186Z"
+            "asOf": "2026-04-10T11:04:07.154Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -8422,21 +8322,21 @@
               "date": "2026-04-10",
               "prices": {
                 "Super E5": 2.215,
-                "Super E10": 2.157,
-                "Diesel": 2.383
+                "Super E10": 2.156,
+                "Diesel": 2.382
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.1,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.05,
+                  "timestamp": "2026-04-10T12:39:56+02"
                 },
                 "Super E10": {
-                  "amount": 0.1,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.05,
+                  "timestamp": "2026-04-10T12:39:56+02"
                 },
                 "Diesel": {
-                  "amount": 0.14,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.13,
+                  "timestamp": "2026-04-10T12:39:56+02"
                 }
               }
             },
@@ -8710,7 +8610,7 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:35.495Z"
+            "asOf": "2026-04-10T11:04:07.332Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -8735,9 +8635,9 @@
                 "count": 2
               },
               {
-                "brand": "ESSO",
+                "brand": "Supermarkt-Tankstelle",
                 "price": 2.209,
-                "count": 3
+                "count": 1
               },
               {
                 "brand": "TotalEnergies",
@@ -8745,12 +8645,17 @@
                 "count": 1
               },
               {
-                "brand": "JET",
+                "brand": "ESSO",
+                "price": 2.214,
+                "count": 4
+              },
+              {
+                "brand": "SB",
                 "price": 2.219,
                 "count": 1
               },
               {
-                "brand": "SB",
+                "brand": "JET",
                 "price": 2.219,
                 "count": 1
               },
@@ -8762,7 +8667,7 @@
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 5
+                "count": 3
               },
               {
                 "brand": "E Center",
@@ -8792,9 +8697,9 @@
                 "count": 2
               },
               {
-                "brand": "ESSO",
+                "brand": "Supermarkt-Tankstelle",
                 "price": 2.149,
-                "count": 3
+                "count": 1
               },
               {
                 "brand": "TotalEnergies",
@@ -8802,12 +8707,17 @@
                 "count": 1
               },
               {
-                "brand": "JET",
+                "brand": "ESSO",
+                "price": 2.154,
+                "count": 4
+              },
+              {
+                "brand": "SB",
                 "price": 2.159,
                 "count": 1
               },
               {
-                "brand": "SB",
+                "brand": "JET",
                 "price": 2.159,
                 "count": 1
               },
@@ -8819,7 +8729,7 @@
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 5
+                "count": 3
               },
               {
                 "brand": "E Center",
@@ -8850,8 +8760,13 @@
               },
               {
                 "brand": "ESSO",
-                "price": 2.356,
-                "count": 3
+                "price": 2.366,
+                "count": 4
+              },
+              {
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.369,
+                "count": 1
               },
               {
                 "brand": "TotalEnergies",
@@ -8871,7 +8786,7 @@
               {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 5
+                "count": 3
               },
               {
                 "brand": "ARAL",
@@ -8894,22 +8809,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.224,
-                "Super E10": 2.164,
-                "Diesel": 2.384
+                "Super E5": 2.222,
+                "Super E10": 2.161,
+                "Diesel": 2.381
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.15,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.01,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 },
                 "Super E10": {
-                  "amount": 0.15,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.01,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 },
                 "Diesel": {
-                  "amount": 0.13,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.04,
+                  "timestamp": "2026-04-10T12:37:54+02"
                 }
               }
             },
@@ -9181,9 +9096,9 @@
           "stationStatus": {
             "openCount": 25,
             "totalCount": 25,
-            "nextClose": "2026-04-10T20:00:00+02",
+            "nextClose": "2026-04-10T20:30:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:35.800Z"
+            "asOf": "2026-04-10T11:04:07.503Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -9193,17 +9108,22 @@
                 "count": 1
               },
               {
-                "brand": "CleanCar",
-                "price": 2.179,
+                "brand": "STAR",
+                "price": 2.189,
                 "count": 1
               },
               {
-                "brand": "Markenfreie TS",
+                "brand": "Tankcenter",
                 "price": 2.199,
                 "count": 1
               },
               {
-                "brand": "STAR",
+                "brand": "JET",
+                "price": 2.199,
+                "count": 3
+              },
+              {
+                "brand": "Markenfreie TS",
                 "price": 2.199,
                 "count": 1
               },
@@ -9218,24 +9138,19 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.219,
-                "count": 3
-              },
-              {
                 "brand": "TotalEnergies Truckstop",
                 "price": 2.219,
                 "count": 1
               },
               {
                 "brand": "ESSO",
-                "price": 2.222,
-                "count": 3
+                "price": 2.224,
+                "count": 4
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 5
+                "count": 4
               },
               {
                 "brand": "ARAL",
@@ -9250,17 +9165,22 @@
                 "count": 1
               },
               {
-                "brand": "CleanCar",
+                "brand": "STAR",
                 "price": 2.129,
                 "count": 1
               },
               {
-                "brand": "Markenfreie TS",
+                "brand": "Tankcenter",
                 "price": 2.139,
                 "count": 1
               },
               {
-                "brand": "STAR",
+                "brand": "JET",
+                "price": 2.139,
+                "count": 3
+              },
+              {
+                "brand": "Markenfreie TS",
                 "price": 2.139,
                 "count": 1
               },
@@ -9275,24 +9195,19 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.159,
-                "count": 3
-              },
-              {
                 "brand": "TotalEnergies Truckstop",
                 "price": 2.159,
                 "count": 1
               },
               {
                 "brand": "ESSO",
-                "price": 2.162,
-                "count": 3
+                "price": 2.164,
+                "count": 4
               },
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 5
+                "count": 3
               },
               {
                 "brand": "ARAL",
@@ -9307,8 +9222,18 @@
                 "count": 1
               },
               {
-                "brand": "CleanCar",
+                "brand": "STAR",
                 "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "JET",
+                "price": 2.359,
+                "count": 3
+              },
+              {
+                "brand": "Tankcenter",
+                "price": 2.369,
                 "count": 1
               },
               {
@@ -9317,19 +9242,9 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
-                "price": 2.369,
-                "count": 1
-              },
-              {
                 "brand": "AVIA",
                 "price": 2.369,
                 "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.379,
-                "count": 3
               },
               {
                 "brand": "TotalEnergies",
@@ -9343,18 +9258,18 @@
               },
               {
                 "brand": "ESSO",
-                "price": 2.392,
-                "count": 3
-              },
-              {
-                "brand": "Shell",
-                "price": 2.399,
-                "count": 5
+                "price": 2.391,
+                "count": 4
               },
               {
                 "brand": "ARAL",
                 "price": 2.399,
                 "count": 7
+              },
+              {
+                "brand": "Shell",
+                "price": 2.399,
+                "count": 4
               }
             ]
           }
@@ -9656,7 +9571,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:36.107Z"
+            "asOf": "2026-04-10T11:04:07.668Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -9979,7 +9894,7 @@
             "totalCount": 1,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:36.415Z"
+            "asOf": "2026-04-10T11:04:07.839Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -10302,7 +10217,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:36.722Z"
+            "asOf": "2026-04-10T11:04:08.003Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -10336,9 +10251,9 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.224,
-                "Super E10": 2.164,
-                "Diesel": 2.389
+                "Super E5": 2.219,
+                "Super E10": 2.159,
+                "Diesel": 2.384
               },
               "priceChanges": {
                 "Super E5": {
@@ -10625,13 +10540,13 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:37.029Z"
+            "asOf": "2026-04-10T11:04:08.164Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "Frei",
-                "price": 2.219,
+                "price": 2.209,
                 "count": 1
               },
               {
@@ -10643,7 +10558,7 @@
             "Super E10": [
               {
                 "brand": "Frei",
-                "price": 2.159,
+                "price": 2.149,
                 "count": 1
               },
               {
@@ -10655,7 +10570,7 @@
             "Diesel": [
               {
                 "brand": "Frei",
-                "price": 2.379,
+                "price": 2.369,
                 "count": 1
               },
               {
@@ -10674,22 +10589,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.226,
-                "Super E10": 2.166,
-                "Diesel": 2.381
+                "Super E5": 2.224,
+                "Super E10": 2.164,
+                "Diesel": 2.382
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.1,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Super E10": {
-                  "amount": 0.1,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Diesel": {
-                  "amount": 0.14,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 }
               }
             },
@@ -10963,29 +10878,29 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:37.337Z"
+            "asOf": "2026-04-10T11:04:08.337Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "Supermarkt-Tankstelle",
-                "price": 2.209,
-                "count": 1
+                "price": 2.199,
+                "count": 2
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "Markant",
                 "price": 2.209,
                 "count": 1
               },
               {
                 "brand": "JET",
-                "price": 2.219,
+                "price": 2.214,
                 "count": 2
               },
               {
                 "brand": "bft",
                 "price": 2.219,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "SB",
@@ -11000,12 +10915,12 @@
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "ESSO",
                 "price": 2.229,
-                "count": 4
+                "count": 3
               },
               {
                 "brand": "ARAL",
@@ -11016,23 +10931,23 @@
             "Super E10": [
               {
                 "brand": "Supermarkt-Tankstelle",
-                "price": 2.149,
-                "count": 1
+                "price": 2.139,
+                "count": 2
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "Markant",
                 "price": 2.149,
                 "count": 1
               },
               {
                 "brand": "JET",
-                "price": 2.159,
+                "price": 2.154,
                 "count": 2
               },
               {
                 "brand": "bft",
                 "price": 2.159,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "SB",
@@ -11047,12 +10962,12 @@
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "ESSO",
                 "price": 2.169,
-                "count": 4
+                "count": 3
               },
               {
                 "brand": "ARAL",
@@ -11067,29 +10982,24 @@
                 "count": 1
               },
               {
+                "brand": "Markant",
+                "price": 2.339,
+                "count": 1
+              },
+              {
                 "brand": "bft",
-                "price": 2.344,
+                "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.369,
                 "count": 2
               },
               {
                 "brand": "JET",
                 "price": 2.379,
                 "count": 2
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.379,
-                "count": 1
-              },
-              {
-                "brand": "TotalEnergies",
-                "price": 2.379,
-                "count": 1
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.384,
-                "count": 4
               },
               {
                 "brand": "SB",
@@ -11102,9 +11012,14 @@
                 "count": 2
               },
               {
+                "brand": "ESSO",
+                "price": 2.396,
+                "count": 3
+              },
+              {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "ARAL",
@@ -11411,7 +11326,7 @@
             "totalCount": 1,
             "nextClose": "2026-04-11T00:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:37.566Z"
+            "asOf": "2026-04-10T11:04:08.499Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -11734,7 +11649,7 @@
             "totalCount": 3,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:37.777Z"
+            "asOf": "2026-04-10T11:04:08.661Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -12087,7 +12002,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:37.984Z"
+            "asOf": "2026-04-10T11:04:08.823Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -12121,22 +12036,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.213,
-                "Super E10": 2.153,
-                "Diesel": 2.382
+                "Super E5": 2.208,
+                "Super E10": 2.148,
+                "Diesel": 2.373
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.05,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": 0.05,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": 0.02,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.15,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -12410,7 +12325,7 @@
             "totalCount": 24,
             "nextClose": "2026-04-10T19:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:38.259Z"
+            "asOf": "2026-04-10T11:04:08.994Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -12420,8 +12335,18 @@
                 "count": 1
               },
               {
+                "brand": "JET",
+                "price": 2.169,
+                "count": 1
+              },
+              {
                 "brand": "CleanCar",
                 "price": 2.169,
+                "count": 1
+              },
+              {
+                "brand": "SBT",
+                "price": 2.179,
                 "count": 1
               },
               {
@@ -12430,14 +12355,14 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.199,
-                "count": 1
+                "brand": "STAR",
+                "price": 2.192,
+                "count": 3
               },
               {
-                "brand": "STAR",
-                "price": 2.202,
-                "count": 3
+                "brand": "ESSO",
+                "price": 2.199,
+                "count": 2
               },
               {
                 "brand": "TotalEnergies",
@@ -12448,16 +12373,6 @@
                 "brand": "HEM",
                 "price": 2.209,
                 "count": 1
-              },
-              {
-                "brand": "SBT",
-                "price": 2.209,
-                "count": 1
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.214,
-                "count": 2
               },
               {
                 "brand": "ARAL",
@@ -12477,8 +12392,18 @@
                 "count": 1
               },
               {
+                "brand": "JET",
+                "price": 2.109,
+                "count": 1
+              },
+              {
                 "brand": "CleanCar",
                 "price": 2.109,
+                "count": 1
+              },
+              {
+                "brand": "SBT",
+                "price": 2.119,
                 "count": 1
               },
               {
@@ -12487,14 +12412,14 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.139,
-                "count": 1
+                "brand": "STAR",
+                "price": 2.132,
+                "count": 3
               },
               {
-                "brand": "STAR",
-                "price": 2.142,
-                "count": 3
+                "brand": "ESSO",
+                "price": 2.139,
+                "count": 2
               },
               {
                 "brand": "TotalEnergies",
@@ -12505,16 +12430,6 @@
                 "brand": "HEM",
                 "price": 2.149,
                 "count": 1
-              },
-              {
-                "brand": "SBT",
-                "price": 2.149,
-                "count": 1
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.154,
-                "count": 2
               },
               {
                 "brand": "ARAL",
@@ -12539,29 +12454,29 @@
                 "count": 1
               },
               {
+                "brand": "SBT",
+                "price": 2.299,
+                "count": 1
+              },
+              {
                 "brand": "bft",
                 "price": 2.299,
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.369,
-                "count": 1
+                "brand": "ESSO",
+                "price": 2.344,
+                "count": 2
               },
               {
                 "brand": "STAR",
-                "price": 2.369,
+                "price": 2.346,
                 "count": 3
               },
               {
-                "brand": "SBT",
+                "brand": "JET",
                 "price": 2.369,
                 "count": 1
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.379,
-                "count": 2
               },
               {
                 "brand": "TotalEnergies",
@@ -12600,16 +12515,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:32:50+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:32:50+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": 0.12,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.14,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -12883,7 +12798,7 @@
             "totalCount": 3,
             "nextClose": "2026-04-11T00:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:38.565Z"
+            "asOf": "2026-04-10T11:04:09.160Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -12932,21 +12847,21 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.217,
-                "Super E10": 2.157,
-                "Diesel": 2.39
+                "Super E5": 2.218,
+                "Super E10": 2.158,
+                "Diesel": 2.391
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.15,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-09T15:12:22+02"
                 },
                 "Super E10": {
-                  "amount": 0.15,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-09T15:12:22+02"
                 },
                 "Diesel": {
-                  "amount": 0.17,
+                  "amount": 0.05,
                   "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
@@ -13221,7 +13136,7 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:38.780Z"
+            "asOf": "2026-04-10T11:04:09.339Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -13248,7 +13163,7 @@
               {
                 "brand": "STAR",
                 "price": 2.199,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "TopTank",
@@ -13264,6 +13179,11 @@
                 "brand": "ARAL",
                 "price": 2.239,
                 "count": 5
+              },
+              {
+                "brand": "SB",
+                "price": 2.239,
+                "count": 1
               },
               {
                 "brand": "bft",
@@ -13300,7 +13220,7 @@
               {
                 "brand": "STAR",
                 "price": 2.139,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "TopTank",
@@ -13316,6 +13236,11 @@
                 "brand": "ARAL",
                 "price": 2.179,
                 "count": 5
+              },
+              {
+                "brand": "SB",
+                "price": 2.179,
+                "count": 1
               },
               {
                 "brand": "bft",
@@ -13352,7 +13277,7 @@
               {
                 "brand": "STAR",
                 "price": 2.369,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "TopTank",
@@ -13363,6 +13288,11 @@
                 "brand": "TotalEnergies",
                 "price": 2.379,
                 "count": 4
+              },
+              {
+                "brand": "SB",
+                "price": 2.409,
+                "count": 1
               },
               {
                 "brand": "bft",
@@ -13390,22 +13320,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.21,
-                "Super E10": 2.15,
-                "Diesel": 2.361
+                "Super E5": 2.211,
+                "Super E10": 2.151,
+                "Diesel": 2.363
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.06,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "amount": 0.1,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": 0.06,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "amount": 0.1,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
-                  "amount": 0.02,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "amount": 0.13,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -13679,10 +13609,15 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:38.999Z"
+            "asOf": "2026-04-10T11:04:09.515Z"
           },
           "brandComparison": {
             "Super E5": [
+              {
+                "brand": "JET",
+                "price": 2.159,
+                "count": 1
+              },
               {
                 "brand": "Freie Tankstelle",
                 "price": 2.169,
@@ -13704,22 +13639,17 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.192,
-                "count": 3
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.204,
+                "price": 2.196,
                 "count": 4
               },
               {
-                "brand": "STAR",
+                "brand": "TotalEnergies",
                 "price": 2.209,
-                "count": 1
+                "count": 2
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "STAR",
                 "price": 2.209,
                 "count": 1
               },
@@ -13729,22 +13659,32 @@
                 "count": 1
               },
               {
-                "brand": "CLASSIC",
-                "price": 2.209,
+                "brand": "OIL!",
+                "price": 2.219,
+                "count": 1
+              },
+              {
+                "brand": "AVIA XPress",
+                "price": 2.229,
                 "count": 1
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 6
+                "count": 5
               },
               {
                 "brand": "ARAL",
                 "price": 2.249,
-                "count": 3
+                "count": 4
               }
             ],
             "Super E10": [
+              {
+                "brand": "JET",
+                "price": 2.099,
+                "count": 1
+              },
               {
                 "brand": "Freie Tankstelle",
                 "price": 2.109,
@@ -13766,22 +13706,17 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.132,
-                "count": 3
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.144,
+                "price": 2.136,
                 "count": 4
               },
               {
-                "brand": "STAR",
+                "brand": "TotalEnergies",
                 "price": 2.149,
-                "count": 1
+                "count": 2
               },
               {
-                "brand": "TotalEnergies",
+                "brand": "STAR",
                 "price": 2.149,
                 "count": 1
               },
@@ -13791,22 +13726,32 @@
                 "count": 1
               },
               {
-                "brand": "CLASSIC",
-                "price": 2.149,
+                "brand": "OIL!",
+                "price": 2.159,
+                "count": 1
+              },
+              {
+                "brand": "AVIA XPress",
+                "price": 2.169,
                 "count": 1
               },
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 6
+                "count": 5
               },
               {
                 "brand": "ARAL",
                 "price": 2.189,
-                "count": 3
+                "count": 4
               }
             ],
             "Diesel": [
+              {
+                "brand": "JET",
+                "price": 2.269,
+                "count": 1
+              },
               {
                 "brand": "bft",
                 "price": 2.269,
@@ -13823,18 +13768,8 @@
                 "count": 1
               },
               {
-                "brand": "CLASSIC",
-                "price": 2.329,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.339,
-                "count": 3
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.354,
+                "price": 2.349,
                 "count": 4
               },
               {
@@ -13855,17 +13790,27 @@
               {
                 "brand": "TotalEnergies",
                 "price": 2.379,
+                "count": 2
+              },
+              {
+                "brand": "OIL!",
+                "price": 2.379,
                 "count": 1
               },
               {
-                "brand": "Shell",
-                "price": 2.399,
-                "count": 6
+                "brand": "AVIA XPress",
+                "price": 2.389,
+                "count": 1
               },
               {
                 "brand": "ARAL",
                 "price": 2.399,
-                "count": 3
+                "count": 4
+              },
+              {
+                "brand": "Shell",
+                "price": 2.399,
+                "count": 5
               }
             ]
           }
@@ -14167,7 +14112,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:39.207Z"
+            "asOf": "2026-04-10T11:04:09.677Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -14490,7 +14435,7 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:39.415Z"
+            "asOf": "2026-04-10T11:04:09.842Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -14539,22 +14484,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.21,
-                "Super E10": 2.15,
-                "Diesel": 2.368
+                "Super E5": 2.205,
+                "Super E10": 2.145,
+                "Diesel": 2.361
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.18,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Super E10": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.18,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Diesel": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.22,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 }
               }
             },
@@ -14828,7 +14773,7 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T19:30:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:39.693Z"
+            "asOf": "2026-04-10T11:04:10.016Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -14843,13 +14788,23 @@
                 "count": 1
               },
               {
+                "brand": "ESSO",
+                "price": 2.149,
+                "count": 1
+              },
+              {
                 "brand": "STAR",
-                "price": 2.179,
+                "price": 2.159,
                 "count": 2
               },
               {
-                "brand": "ESSO",
-                "price": 2.189,
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.179,
+                "count": 1
+              },
+              {
+                "brand": "Markenfreie TS",
+                "price": 2.199,
                 "count": 1
               },
               {
@@ -14858,34 +14813,24 @@
                 "count": 2
               },
               {
-                "brand": "Markenfreie TS",
-                "price": 2.199,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.209,
-                "count": 1
-              },
-              {
                 "brand": "TotalEnergies",
                 "price": 2.209,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "JET",
-                "price": 2.219,
-                "count": 2
+                "price": 2.214,
+                "count": 4
               },
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 4
+                "count": 6
               },
               {
                 "brand": "ARAL",
                 "price": 2.239,
-                "count": 6
+                "count": 4
               }
             ],
             "Super E10": [
@@ -14900,13 +14845,23 @@
                 "count": 1
               },
               {
+                "brand": "ESSO",
+                "price": 2.089,
+                "count": 1
+              },
+              {
                 "brand": "STAR",
-                "price": 2.119,
+                "price": 2.099,
                 "count": 2
               },
               {
-                "brand": "ESSO",
-                "price": 2.129,
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.119,
+                "count": 1
+              },
+              {
+                "brand": "Markenfreie TS",
+                "price": 2.139,
                 "count": 1
               },
               {
@@ -14915,34 +14870,24 @@
                 "count": 2
               },
               {
-                "brand": "Markenfreie TS",
-                "price": 2.139,
-                "count": 1
-              },
-              {
-                "brand": "Supermarkt-Tankstelle",
-                "price": 2.149,
-                "count": 1
-              },
-              {
                 "brand": "TotalEnergies",
                 "price": 2.149,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "JET",
-                "price": 2.159,
-                "count": 2
+                "price": 2.154,
+                "count": 4
               },
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 4
+                "count": 6
               },
               {
                 "brand": "ARAL",
                 "price": 2.179,
-                "count": 6
+                "count": 4
               }
             ],
             "Diesel": [
@@ -14962,28 +14907,18 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
-                "price": 2.349,
-                "count": 2
-              },
-              {
                 "brand": "ESSO",
-                "price": 2.359,
+                "price": 2.279,
                 "count": 1
               },
               {
-                "brand": "AVIA Truck",
-                "price": 2.359,
-                "count": 1
-              },
-              {
-                "brand": "SB",
-                "price": 2.369,
+                "brand": "STAR",
+                "price": 2.309,
                 "count": 2
               },
               {
                 "brand": "Supermarkt-Tankstelle",
-                "price": 2.369,
+                "price": 2.349,
                 "count": 1
               },
               {
@@ -14992,24 +14927,29 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.379,
+                "brand": "SB",
+                "price": 2.369,
                 "count": 2
+              },
+              {
+                "brand": "JET",
+                "price": 2.377,
+                "count": 4
               },
               {
                 "brand": "TotalEnergies",
                 "price": 2.379,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 4
+                "count": 6
               },
               {
                 "brand": "ARAL",
                 "price": 2.399,
-                "count": 6
+                "count": 4
               }
             ]
           }
@@ -15022,22 +14962,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.22,
-                "Super E10": 2.16,
-                "Diesel": 2.387
+                "Super E5": 2.222,
+                "Super E10": 2.162,
+                "Diesel": 2.389
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.15,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": 0.16,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": 0.15,
+                  "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
                   "amount": 0.17,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "timestamp": "2026-04-10T12:01:19+02"
                 }
               }
             },
@@ -15311,17 +15251,32 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:39.912Z"
+            "asOf": "2026-04-10T11:04:10.191Z"
           },
           "brandComparison": {
             "Super E5": [
               {
+                "brand": "LEO",
+                "price": 2.179,
+                "count": 1
+              },
+              {
                 "brand": "HEM",
                 "price": 2.179,
-                "count": 4
+                "count": 3
+              },
+              {
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.179,
+                "count": 1
               },
               {
                 "brand": "ORLEN",
+                "price": 2.179,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
                 "price": 2.179,
                 "count": 1
               },
@@ -15334,11 +15289,6 @@
                 "brand": "ESSO",
                 "price": 2.189,
                 "count": 1
-              },
-              {
-                "brand": "STAR",
-                "price": 2.189,
-                "count": 2
               },
               {
                 "brand": "ELAN",
@@ -15356,24 +15306,14 @@
                 "count": 2
               },
               {
-                "brand": "JET",
-                "price": 2.219,
-                "count": 1
-              },
-              {
-                "brand": "LEO",
-                "price": 2.219,
-                "count": 1
+                "brand": "Shell",
+                "price": 2.249,
+                "count": 7
               },
               {
                 "brand": "ARAL",
                 "price": 2.249,
                 "count": 4
-              },
-              {
-                "brand": "Shell",
-                "price": 2.249,
-                "count": 5
               },
               {
                 "brand": "Greenline",
@@ -15383,12 +15323,27 @@
             ],
             "Super E10": [
               {
+                "brand": "LEO",
+                "price": 2.119,
+                "count": 1
+              },
+              {
                 "brand": "HEM",
                 "price": 2.119,
-                "count": 4
+                "count": 3
+              },
+              {
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.119,
+                "count": 1
               },
               {
                 "brand": "ORLEN",
+                "price": 2.119,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
                 "price": 2.119,
                 "count": 1
               },
@@ -15401,11 +15356,6 @@
                 "brand": "ESSO",
                 "price": 2.129,
                 "count": 1
-              },
-              {
-                "brand": "STAR",
-                "price": 2.129,
-                "count": 2
               },
               {
                 "brand": "ELAN",
@@ -15423,24 +15373,14 @@
                 "count": 2
               },
               {
-                "brand": "JET",
-                "price": 2.159,
-                "count": 1
-              },
-              {
-                "brand": "LEO",
-                "price": 2.159,
-                "count": 1
+                "brand": "Shell",
+                "price": 2.189,
+                "count": 7
               },
               {
                 "brand": "ARAL",
                 "price": 2.189,
                 "count": 4
-              },
-              {
-                "brand": "Shell",
-                "price": 2.189,
-                "count": 5
               },
               {
                 "brand": "Greenline",
@@ -15455,12 +15395,27 @@
                 "count": 1
               },
               {
+                "brand": "LEO",
+                "price": 2.349,
+                "count": 1
+              },
+              {
                 "brand": "HEM",
                 "price": 2.349,
-                "count": 4
+                "count": 3
+              },
+              {
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.349,
+                "count": 1
               },
               {
                 "brand": "ORLEN",
+                "price": 2.349,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
                 "price": 2.349,
                 "count": 1
               },
@@ -15475,18 +15430,8 @@
                 "count": 1
               },
               {
-                "brand": "STAR",
-                "price": 2.359,
-                "count": 2
-              },
-              {
                 "brand": "ELAN",
                 "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.379,
                 "count": 1
               },
               {
@@ -15495,19 +15440,14 @@
                 "count": 2
               },
               {
-                "brand": "LEO",
-                "price": 2.379,
-                "count": 1
+                "brand": "Shell",
+                "price": 2.419,
+                "count": 7
               },
               {
                 "brand": "ARAL",
                 "price": 2.419,
                 "count": 4
-              },
-              {
-                "brand": "Shell",
-                "price": 2.419,
-                "count": 5
               },
               {
                 "brand": "Greenline",
@@ -15525,9 +15465,9 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.218,
-                "Super E10": 2.159,
-                "Diesel": 2.396
+                "Super E5": 2.221,
+                "Super E10": 2.161,
+                "Diesel": 2.395
               },
               "priceChanges": {
                 "Super E5": {
@@ -15539,8 +15479,8 @@
                   "timestamp": "2026-04-10T12:02:20+02"
                 },
                 "Diesel": {
-                  "amount": 0.11,
-                  "timestamp": "2026-04-10T12:02:20+02"
+                  "amount": -0.02,
+                  "timestamp": "2026-04-10T13:03:26+02"
                 }
               }
             },
@@ -15812,20 +15752,25 @@
           "stationStatus": {
             "openCount": 25,
             "totalCount": 25,
-            "nextClose": "2026-04-10T19:30:00+02",
+            "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:40.204Z"
+            "asOf": "2026-04-10T11:04:10.371Z"
           },
           "brandComparison": {
             "Super E5": [
+              {
+                "brand": "Globus SB Warenhaus",
+                "price": 2.129,
+                "count": 1
+              },
               {
                 "brand": "Sprint",
                 "price": 2.149,
                 "count": 1
               },
               {
-                "brand": "CleanCar",
-                "price": 2.149,
+                "brand": "ORLEN",
+                "price": 2.179,
                 "count": 1
               },
               {
@@ -15834,44 +15779,44 @@
                 "count": 2
               },
               {
-                "brand": "STAR",
-                "price": 2.183,
-                "count": 5
-              },
-              {
                 "brand": "blitz-tank",
                 "price": 2.189,
                 "count": 1
               },
               {
-                "brand": "TopTank",
-                "price": 2.189,
+                "brand": "STAR",
+                "price": 2.199,
+                "count": 2
+              },
+              {
+                "brand": "Tankcenter",
+                "price": 2.199,
                 "count": 1
               },
               {
-                "brand": "bft - Walther",
-                "price": 2.199,
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.209,
                 "count": 1
               },
               {
                 "brand": "TotalEnergies",
                 "price": 2.209,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "JET",
                 "price": 2.219,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "ARAL",
                 "price": 2.239,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "Shell",
                 "price": 2.249,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "Greenline",
@@ -15881,8 +15826,18 @@
             ],
             "Super E10": [
               {
+                "brand": "Globus SB Warenhaus",
+                "price": 2.069,
+                "count": 1
+              },
+              {
                 "brand": "Sprint",
                 "price": 2.089,
+                "count": 1
+              },
+              {
+                "brand": "ORLEN",
+                "price": 2.119,
                 "count": 1
               },
               {
@@ -15891,49 +15846,44 @@
                 "count": 2
               },
               {
-                "brand": "CleanCar",
-                "price": 2.119,
-                "count": 1
-              },
-              {
-                "brand": "STAR",
-                "price": 2.123,
-                "count": 5
-              },
-              {
                 "brand": "blitz-tank",
                 "price": 2.129,
                 "count": 1
               },
               {
-                "brand": "TopTank",
-                "price": 2.129,
+                "brand": "STAR",
+                "price": 2.139,
+                "count": 2
+              },
+              {
+                "brand": "Tankcenter",
+                "price": 2.139,
                 "count": 1
               },
               {
-                "brand": "bft - Walther",
-                "price": 2.139,
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.149,
                 "count": 1
               },
               {
                 "brand": "TotalEnergies",
                 "price": 2.149,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "JET",
                 "price": 2.159,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "ARAL",
                 "price": 2.179,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "Shell",
                 "price": 2.189,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "Greenline",
@@ -15943,13 +15893,18 @@
             ],
             "Diesel": [
               {
+                "brand": "Globus SB Warenhaus",
+                "price": 2.289,
+                "count": 1
+              },
+              {
                 "brand": "Sprint",
                 "price": 2.289,
                 "count": 1
               },
               {
-                "brand": "CleanCar",
-                "price": 2.289,
+                "brand": "Supermarkt-Tankstelle",
+                "price": 2.349,
                 "count": 1
               },
               {
@@ -15958,8 +15913,23 @@
                 "count": 1
               },
               {
-                "brand": "TopTank",
-                "price": 2.359,
+                "brand": "JET",
+                "price": 2.366,
+                "count": 3
+              },
+              {
+                "brand": "ORLEN",
+                "price": 2.369,
+                "count": 1
+              },
+              {
+                "brand": "STAR",
+                "price": 2.369,
+                "count": 2
+              },
+              {
+                "brand": "Tankcenter",
+                "price": 2.369,
                 "count": 1
               },
               {
@@ -15968,34 +15938,19 @@
                 "count": 2
               },
               {
-                "brand": "STAR",
-                "price": 2.369,
-                "count": 5
-              },
-              {
-                "brand": "bft - Walther",
-                "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "JET",
-                "price": 2.379,
-                "count": 2
-              },
-              {
                 "brand": "TotalEnergies",
                 "price": 2.379,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "Shell",
                 "price": 2.419,
-                "count": 3
+                "count": 2
               },
               {
                 "brand": "ARAL",
                 "price": 2.439,
-                "count": 4
+                "count": 5
               },
               {
                 "brand": "Greenline",
@@ -16013,22 +15968,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.222,
-                "Super E10": 2.159,
-                "Diesel": 2.379
+                "Super E5": 2.212,
+                "Super E10": 2.144,
+                "Diesel": 2.366
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:27:46+02"
+                  "amount": 0.11,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 },
                 "Super E10": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:27:46+02"
+                  "amount": 0.11,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 },
                 "Diesel": {
-                  "amount": 0.1,
-                  "timestamp": "2026-04-10T12:07:24+02"
+                  "amount": 0.12,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 }
               }
             },
@@ -16302,13 +16257,13 @@
             "totalCount": 3,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:40.511Z"
+            "asOf": "2026-04-10T11:04:10.535Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "Freie Tankstelle",
-                "price": 2.219,
+                "price": 2.189,
                 "count": 1
               },
               {
@@ -16325,7 +16280,7 @@
             "Super E10": [
               {
                 "brand": "Freie Tankstelle",
-                "price": 2.159,
+                "price": 2.129,
                 "count": 1
               },
               {
@@ -16337,7 +16292,7 @@
             "Diesel": [
               {
                 "brand": "Freie Tankstelle",
-                "price": 2.359,
+                "price": 2.319,
                 "count": 1
               },
               {
@@ -16363,7 +16318,7 @@
               "prices": {
                 "Super E5": 2.23,
                 "Super E10": 2.171,
-                "Diesel": 2.38
+                "Diesel": 2.383
               },
               "priceChanges": {
                 "Super E5": {
@@ -16650,23 +16605,28 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T21:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:40.818Z"
+            "asOf": "2026-04-10T11:04:10.710Z"
           },
           "brandComparison": {
             "Super E5": [
+              {
+                "brand": "FAMILA",
+                "price": 2.189,
+                "count": 1
+              },
               {
                 "brand": "Access",
                 "price": 2.199,
                 "count": 1
               },
               {
-                "brand": "Hoyer",
-                "price": 2.199,
+                "brand": "OIL!",
+                "price": 2.209,
                 "count": 1
               },
               {
-                "brand": "NORDOEL",
-                "price": 2.202,
+                "brand": "Other",
+                "price": 2.219,
                 "count": 1
               },
               {
@@ -16685,14 +16645,9 @@
                 "count": 4
               },
               {
-                "brand": "JET",
-                "price": 2.219,
-                "count": 1
-              },
-              {
                 "brand": "AVIA",
                 "price": 2.229,
-                "count": 3
+                "count": 4
               },
               {
                 "brand": "HEM",
@@ -16701,13 +16656,13 @@
               },
               {
                 "brand": "ESSO",
-                "price": 2.232,
-                "count": 3
+                "price": 2.229,
+                "count": 1
               },
               {
-                "brand": "SB",
-                "price": 2.239,
-                "count": 1
+                "brand": "ARAL",
+                "price": 2.249,
+                "count": 2
               },
               {
                 "brand": "Shell",
@@ -16722,18 +16677,23 @@
             ],
             "Super E10": [
               {
+                "brand": "FAMILA",
+                "price": 2.129,
+                "count": 1
+              },
+              {
                 "brand": "Access",
                 "price": 2.139,
                 "count": 1
               },
               {
-                "brand": "Hoyer",
-                "price": 2.139,
+                "brand": "OIL!",
+                "price": 2.149,
                 "count": 1
               },
               {
-                "brand": "NORDOEL",
-                "price": 2.142,
+                "brand": "Other",
+                "price": 2.159,
                 "count": 1
               },
               {
@@ -16752,19 +16712,14 @@
                 "count": 4
               },
               {
-                "brand": "JET",
-                "price": 2.159,
-                "count": 1
-              },
-              {
                 "brand": "AVIA",
                 "price": 2.169,
-                "count": 3
+                "count": 4
               },
               {
                 "brand": "ESSO",
-                "price": 2.172,
-                "count": 3
+                "price": 2.169,
+                "count": 1
               },
               {
                 "brand": "HEM",
@@ -16772,9 +16727,9 @@
                 "count": 2
               },
               {
-                "brand": "SB",
-                "price": 2.179,
-                "count": 1
+                "brand": "ARAL",
+                "price": 2.189,
+                "count": 2
               },
               {
                 "brand": "Shell",
@@ -16789,13 +16744,8 @@
             ],
             "Diesel": [
               {
-                "brand": "NORDOEL",
-                "price": 2.339,
-                "count": 1
-              },
-              {
-                "brand": "Hoyer",
-                "price": 2.339,
+                "brand": "Other",
+                "price": 2.349,
                 "count": 1
               },
               {
@@ -16805,8 +16755,13 @@
               },
               {
                 "brand": "AVIA",
-                "price": 2.354,
-                "count": 4
+                "price": 2.355,
+                "count": 5
+              },
+              {
+                "brand": "FAMILA",
+                "price": 2.359,
+                "count": 1
               },
               {
                 "brand": "team",
@@ -16814,9 +16769,9 @@
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.366,
-                "count": 3
+                "brand": "OIL!",
+                "price": 2.369,
+                "count": 1
               },
               {
                 "brand": "Access",
@@ -16829,8 +16784,8 @@
                 "count": 4
               },
               {
-                "brand": "JET",
-                "price": 2.379,
+                "brand": "ESSO",
+                "price": 2.369,
                 "count": 1
               },
               {
@@ -16839,9 +16794,9 @@
                 "count": 2
               },
               {
-                "brand": "SB",
-                "price": 2.409,
-                "count": 1
+                "brand": "ARAL",
+                "price": 2.419,
+                "count": 2
               },
               {
                 "brand": "Shell",
@@ -17153,7 +17108,7 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T23:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:41.125Z"
+            "asOf": "2026-04-10T11:04:10.872Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -17491,7 +17446,7 @@
             "totalCount": 2,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:41.432Z"
+            "asOf": "2026-04-10T11:04:11.036Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -17829,7 +17784,7 @@
             "totalCount": 2,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:41.740Z"
+            "asOf": "2026-04-10T11:04:11.199Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -17864,21 +17819,21 @@
               "date": "2026-04-10",
               "prices": {
                 "Super E5": 2.221,
-                "Super E10": 2.162,
+                "Super E10": 2.161,
                 "Diesel": 2.374
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.11,
-                  "timestamp": "2026-04-10T12:00:17+02"
+                  "amount": 0.1,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 },
                 "Super E10": {
-                  "amount": 0.11,
-                  "timestamp": "2026-04-10T12:00:17+02"
+                  "amount": 0.1,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 },
                 "Diesel": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:00:17+02"
+                  "amount": 0.12,
+                  "timestamp": "2026-04-10T12:02:20+02"
                 }
               }
             },
@@ -18152,7 +18107,7 @@
             "totalCount": 4,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:42.046Z"
+            "asOf": "2026-04-10T11:04:11.364Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -18520,7 +18475,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:42.353Z"
+            "asOf": "2026-04-10T11:04:11.527Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -18843,7 +18798,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:42.662Z"
+            "asOf": "2026-04-10T11:04:11.690Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -19166,7 +19121,7 @@
             "totalCount": 1,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:42.969Z"
+            "asOf": "2026-04-10T11:04:11.852Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -19206,16 +19161,16 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.03,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.11,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Super E10": {
-                  "amount": -0.03,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.11,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 },
                 "Diesel": {
-                  "amount": -0.05,
-                  "timestamp": "2026-04-10T12:45:03+02"
+                  "amount": 0.09,
+                  "timestamp": "2026-04-10T12:04:21+02"
                 }
               }
             },
@@ -19489,7 +19444,7 @@
             "totalCount": 6,
             "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:43.276Z"
+            "asOf": "2026-04-10T11:04:12.014Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -19504,14 +19459,14 @@
                 "count": 2
               },
               {
-                "brand": "Shell",
-                "price": 2.229,
-                "count": 2
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.229,
                 "count": 1
+              },
+              {
+                "brand": "Shell",
+                "price": 2.229,
+                "count": 2
               }
             ],
             "Super E10": [
@@ -19526,14 +19481,14 @@
                 "count": 2
               },
               {
-                "brand": "Shell",
-                "price": 2.169,
-                "count": 2
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.169,
                 "count": 1
+              },
+              {
+                "brand": "Shell",
+                "price": 2.169,
+                "count": 2
               }
             ],
             "Diesel": [
@@ -19857,7 +19812,7 @@
             "totalCount": 1,
             "nextClose": null,
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:43.492Z"
+            "asOf": "2026-04-10T11:04:12.176Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -19897,11 +19852,11 @@
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.13,
+                  "amount": 0.12,
                   "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Super E10": {
-                  "amount": 0.13,
+                  "amount": 0.12,
                   "timestamp": "2026-04-10T12:01:19+02"
                 },
                 "Diesel": {
@@ -20180,31 +20135,31 @@
             "totalCount": 3,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:43.788Z"
+            "asOf": "2026-04-10T11:04:12.338Z"
           },
           "brandComparison": {
             "Super E5": [
               {
-                "brand": "Shell",
-                "price": 2.239,
-                "count": 2
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.239,
                 "count": 1
+              },
+              {
+                "brand": "Shell",
+                "price": 2.239,
+                "count": 2
               }
             ],
             "Super E10": [
               {
-                "brand": "Shell",
-                "price": 2.179,
-                "count": 2
-              },
-              {
                 "brand": "ARAL",
                 "price": 2.179,
                 "count": 1
+              },
+              {
+                "brand": "Shell",
+                "price": 2.179,
+                "count": 2
               }
             ],
             "Diesel": [
@@ -20229,22 +20184,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.212,
-                "Super E10": 2.152,
-                "Diesel": 2.354
+                "Super E5": 2.202,
+                "Super E10": 2.145,
+                "Diesel": 2.34
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.06,
+                  "timestamp": "2026-04-10T12:07:24+02"
                 },
                 "Super E10": {
-                  "amount": 0.09,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": 0.06,
+                  "timestamp": "2026-04-10T12:07:24+02"
                 },
                 "Diesel": {
-                  "amount": 0.12,
-                  "timestamp": "2026-04-10T12:01:19+02"
+                  "amount": -0.01,
+                  "timestamp": "2026-04-09T17:54:25+02"
                 }
               }
             },
@@ -20518,24 +20473,39 @@
             "totalCount": 25,
             "nextClose": "2026-04-10T20:30:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:44.096Z"
+            "asOf": "2026-04-10T11:04:12.565Z"
           },
           "brandComparison": {
             "Super E5": [
+              {
+                "brand": "Böttcher Energie",
+                "price": 2.139,
+                "count": 1
+              },
+              {
+                "brand": "EDEKA",
+                "price": 2.159,
+                "count": 1
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.179,
+                "count": 2
+              },
               {
                 "brand": "Lanzinger Tanke ASL",
                 "price": 2.187,
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.192,
-                "count": 3
+                "brand": "JET",
+                "price": 2.189,
+                "count": 2
               },
               {
                 "brand": "AGIP ENI",
                 "price": 2.199,
-                "count": 4
+                "count": 3
               },
               {
                 "brand": "Autol",
@@ -20550,6 +20520,11 @@
               {
                 "brand": "HEM",
                 "price": 2.209,
+                "count": 3
+              },
+              {
+                "brand": "AVIA",
+                "price": 2.209,
                 "count": 2
               },
               {
@@ -20563,9 +20538,9 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.212,
-                "count": 3
+                "brand": "AVIA XPress",
+                "price": 2.214,
+                "count": 2
               },
               {
                 "brand": "Tank & Shop",
@@ -20575,39 +20550,39 @@
               {
                 "brand": "Shell",
                 "price": 2.229,
-                "count": 2
-              },
-              {
-                "brand": "AVIA",
-                "price": 2.229,
-                "count": 1
-              },
-              {
-                "brand": "Tank Plus",
-                "price": 2.229,
                 "count": 1
               },
               {
                 "brand": "ARAL",
                 "price": 2.249,
-                "count": 3
+                "count": 2
               }
             ],
             "Super E10": [
+              {
+                "brand": "EDEKA",
+                "price": 2.099,
+                "count": 1
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.119,
+                "count": 2
+              },
               {
                 "brand": "Lanzinger Tanke ASL",
                 "price": 2.127,
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.132,
-                "count": 3
+                "brand": "JET",
+                "price": 2.129,
+                "count": 2
               },
               {
                 "brand": "AGIP ENI",
                 "price": 2.139,
-                "count": 4
+                "count": 3
               },
               {
                 "brand": "Autol",
@@ -20621,6 +20596,11 @@
               },
               {
                 "brand": "HEM",
+                "price": 2.149,
+                "count": 3
+              },
+              {
+                "brand": "AVIA",
                 "price": 2.149,
                 "count": 2
               },
@@ -20635,9 +20615,9 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.152,
-                "count": 3
+                "brand": "AVIA XPress",
+                "price": 2.154,
+                "count": 2
               },
               {
                 "brand": "Tank & Shop",
@@ -20647,22 +20627,12 @@
               {
                 "brand": "Shell",
                 "price": 2.169,
-                "count": 2
-              },
-              {
-                "brand": "AVIA",
-                "price": 2.169,
-                "count": 1
-              },
-              {
-                "brand": "Tank Plus",
-                "price": 2.169,
                 "count": 1
               },
               {
                 "brand": "ARAL",
                 "price": 2.189,
-                "count": 3
+                "count": 2
               }
             ],
             "Diesel": [
@@ -20672,19 +20642,39 @@
                 "count": 1
               },
               {
-                "brand": "AGIP ENI",
-                "price": 2.284,
-                "count": 4
-              },
-              {
                 "brand": "Lanzinger Tanke ASL",
-                "price": 2.287,
+                "price": 2.277,
                 "count": 1
               },
               {
-                "brand": "ESSO",
-                "price": 2.352,
+                "brand": "AGIP ENI",
+                "price": 2.282,
                 "count": 3
+              },
+              {
+                "brand": "Böttcher Energie",
+                "price": 2.289,
+                "count": 1
+              },
+              {
+                "brand": "EDEKA",
+                "price": 2.309,
+                "count": 1
+              },
+              {
+                "brand": "AVIA XPress",
+                "price": 2.319,
+                "count": 2
+              },
+              {
+                "brand": "AVIA",
+                "price": 2.324,
+                "count": 2
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.339,
+                "count": 2
               },
               {
                 "brand": "TopTank",
@@ -20694,7 +20684,7 @@
               {
                 "brand": "HEM",
                 "price": 2.369,
-                "count": 2
+                "count": 3
               },
               {
                 "brand": "Supermarkt-Tankstelle",
@@ -20702,19 +20692,9 @@
                 "count": 1
               },
               {
-                "brand": "AVIA",
-                "price": 2.369,
-                "count": 1
-              },
-              {
-                "brand": "Tank Plus",
-                "price": 2.369,
-                "count": 1
-              },
-              {
                 "brand": "JET",
-                "price": 2.376,
-                "count": 3
+                "price": 2.374,
+                "count": 2
               },
               {
                 "brand": "Tank & Shop",
@@ -20729,12 +20709,12 @@
               {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 2
+                "count": 1
               },
               {
                 "brand": "ARAL",
                 "price": 2.409,
-                "count": 3
+                "count": 2
               }
             ]
           }
@@ -21036,7 +21016,7 @@
             "totalCount": 1,
             "nextClose": "2026-04-10T22:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:44.312Z"
+            "asOf": "2026-04-10T11:04:12.725Z"
           },
           "brandComparison": {
             "Super E5": [
@@ -21070,22 +21050,22 @@
             {
               "date": "2026-04-10",
               "prices": {
-                "Super E5": 2.241,
-                "Super E10": 2.184,
-                "Diesel": 2.411
+                "Super E5": 2.225,
+                "Super E10": 2.17,
+                "Diesel": 2.389
               },
               "priceChanges": {
                 "Super E5": {
-                  "amount": -0.02,
-                  "timestamp": "2026-04-10T12:31:49+02"
+                  "amount": -0.15,
+                  "timestamp": "2026-04-10T12:26:45+02"
                 },
                 "Super E10": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:31:49+02"
+                  "amount": -0.15,
+                  "timestamp": "2026-04-10T12:26:45+02"
                 },
                 "Diesel": {
-                  "amount": -0.01,
-                  "timestamp": "2026-04-10T12:37:54+02"
+                  "amount": -0.14,
+                  "timestamp": "2026-04-10T12:26:45+02"
                 }
               }
             },
@@ -21357,16 +21337,31 @@
           "stationStatus": {
             "openCount": 25,
             "totalCount": 25,
-            "nextClose": "2026-04-10T21:00:00+02",
+            "nextClose": "2026-04-10T20:00:00+02",
             "nextOpen": null,
-            "asOf": "2026-04-10T10:50:44.607Z"
+            "asOf": "2026-04-10T11:04:12.898Z"
           },
           "brandComparison": {
             "Super E5": [
               {
                 "brand": "bft - Walther",
-                "price": 2.154,
+                "price": 2.139,
                 "count": 2
+              },
+              {
+                "brand": "REWE Tankstelle",
+                "price": 2.149,
+                "count": 1
+              },
+              {
+                "brand": "BayWa",
+                "price": 2.159,
+                "count": 1
+              },
+              {
+                "brand": "TopTank",
+                "price": 2.159,
+                "count": 1
               },
               {
                 "brand": "RAN",
@@ -21384,9 +21379,19 @@
                 "count": 2
               },
               {
-                "brand": "HEM",
+                "brand": "JET",
                 "price": 2.199,
-                "count": 2
+                "count": 3
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.206,
+                "count": 3
+              },
+              {
+                "brand": "TotalEnergies",
+                "price": 2.209,
+                "count": 1
               },
               {
                 "brand": "Supermarkt-Tankstelle",
@@ -21394,36 +21399,31 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.214,
+                "brand": "Shell",
+                "price": 2.229,
                 "count": 4
               },
               {
-                "brand": "ESSO",
-                "price": 2.222,
-                "count": 3
-              },
-              {
-                "brand": "Shell",
-                "price": 2.229,
-                "count": 3
-              },
-              {
-                "brand": "SB Tankstelle",
-                "price": 2.279,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
-                "price": 2.381,
-                "count": 5
+                "price": 2.469,
+                "count": 3
               }
             ],
             "Super E10": [
               {
+                "brand": "REWE Tankstelle",
+                "price": 2.089,
+                "count": 1
+              },
+              {
                 "brand": "bft - Walther",
-                "price": 2.104,
+                "price": 2.099,
                 "count": 2
+              },
+              {
+                "brand": "TopTank",
+                "price": 2.099,
+                "count": 1
               },
               {
                 "brand": "AGIP ENI",
@@ -21436,13 +21436,28 @@
                 "count": 2
               },
               {
-                "brand": "HEM",
+                "brand": "JET",
                 "price": 2.139,
-                "count": 2
+                "count": 3
+              },
+              {
+                "brand": "BayWa",
+                "price": 2.139,
+                "count": 1
               },
               {
                 "brand": "RAN",
                 "price": 2.139,
+                "count": 1
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.146,
+                "count": 3
+              },
+              {
+                "brand": "TotalEnergies",
+                "price": 2.149,
                 "count": 1
               },
               {
@@ -21451,35 +21466,40 @@
                 "count": 1
               },
               {
-                "brand": "JET",
-                "price": 2.154,
+                "brand": "Shell",
+                "price": 2.169,
                 "count": 4
               },
               {
-                "brand": "ESSO",
-                "price": 2.162,
-                "count": 3
-              },
-              {
-                "brand": "Shell",
-                "price": 2.169,
-                "count": 3
-              },
-              {
-                "brand": "SB Tankstelle",
-                "price": 2.239,
-                "count": 1
-              },
-              {
                 "brand": "ARAL",
-                "price": 2.321,
-                "count": 5
+                "price": 2.409,
+                "count": 3
               }
             ],
             "Diesel": [
               {
+                "brand": "REWE Tankstelle",
+                "price": 2.279,
+                "count": 1
+              },
+              {
                 "brand": "AGIP ENI",
                 "price": 2.299,
+                "count": 1
+              },
+              {
+                "brand": "bft - Walther",
+                "price": 2.309,
+                "count": 2
+              },
+              {
+                "brand": "BayWa",
+                "price": 2.309,
+                "count": 2
+              },
+              {
+                "brand": "TopTank",
+                "price": 2.319,
                 "count": 1
               },
               {
@@ -21488,14 +21508,14 @@
                 "count": 1
               },
               {
-                "brand": "bft - Walther",
-                "price": 2.329,
-                "count": 2
-              },
-              {
                 "brand": "HERM",
                 "price": 2.359,
                 "count": 2
+              },
+              {
+                "brand": "ESSO",
+                "price": 2.369,
+                "count": 3
               },
               {
                 "brand": "Supermarkt-Tankstelle",
@@ -21504,33 +21524,23 @@
               },
               {
                 "brand": "JET",
-                "price": 2.377,
-                "count": 4
-              },
-              {
-                "brand": "ESSO",
-                "price": 2.389,
+                "price": 2.376,
                 "count": 3
               },
               {
-                "brand": "HEM",
-                "price": 2.389,
-                "count": 2
+                "brand": "TotalEnergies",
+                "price": 2.379,
+                "count": 1
               },
               {
                 "brand": "Shell",
                 "price": 2.399,
-                "count": 3
-              },
-              {
-                "brand": "SB Tankstelle",
-                "price": 2.479,
-                "count": 1
+                "count": 4
               },
               {
                 "brand": "ARAL",
-                "price": 2.555,
-                "count": 5
+                "price": 2.659,
+                "count": 3
               }
             ]
           }
