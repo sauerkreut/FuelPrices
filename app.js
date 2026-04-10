@@ -407,9 +407,43 @@ function getCityConfigMap(country) {
 
 async function findNearbyCheapestCity() {
   const country = getCountryByCode(appState.selectedCountryCode);
-  if (!country?.supportsCities || !navigator.geolocation) {
-    if (el.nearbyResult) el.nearbyResult.textContent = "Geolocation is not available.";
+  if (!country?.supportsCities) {
+    if (el.nearbyResult) {
+      el.nearbyResult.textContent = "Nearby search is available only for city-based countries.";
+    }
     return;
+  }
+
+  if (el.nearbyResult) {
+    el.nearbyResult.textContent = "Detecting your location...";
+  }
+
+  if (!window.isSecureContext) {
+    if (el.nearbyResult) {
+      el.nearbyResult.textContent = "Location requires a secure context (HTTPS).";
+    }
+    return;
+  }
+
+  if (!navigator.geolocation) {
+    if (el.nearbyResult) {
+      el.nearbyResult.textContent = "Geolocation is not supported by this browser.";
+    }
+    return;
+  }
+
+  if (navigator.permissions?.query) {
+    try {
+      const permission = await navigator.permissions.query({ name: "geolocation" });
+      if (permission.state === "denied") {
+        if (el.nearbyResult) {
+          el.nearbyResult.textContent = "Location permission is blocked. Please allow it in browser settings.";
+        }
+        return;
+      }
+    } catch {
+      // Ignore permissions API errors and continue with normal prompt flow.
+    }
   }
 
   const position = await new Promise((resolve, reject) =>
@@ -436,8 +470,16 @@ async function findNearbyCheapestCity() {
     return;
   }
 
+  if (el.citySearch) {
+    el.citySearch.value = "";
+    const filtered = filterCityOptions(country, "");
+    updateCitySearchHint("", filtered.length);
+    announceCitySearchCount(filtered.length, country.cities.length, "");
+  }
+
   appState.selectedCityId = nearest.city.id;
   if (el.citySelect) el.citySelect.value = nearest.city.id;
+  announceSelection();
   if (el.nearbyResult) {
     const e5Label = typeof nearest.e5 === "number" ? nearest.e5.toFixed(3) : "n/a";
     el.nearbyResult.textContent = `Nearest cheap option: ${nearest.city.name} (${nearest.d.toFixed(1)} km, E5 ${e5Label})`;
@@ -1139,8 +1181,11 @@ function bindEvents() {
 
   if (el.findNearbyBtn) {
     el.findNearbyBtn.addEventListener("click", () => {
+      el.findNearbyBtn.disabled = true;
       findNearbyCheapestCity().catch((error) => {
         if (el.nearbyResult) el.nearbyResult.textContent = `Could not get location: ${error.message}`;
+      }).finally(() => {
+        el.findNearbyBtn.disabled = false;
       });
     });
   }
