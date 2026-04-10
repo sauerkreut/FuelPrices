@@ -30,6 +30,8 @@ const el = {
   countrySelect: document.getElementById("countrySelect"),
   cityControl: document.getElementById("cityControl"),
   citySelect: document.getElementById("citySelect"),
+  citySearch: document.getElementById("citySearch"),
+  citySearchHint: document.getElementById("citySearchHint"),
   dateControl: document.getElementById("dateControl"),
   historicalDate: document.getElementById("historicalDate"),
   statusBanner: document.getElementById("statusBanner"),
@@ -43,7 +45,6 @@ const el = {
   zipInput: document.getElementById("zipInput"),
   zipHint: document.getElementById("zipHint"),
   languageSelect: document.getElementById("languageSelect"),
-    citySearch: document.getElementById("citySearch"),
   brandComparisonSection: document.getElementById("brandComparisonSection"),
   brandFuelTabs: document.getElementById("brandFuelTabs"),
   brandComparisonChart: document.getElementById("brandComparisonChart"),
@@ -490,6 +491,16 @@ function filterCityOptions(country, query) {
   el.citySelect.innerHTML = filtered
     .map((city) => `<option value="${city.id}">${city.name}</option>`)
     .join("");
+  return filtered;
+}
+
+function updateCitySearchHint(query, matchCount) {
+  if (!el.citySearchHint) return;
+  if (query.trim() && matchCount === 0) {
+    el.citySearchHint.textContent = t("city.noMatches");
+  } else {
+    el.citySearchHint.textContent = "";
+  }
 }
 
 function populateCitySelect(country) {
@@ -497,12 +508,14 @@ function populateCitySelect(country) {
     el.cityControl.style.display = "none";
     el.citySelect.innerHTML = "";
     appState.selectedCityId = "";
+    if (el.citySearchHint) el.citySearchHint.textContent = "";
     if (el.zipSearchControl) el.zipSearchControl.style.display = "none";
     return;
   }
 
   if (el.citySearch) el.citySearch.value = "";
   filterCityOptions(country, "");
+  updateCitySearchHint("", country.cities.length);
 
   appState.selectedCityId = getSortedCities(country)[0]?.id || "";
   el.citySelect.value = appState.selectedCityId;
@@ -608,7 +621,8 @@ function bindEvents() {
       const country = getCountryByCode(appState.selectedCountryCode);
       if (!country) return;
 
-      filterCityOptions(country, query);
+      const filtered = filterCityOptions(country, query);
+      updateCitySearchHint(query, filtered.length);
 
       const selectedStillVisible = Array.from(el.citySelect.options).some(
         (option) => option.value === appState.selectedCityId,
@@ -622,6 +636,36 @@ function bindEvents() {
       }
 
       render();
+    });
+
+    el.citySearch.addEventListener("keydown", (event) => {
+      const country = getCountryByCode(appState.selectedCountryCode);
+      if (!country) return;
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        if (el.citySelect.options.length > 0) {
+          el.citySelect.focus();
+        }
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        const first = el.citySelect.options[0];
+        if (first) {
+          appState.selectedCityId = first.value;
+          el.citySelect.value = first.value;
+          render();
+        }
+      } else if (event.key === "Escape") {
+        event.preventDefault();
+        el.citySearch.value = "";
+        const filtered = filterCityOptions(country, "");
+        updateCitySearchHint("", filtered.length);
+        if (filtered[0]) {
+          appState.selectedCityId = filtered[0].id;
+          el.citySelect.value = filtered[0].id;
+          render();
+        }
+      }
     });
   }
 

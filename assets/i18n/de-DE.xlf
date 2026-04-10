@@ -46,6 +46,7 @@
       <trans-unit id="status.current"><source>Current ({date})</source><target>Aktuell ({date})</target></trans-unit>
       <trans-unit id="status.withScopeUnit"><source>{label} - {scope}. Unit: {unit}</source><target>{label} - {scope}. Einheit: {unit}</target></trans-unit>
       <trans-unit id="zip.noData"><source>No data for this postal code</source><target>Keine Daten fuer diese Postleitzahl</target></trans-unit>
+      <trans-unit id="city.noMatches"><source>No matching cities</source><target>Keine passenden Staedte</target></trans-unit>
       <trans-unit id="bootstrap.loadFail"><source>Failed to load fuel prices. Check local data or provider configuration.</source><target>Kraftstoffpreise konnten nicht geladen werden. Bitte lokale Daten oder Provider-Konfiguration pruefen.</target></trans-unit>
     </body>
   </file>

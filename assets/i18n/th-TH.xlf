@@ -46,6 +46,7 @@
       <trans-unit id="status.current"><source>Current ({date})</source><target>ปัจจุบัน ({date})</target></trans-unit>
       <trans-unit id="status.withScopeUnit"><source>{label} - {scope}. Unit: {unit}</source><target>{label} - {scope} หน่วย: {unit}</target></trans-unit>
       <trans-unit id="zip.noData"><source>No data for this postal code</source><target>ไม่มีข้อมูลสำหรับรหัสไปรษณีย์นี้</target></trans-unit>
+      <trans-unit id="city.noMatches"><source>No matching cities</source><target>ไม่พบเมืองที่ตรงกัน</target></trans-unit>
       <trans-unit id="bootstrap.loadFail"><source>Failed to load fuel prices. Check local data or provider configuration.</source><target>โหลดราคาน้ำมันไม่สำเร็จ โปรดตรวจสอบข้อมูลภายในหรือการตั้งค่าผู้ให้บริการ</target></trans-unit>
     </body>
   </file>
