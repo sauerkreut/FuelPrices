@@ -3,6 +3,7 @@ const LOCALE_STORAGE_KEY = "fuelscope.locale";
 const WATCHLIST_STORAGE_KEY = "fuelscope.watchlist";
 const I18N_BASE_PATH = "./assets/i18n";
 const SUPPORTED_LOCALES = ["en-US", "en-GB", "de-DE", "fr-FR", "th-TH"];
+const BRAND_ROWS_VISIBLE = 12;
 
 const dataProviders = {
   static: {
@@ -26,6 +27,7 @@ const appState = {
   messages: {},
   mode: "current",
   watchlist: [],
+  brandExpanded: false,
 };
 
 const el = {
@@ -34,6 +36,7 @@ const el = {
   citySelect: document.getElementById("citySelect"),
   citySearch: document.getElementById("citySearch"),
   citySearchHint: document.getElementById("citySearchHint"),
+  citySearchCount: document.getElementById("citySearchCount"),
   dateControl: document.getElementById("dateControl"),
   historicalDate: document.getElementById("historicalDate"),
   statusBanner: document.getElementById("statusBanner"),
@@ -50,6 +53,7 @@ const el = {
   brandComparisonSection: document.getElementById("brandComparisonSection"),
   brandFuelTabs: document.getElementById("brandFuelTabs"),
   brandComparisonChart: document.getElementById("brandComparisonChart"),
+  brandExpandBtn: document.getElementById("brandExpandBtn"),
   brandReliabilityInfo: document.getElementById("brandReliabilityInfo"),
   watchFuelTypeSelect: document.getElementById("watchFuelTypeSelect"),
   watchThresholdInput: document.getElementById("watchThresholdInput"),
@@ -596,6 +600,7 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
   // Pick selected fuel or default to first fuel that has brand data
   if (!appState.selectedBrandFuel || !brandComparison[appState.selectedBrandFuel]) {
     appState.selectedBrandFuel = fuelTypes.find((ft) => brandComparison[ft]) ?? "";
+    appState.brandExpanded = false;
   }
   if (!appState.selectedBrandFuel) {
     el.brandComparisonSection.style.display = "none";
@@ -623,7 +628,9 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
   const maxP = Math.max(...prices);
   const range = maxP - minP || 0.001;
 
-  el.brandComparisonChart.innerHTML = roundedEntries
+  const visibleEntries = appState.brandExpanded ? roundedEntries : roundedEntries.slice(0, BRAND_ROWS_VISIBLE);
+
+  el.brandComparisonChart.innerHTML = visibleEntries
     .map(({ brand, price, count, displayPrice }) => {
       const barPct = (30 + ((displayPrice - minP) / range) * 70).toFixed(1);
       const cheapest = displayPrice === minP;
@@ -636,6 +643,16 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
       </div>`;
     })
     .join("");
+
+  if (el.brandExpandBtn) {
+    if (roundedEntries.length > BRAND_ROWS_VISIBLE) {
+      el.brandExpandBtn.style.display = "";
+      el.brandExpandBtn.textContent = appState.brandExpanded ? "Show fewer brands" : "Show all brands";
+      el.brandExpandBtn.setAttribute("aria-expanded", appState.brandExpanded ? "true" : "false");
+    } else {
+      el.brandExpandBtn.style.display = "none";
+    }
+  }
 
   if (el.brandReliabilityInfo) {
     const ranked = roundedEntries
@@ -779,6 +796,15 @@ function updateCitySearchHint(query, matchCount) {
   }
 }
 
+function announceCitySearchCount(matchCount, totalCount, query) {
+  if (!el.citySearchCount) return;
+  if (!query.trim()) {
+    el.citySearchCount.textContent = `${totalCount} cities available.`;
+    return;
+  }
+  el.citySearchCount.textContent = `${matchCount} matching ${matchCount === 1 ? "city" : "cities"}.`;
+}
+
 function populateCitySelect(country) {
   if (!country.supportsCities) {
     el.cityControl.style.display = "none";
@@ -790,8 +816,9 @@ function populateCitySelect(country) {
   }
 
   if (el.citySearch) el.citySearch.value = "";
-  filterCityOptions(country, "");
+  const filtered = filterCityOptions(country, "");
   updateCitySearchHint("", country.cities.length);
+  announceCitySearchCount(filtered.length, country.cities.length, "");
 
   appState.selectedCityId = getSortedCities(country)[0]?.id || "";
   el.citySelect.value = appState.selectedCityId;
@@ -885,6 +912,7 @@ function bindEvents() {
   el.countrySelect.addEventListener("change", (event) => {
     appState.selectedCountryCode = event.target.value;
     appState.selectedBrandFuel = "";
+    appState.brandExpanded = false;
     const country = getCountryByCode(appState.selectedCountryCode);
     renderWatchFuelTypeSelect(country);
     populateCitySelect(country);
@@ -893,7 +921,16 @@ function bindEvents() {
 
   el.citySelect.addEventListener("change", (event) => {
     appState.selectedCityId = event.target.value;
+    appState.brandExpanded = false;
     render();
+  });
+
+  el.citySelect.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && el.citySearch) {
+      event.preventDefault();
+      el.citySearch.focus();
+      el.citySearch.select();
+    }
   });
 
   if (el.citySearch) {
@@ -904,6 +941,7 @@ function bindEvents() {
 
       const filtered = filterCityOptions(country, query);
       updateCitySearchHint(query, filtered.length);
+      announceCitySearchCount(filtered.length, country.cities.length, query);
 
       const selectedStillVisible = Array.from(el.citySelect.options).some(
         (option) => option.value === appState.selectedCityId,
@@ -915,6 +953,7 @@ function bindEvents() {
         if (first) {
           appState.selectedCityId = first.value;
           el.citySelect.value = first.value;
+          appState.brandExpanded = false;
         }
       }
 
@@ -941,6 +980,7 @@ function bindEvents() {
         if (first) {
           appState.selectedCityId = first.value;
           el.citySelect.value = first.value;
+          appState.brandExpanded = false;
           render();
         }
       } else if (event.key === "Escape") {
@@ -948,9 +988,11 @@ function bindEvents() {
         el.citySearch.value = "";
         const filtered = filterCityOptions(country, "");
         updateCitySearchHint("", filtered.length);
+        announceCitySearchCount(filtered.length, country.cities.length, "");
         if (filtered[0]) {
           appState.selectedCityId = filtered[0].id;
           el.citySelect.value = filtered[0].id;
+          appState.brandExpanded = false;
           render();
         }
       }
@@ -995,6 +1037,14 @@ function bindEvents() {
       const tab = e.target.closest(".brand-fuel-tab");
       if (!tab) return;
       appState.selectedBrandFuel = tab.dataset.fuel;
+      appState.brandExpanded = false;
+      render();
+    });
+  }
+
+  if (el.brandExpandBtn) {
+    el.brandExpandBtn.addEventListener("click", () => {
+      appState.brandExpanded = !appState.brandExpanded;
       render();
     });
   }

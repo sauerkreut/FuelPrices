@@ -39,6 +39,7 @@
           <input type="text" id="citySearch" data-i18n-placeholder="placeholder.citySearch" placeholder="Search city…" autocomplete="off" />
           <select id="citySelect" size="5"></select>
           <span id="citySearchHint" class="city-search-hint"></span>
+          <span id="citySearchCount" class="sr-only" role="status" aria-live="polite"></span>
         </div>
 
         <div class="control-row" id="zipSearchControl" style="display:none">
@@ -129,6 +130,9 @@
           <div id="brandFuelTabs" class="brand-fuel-tabs"></div>
         </div>
         <div id="brandComparisonChart" class="brand-chart"></div>
+        <div class="inline-controls">
+          <button id="brandExpandBtn" type="button" style="display:none">Show all brands</button>
+        </div>
         <div id="brandReliabilityInfo" class="hint-line"></div>
       </section>
 
