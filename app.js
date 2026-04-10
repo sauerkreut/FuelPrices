@@ -497,7 +497,8 @@ function filterCityOptions(country, query) {
 function updateCitySearchHint(query, matchCount) {
   if (!el.citySearchHint) return;
   if (query.trim() && matchCount === 0) {
-    el.citySearchHint.textContent = t("city.noMatches");
+    const translated = t("city.noMatches");
+    el.citySearchHint.textContent = translated === "city.noMatches" ? "No matching cities" : translated;
   } else {
     el.citySearchHint.textContent = "";
   }
@@ -642,9 +643,14 @@ function bindEvents() {
       const country = getCountryByCode(appState.selectedCountryCode);
       if (!country) return;
 
-      if (event.key === "ArrowDown") {
+      const isArrowDown = event.key === "ArrowDown" || event.key === "Down" || event.code === "ArrowDown";
+
+      if (isArrowDown) {
         event.preventDefault();
         if (el.citySelect.options.length > 0) {
+          if (el.citySelect.selectedIndex < 0) {
+            el.citySelect.selectedIndex = 0;
+          }
           el.citySelect.focus();
         }
       } else if (event.key === "Enter") {
