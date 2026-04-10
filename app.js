@@ -4,6 +4,23 @@ const WATCHLIST_STORAGE_KEY = "fuelscope.watchlist";
 const I18N_BASE_PATH = "./assets/i18n";
 const SUPPORTED_LOCALES = ["en-US", "en-GB", "de-DE", "fr-FR", "th-TH"];
 const BRAND_ROWS_VISIBLE = 12;
+const FALLBACK_MESSAGES = {
+  "section.watchlist": "Price Alert Watchlist",
+  "section.compareCities": "Compare Cities",
+  "section.quickActions": "Quick Actions",
+  "section.dataFreshness": "Data Freshness",
+  "label.compareCities": "Compare cities",
+  "hint.compareCities": "Tip: Cmd/Ctrl-click to select up to 4 cities.",
+  "placeholder.watchThreshold": "Threshold",
+  "button.addAlert": "Add Alert",
+  "button.findNearby": "Find Nearby Cheapest City",
+  "button.shareSnapshot": "Share Snapshot",
+  "button.exportCsv": "Export Trend CSV",
+  "button.showAllBrands": "Show all brands",
+  "button.showFewerBrands": "Show fewer brands",
+  "aria.watchFuelType": "Fuel type",
+  "aria.watchThreshold": "Alert threshold",
+};
 
 const dataProviders = {
   static: {
@@ -78,7 +95,7 @@ function registerServiceWorker() {
 }
 
 function t(id, vars = {}) {
-  const template = appState.messages[id] || id;
+  const template = appState.messages[id] || FALLBACK_MESSAGES[id] || id;
   return template.replace(/\{(\w+)\}/g, (_, key) => (vars[key] ?? "").toString());
 }
 
@@ -316,6 +333,7 @@ function renderComparisonTable() {
 
   const sortedCities = getSortedCities(country);
   const currentlySelected = new Set(Array.from(el.compareCitySelect.selectedOptions).map((o) => o.value));
+  el.compareCitySelect.setAttribute("aria-label", t("label.compareCities"));
   el.compareCitySelect.innerHTML = sortedCities
     .map((city) => `<option value="${city.id}"${currentlySelected.has(city.id) ? " selected" : ""}>${city.name}</option>`)
     .join("");
@@ -647,7 +665,7 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
   if (el.brandExpandBtn) {
     if (roundedEntries.length > BRAND_ROWS_VISIBLE) {
       el.brandExpandBtn.style.display = "";
-      el.brandExpandBtn.textContent = appState.brandExpanded ? "Show fewer brands" : "Show all brands";
+      el.brandExpandBtn.textContent = appState.brandExpanded ? t("button.showFewerBrands") : t("button.showAllBrands");
       el.brandExpandBtn.setAttribute("aria-expanded", appState.brandExpanded ? "true" : "false");
     } else {
       el.brandExpandBtn.style.display = "none";
@@ -805,6 +823,16 @@ function announceCitySearchCount(matchCount, totalCount, query) {
   el.citySearchCount.textContent = `${matchCount} matching ${matchCount === 1 ? "city" : "cities"}.`;
 }
 
+function announceSelection() {
+  if (!el.citySearchCount) return;
+  const country = getCountryByCode(appState.selectedCountryCode);
+  if (!country?.supportsCities) return;
+  const city = country.cities.find((c) => c.id === appState.selectedCityId);
+  if (!city) return;
+  const fuel = appState.selectedBrandFuel || country.fuelTypes?.[0] || "";
+  el.citySearchCount.textContent = `Selected ${city.name}${fuel ? `, fuel ${fuel}` : ""}.`;
+}
+
 function populateCitySelect(country) {
   if (!country.supportsCities) {
     el.cityControl.style.display = "none";
@@ -922,6 +950,7 @@ function bindEvents() {
   el.citySelect.addEventListener("change", (event) => {
     appState.selectedCityId = event.target.value;
     appState.brandExpanded = false;
+    announceSelection();
     render();
   });
 
@@ -981,6 +1010,7 @@ function bindEvents() {
           appState.selectedCityId = first.value;
           el.citySelect.value = first.value;
           appState.brandExpanded = false;
+          announceSelection();
           render();
         }
       } else if (event.key === "Escape") {
@@ -993,6 +1023,7 @@ function bindEvents() {
           appState.selectedCityId = filtered[0].id;
           el.citySelect.value = filtered[0].id;
           appState.brandExpanded = false;
+          announceSelection();
           render();
         }
       }
@@ -1038,6 +1069,7 @@ function bindEvents() {
       if (!tab) return;
       appState.selectedBrandFuel = tab.dataset.fuel;
       appState.brandExpanded = false;
+      announceSelection();
       render();
     });
   }
