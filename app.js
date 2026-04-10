@@ -1,5 +1,6 @@
 const DATA_URL = "./data/fuel-prices.json";
 const LOCALE_STORAGE_KEY = "fuelscope.locale";
+const WATCHLIST_STORAGE_KEY = "fuelscope.watchlist";
 const I18N_BASE_PATH = "./assets/i18n";
 const SUPPORTED_LOCALES = ["en-US", "en-GB", "de-DE", "fr-FR", "th-TH"];
 
@@ -24,6 +25,7 @@ const appState = {
   locale: "en-US",
   messages: {},
   mode: "current",
+  watchlist: [],
 };
 
 const el = {
@@ -48,6 +50,19 @@ const el = {
   brandComparisonSection: document.getElementById("brandComparisonSection"),
   brandFuelTabs: document.getElementById("brandFuelTabs"),
   brandComparisonChart: document.getElementById("brandComparisonChart"),
+  brandReliabilityInfo: document.getElementById("brandReliabilityInfo"),
+  watchFuelTypeSelect: document.getElementById("watchFuelTypeSelect"),
+  watchThresholdInput: document.getElementById("watchThresholdInput"),
+  addWatchBtn: document.getElementById("addWatchBtn"),
+  watchlistAlerts: document.getElementById("watchlistAlerts"),
+  watchlistList: document.getElementById("watchlistList"),
+  compareCitySelect: document.getElementById("compareCitySelect"),
+  comparisonTableWrap: document.getElementById("comparisonTableWrap"),
+  findNearbyBtn: document.getElementById("findNearbyBtn"),
+  nearbyResult: document.getElementById("nearbyResult"),
+  shareSnapshotBtn: document.getElementById("shareSnapshotBtn"),
+  exportCsvBtn: document.getElementById("exportCsvBtn"),
+  freshnessInfo: document.getElementById("freshnessInfo"),
 };
 
 function registerServiceWorker() {
@@ -218,6 +233,243 @@ function updateStatus(message) {
   el.statusBanner.textContent = message;
 }
 
+function loadWatchlist() {
+  try {
+    const raw = localStorage.getItem(WATCHLIST_STORAGE_KEY);
+    appState.watchlist = raw ? JSON.parse(raw) : [];
+  } catch {
+    appState.watchlist = [];
+  }
+}
+
+function saveWatchlist() {
+  localStorage.setItem(WATCHLIST_STORAGE_KEY, JSON.stringify(appState.watchlist));
+}
+
+function getSelectedDataset() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  if (!country) return null;
+  return getLocationData(country, appState.selectedCityId);
+}
+
+function renderWatchFuelTypeSelect(country) {
+  if (!el.watchFuelTypeSelect || !country) return;
+  el.watchFuelTypeSelect.innerHTML = country.fuelTypes
+    .map((fuel) => `<option value="${fuel}">${fuel}</option>`)
+    .join("");
+}
+
+function evaluateWatchlistAlerts(country) {
+  if (!country?.supportsCities) return [];
+  return appState.watchlist
+    .filter((w) => w.countryCode === country.code)
+    .map((w) => {
+      const city = country.cities.find((c) => c.id === w.cityId);
+      const latest = city?.history?.[0];
+      const price = latest?.prices?.[w.fuelType];
+      return {
+        ...w,
+        cityName: city?.name || w.cityId,
+        price,
+        isMet: typeof price === "number" && price <= w.threshold,
+      };
+    });
+}
+
+function renderWatchlist() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  if (!el.watchlistList || !country) return;
+
+  const evaluated = evaluateWatchlistAlerts(country);
+  const inCountry = evaluated.filter((item) => item.countryCode === country.code || item.cityName);
+  const met = inCountry.filter((item) => item.isMet);
+
+  if (el.watchlistAlerts) {
+    el.watchlistAlerts.textContent = met.length
+      ? `${met.length} alert${met.length > 1 ? "s" : ""} triggered.`
+      : "No alerts triggered right now.";
+  }
+
+  if (!inCountry.length) {
+    el.watchlistList.innerHTML = `<li class="watch-empty">No watchlist entries for this country yet.</li>`;
+    return;
+  }
+
+  el.watchlistList.innerHTML = inCountry
+    .map(
+      (item) => `<li class="watch-item${item.isMet ? " watch-met" : ""}">
+        <span>${item.cityName} · ${item.fuelType} ≤ ${item.threshold.toFixed(3)}</span>
+        <span>${typeof item.price === "number" ? item.price.toFixed(3) : "-"}</span>
+        <button type="button" data-watch-id="${item.id}" class="watch-remove">Remove</button>
+      </li>`,
+    )
+    .join("");
+}
+
+function renderComparisonTable() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  if (!country?.supportsCities || !el.compareCitySelect || !el.comparisonTableWrap) return;
+
+  const sortedCities = getSortedCities(country);
+  const currentlySelected = new Set(Array.from(el.compareCitySelect.selectedOptions).map((o) => o.value));
+  el.compareCitySelect.innerHTML = sortedCities
+    .map((city) => `<option value="${city.id}"${currentlySelected.has(city.id) ? " selected" : ""}>${city.name}</option>`)
+    .join("");
+
+  let selectedIds = Array.from(el.compareCitySelect.selectedOptions).map((o) => o.value);
+  if (!selectedIds.length && appState.selectedCityId) selectedIds = [appState.selectedCityId];
+  if (selectedIds.length > 4) {
+    selectedIds = selectedIds.slice(0, 4);
+  }
+
+  const rows = selectedIds
+    .map((id) => {
+      const city = country.cities.find((c) => c.id === id);
+      const latest = city?.history?.[0];
+      if (!city || !latest) return "";
+      return `<tr>
+        <td>${city.name}</td>
+        ${country.fuelTypes
+          .map((fuelType) => {
+            const value = latest.prices?.[fuelType];
+            return `<td>${typeof value === "number" ? formatPrice(value, country.currencyCode) : "-"}</td>`;
+          })
+          .join("")}
+      </tr>`;
+    })
+    .filter(Boolean)
+    .join("");
+
+  el.comparisonTableWrap.innerHTML = rows
+    ? `<table>
+      <thead><tr><th>City</th>${country.fuelTypes.map((ft) => `<th>${ft}</th>`).join("")}</tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`
+    : `<p class="hint-line">Select at least one city to compare.</p>`;
+}
+
+function renderFreshnessInfo() {
+  if (!el.freshnessInfo) return;
+  const selected = getSelectedDataset();
+  if (!selected?.dataset) {
+    el.freshnessInfo.textContent = "No freshness info available.";
+    return;
+  }
+
+  const latest = selected.dataset.history?.[0];
+  const asOf = selected.dataset.stationStatus?.asOf;
+  const parts = [];
+  if (latest?.date) parts.push(`Latest daily record: ${latest.date}`);
+  if (asOf) parts.push(`Station status as of: ${new Date(asOf).toLocaleString(appState.locale)}`);
+  if (!parts.length) parts.push("No freshness info available.");
+  el.freshnessInfo.textContent = parts.join(" | ");
+}
+
+function distanceKm(lat1, lng1, lat2, lng2) {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+  return 2 * R * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+function getCityConfigMap(country) {
+  const list = country?.providerConfig?.cities || [];
+  return new Map(list.map((entry) => [entry.id, entry]));
+}
+
+async function findNearbyCheapestCity() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  if (!country?.supportsCities || !navigator.geolocation) {
+    if (el.nearbyResult) el.nearbyResult.textContent = "Geolocation is not available.";
+    return;
+  }
+
+  const position = await new Promise((resolve, reject) =>
+    navigator.geolocation.getCurrentPosition(resolve, reject, { enableHighAccuracy: true, timeout: 10000 }),
+  );
+  const { latitude, longitude } = position.coords;
+  const cfgMap = getCityConfigMap(country);
+
+  const nearest = country.cities
+    .map((city) => {
+      const cfg = cfgMap.get(city.id);
+      if (!cfg || typeof cfg.lat !== "number" || typeof cfg.lng !== "number") return null;
+      const d = distanceKm(latitude, longitude, cfg.lat, cfg.lng);
+      const e5 = city.history?.[0]?.prices?.["Super E5"];
+      return { city, d, e5 };
+    })
+    .filter(Boolean)
+    .sort((a, b) => a.d - b.d)
+    .slice(0, 5)
+    .sort((a, b) => (a.e5 ?? Number.POSITIVE_INFINITY) - (b.e5 ?? Number.POSITIVE_INFINITY))[0];
+
+  if (!nearest) {
+    if (el.nearbyResult) el.nearbyResult.textContent = "No nearby city match found.";
+    return;
+  }
+
+  appState.selectedCityId = nearest.city.id;
+  if (el.citySelect) el.citySelect.value = nearest.city.id;
+  if (el.nearbyResult) {
+    const e5Label = typeof nearest.e5 === "number" ? nearest.e5.toFixed(3) : "n/a";
+    el.nearbyResult.textContent = `Nearest cheap option: ${nearest.city.name} (${nearest.d.toFixed(1)} km, E5 ${e5Label})`;
+  }
+  render();
+}
+
+async function shareSnapshot() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  const selected = getSelectedDataset();
+  if (!country || !selected?.dataset) return;
+
+  const latest = selected.dataset.history?.[0];
+  if (!latest) return;
+
+  const lines = country.fuelTypes
+    .map((ft) => {
+      const v = latest.prices?.[ft];
+      return `${ft}: ${typeof v === "number" ? v.toFixed(3) : "-"}`;
+    })
+    .join(" | ");
+  const text = `${selected.scopeLabel} (${latest.date}) - ${lines}`;
+
+  if (navigator.share) {
+    await navigator.share({ title: "FuelScope Snapshot", text });
+  } else if (navigator.clipboard) {
+    await navigator.clipboard.writeText(text);
+    updateStatus("Snapshot copied to clipboard.");
+  }
+}
+
+function exportTrendCsv() {
+  const country = getCountryByCode(appState.selectedCountryCode);
+  const selected = getSelectedDataset();
+  if (!country || !selected?.dataset) return;
+
+  const rows = sortDatesDescending(selected.dataset.history || []);
+  const header = ["Date", ...country.fuelTypes].join(",");
+  const body = rows
+    .map((r) => [r.date, ...country.fuelTypes.map((ft) => r.prices?.[ft] ?? "")].join(","))
+    .join("\n");
+  const csv = `${header}\n${body}`;
+
+  const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `fuelscope-${selected.scopeLabel.replace(/[^a-z0-9]+/gi, "-").toLowerCase()}.csv`;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
 function renderPriceCards({ latestRecord, previousRecord, fuelTypes, currency, priceChanges, nationalStats }) {
   const cards = fuelTypes
     .map((fuelType, index) => {
@@ -337,6 +589,7 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
   if (!el.brandComparisonSection) return;
   if (!brandComparison || !Object.keys(brandComparison).length) {
     el.brandComparisonSection.style.display = "none";
+    if (el.brandReliabilityInfo) el.brandReliabilityInfo.textContent = "";
     return;
   }
 
@@ -383,6 +636,23 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
       </div>`;
     })
     .join("");
+
+  if (el.brandReliabilityInfo) {
+    const ranked = roundedEntries
+      .map((entry) => {
+        const priceComponent = ((maxP - entry.displayPrice) / range) * 80;
+        const coverageComponent = Math.min(entry.count, 5) * 4;
+        return {
+          brand: entry.brand,
+          score: Math.round(priceComponent + coverageComponent),
+        };
+      })
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3);
+    el.brandReliabilityInfo.textContent = ranked.length
+      ? `Value score (${appState.selectedBrandFuel}): ${ranked.map((r) => `${r.brand} ${r.score}`).join(" · ")}`
+      : "";
+  }
 
   el.brandComparisonSection.style.display = "";
 }
@@ -605,6 +875,10 @@ function render() {
     fuelTypes: country.fuelTypes,
     currency: country.currencyCode,
   });
+
+  renderWatchlist();
+  renderComparisonTable();
+  renderFreshnessInfo();
 }
 
 function bindEvents() {
@@ -612,6 +886,7 @@ function bindEvents() {
     appState.selectedCountryCode = event.target.value;
     appState.selectedBrandFuel = "";
     const country = getCountryByCode(appState.selectedCountryCode);
+    renderWatchFuelTypeSelect(country);
     populateCitySelect(country);
     render();
   });
@@ -736,6 +1011,71 @@ function bindEvents() {
       }
     });
   }
+
+  if (el.addWatchBtn) {
+    el.addWatchBtn.addEventListener("click", () => {
+      const country = getCountryByCode(appState.selectedCountryCode);
+      if (!country?.supportsCities) return;
+      const fuelType = el.watchFuelTypeSelect?.value;
+      const threshold = Number(el.watchThresholdInput?.value || "");
+      if (!fuelType || !Number.isFinite(threshold) || threshold <= 0) {
+        updateStatus("Enter a valid threshold to add an alert.");
+        return;
+      }
+      appState.watchlist.push({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
+        countryCode: country.code,
+        cityId: appState.selectedCityId,
+        fuelType,
+        threshold,
+      });
+      saveWatchlist();
+      renderWatchlist();
+    });
+  }
+
+  if (el.watchlistList) {
+    el.watchlistList.addEventListener("click", (event) => {
+      const btn = event.target.closest(".watch-remove");
+      if (!btn) return;
+      const id = btn.getAttribute("data-watch-id");
+      appState.watchlist = appState.watchlist.filter((w) => w.id !== id);
+      saveWatchlist();
+      renderWatchlist();
+    });
+  }
+
+  if (el.compareCitySelect) {
+    el.compareCitySelect.addEventListener("change", () => {
+      const selected = Array.from(el.compareCitySelect.selectedOptions);
+      if (selected.length > 4) {
+        selected[selected.length - 1].selected = false;
+      }
+      renderComparisonTable();
+    });
+  }
+
+  if (el.findNearbyBtn) {
+    el.findNearbyBtn.addEventListener("click", () => {
+      findNearbyCheapestCity().catch((error) => {
+        if (el.nearbyResult) el.nearbyResult.textContent = `Could not get location: ${error.message}`;
+      });
+    });
+  }
+
+  if (el.shareSnapshotBtn) {
+    el.shareSnapshotBtn.addEventListener("click", () => {
+      shareSnapshot().catch((error) => {
+        updateStatus(`Share failed: ${error.message}`);
+      });
+    });
+  }
+
+  if (el.exportCsvBtn) {
+    el.exportCsvBtn.addEventListener("click", () => {
+      exportTrendCsv();
+    });
+  }
 }
 
 async function bootstrap() {
@@ -755,7 +1095,10 @@ async function bootstrap() {
       throw new Error("No countries found in dataset");
     }
 
+    loadWatchlist();
+
     populateCountrySelect(appState.catalog.countries);
+    renderWatchFuelTypeSelect(appState.catalog.countries[0]);
     populateCitySelect(appState.catalog.countries[0]);
     setModeUI();
     bindEvents();

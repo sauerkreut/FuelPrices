@@ -74,6 +74,44 @@
 
       <section id="statusBanner" class="status-banner" role="status" aria-live="polite"></section>
 
+      <section class="feature-grid">
+        <article class="feature-card" id="watchlistSection">
+          <h2 class="section-title">Price Alert Watchlist</h2>
+          <div class="inline-controls">
+            <select id="watchFuelTypeSelect" aria-label="Fuel type"></select>
+            <input id="watchThresholdInput" type="number" step="0.001" min="0" placeholder="Threshold" />
+            <button id="addWatchBtn" type="button">Add Alert</button>
+          </div>
+          <div id="watchlistAlerts" class="hint-line"></div>
+          <ul id="watchlistList" class="watchlist"></ul>
+        </article>
+
+        <article class="feature-card" id="comparisonSection">
+          <h2 class="section-title">Compare Cities</h2>
+          <label for="compareCitySelect" class="sr-only">Compare cities</label>
+          <select id="compareCitySelect" size="6" multiple></select>
+          <p class="hint-line">Tip: Cmd/Ctrl-click to select up to 4 cities.</p>
+          <div id="comparisonTableWrap" class="table-wrap"></div>
+        </article>
+      </section>
+
+      <section class="feature-grid">
+        <article class="feature-card">
+          <h2 class="section-title">Quick Actions</h2>
+          <div class="inline-controls">
+            <button id="findNearbyBtn" type="button">Find Nearby Cheapest City</button>
+            <button id="shareSnapshotBtn" type="button">Share Snapshot</button>
+            <button id="exportCsvBtn" type="button">Export Trend CSV</button>
+          </div>
+          <div id="nearbyResult" class="hint-line"></div>
+        </article>
+
+        <article class="feature-card" id="freshnessSection">
+          <h2 class="section-title">Data Freshness</h2>
+          <div id="freshnessInfo" class="hint-line"></div>
+        </article>
+      </section>
+
       <section>
         <h2 class="section-title" data-i18n="section.prices">Prices</h2>
         <div id="stationStatusBar" class="station-status-bar" style="display:none"></div>
@@ -91,6 +129,7 @@
           <div id="brandFuelTabs" class="brand-fuel-tabs"></div>
         </div>
         <div id="brandComparisonChart" class="brand-chart"></div>
+        <div id="brandReliabilityInfo" class="hint-line"></div>
       </section>
 
       <section>
