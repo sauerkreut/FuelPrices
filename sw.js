@@ -1,4 +1,4 @@
-const CACHE_NAME = "fuelscope-v3";
+const CACHE_NAME = "fuelscope-v4";
 const APP_SHELL = [
   "./",
   "./index.html",

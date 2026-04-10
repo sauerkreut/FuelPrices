@@ -6,7 +6,7 @@ const SUPPORTED_LOCALES = ["en-US", "en-GB", "de-DE", "fr-FR", "th-TH"];
 const dataProviders = {
   static: {
     async loadCatalog() {
-      const response = await fetch(DATA_URL);
+      const response = await fetch(DATA_URL, { cache: "no-store" });
       if (!response.ok) {
         throw new Error(`Could not load data: ${response.status}`);
       }
