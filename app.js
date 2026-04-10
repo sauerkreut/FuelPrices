@@ -632,8 +632,10 @@ function bindEvents() {
         el.citySelect.value = appState.selectedCityId;
       } else {
         const first = el.citySelect.options[0];
-        appState.selectedCityId = first ? first.value : "";
-        if (first) el.citySelect.value = first.value;
+        if (first) {
+          appState.selectedCityId = first.value;
+          el.citySelect.value = first.value;
+        }
       }
 
       render();
