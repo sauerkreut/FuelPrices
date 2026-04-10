@@ -360,15 +360,20 @@ function renderBrandComparison({ brandComparison, fuelTypes, currency }) {
 
   // Bar chart: bars span 30–100% of container so small price differences are visible
   const entries = brandComparison[appState.selectedBrandFuel];
-  const prices = entries.map((e) => e.price);
+  const roundedEntries = entries.map((e) => ({
+    ...e,
+    // Keep bar math consistent with displayed value (2 decimals)
+    displayPrice: Number(e.price.toFixed(2)),
+  }));
+  const prices = roundedEntries.map((e) => e.displayPrice);
   const minP = Math.min(...prices);
   const maxP = Math.max(...prices);
   const range = maxP - minP || 0.001;
 
-  el.brandComparisonChart.innerHTML = entries
-    .map(({ brand, price, count }) => {
-      const barPct = (30 + ((price - minP) / range) * 70).toFixed(1);
-      const cheapest = price === minP;
+  el.brandComparisonChart.innerHTML = roundedEntries
+    .map(({ brand, price, count, displayPrice }) => {
+      const barPct = (30 + ((displayPrice - minP) / range) * 70).toFixed(1);
+      const cheapest = displayPrice === minP;
       return `<div class="brand-row${cheapest ? " brand-cheapest" : ""}">
         <span class="brand-name">${brand} <span class="brand-count">${t("brand.count", { count })}</span></span>
         <div class="brand-bar-wrap">
